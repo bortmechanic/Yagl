@@ -3,15 +3,18 @@ using System.Drawing;
 using System.Threading;
 using GLFW;
 // ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable EventNeverSubscribedTo.Global
 
 namespace Yagl.Windowing
 {
     /// <summary>
     /// Represents a cross-platform window for drawing graphics.
     /// </summary>
-    /// TODO: Focus change event.
     /// TODO: Client size change event.
     /// TODO: Events processing.
+    /// TODO: Paint event.
+    /// TODO: Closing and Closed events.
     public class Window : IDisposable
     {
         private readonly NativeWindow _nativeWindow;
@@ -20,6 +23,7 @@ namespace Yagl.Windowing
         {
             _nativeWindow = new NativeWindow();
             ResizeMode = ResizeMode.Default;
+            _nativeWindow.FocusChanged += OnFocusChanged;
         }
 
         public string Title
@@ -71,6 +75,24 @@ namespace Yagl.Windowing
                 value == ResizeMode.Resizable);
         }
 
+        public bool IsActive => _nativeWindow.IsFocused;
+
+        public void Activate()
+        {
+            Glfw.FocusWindow(_nativeWindow);
+        }
+
+        public event EventHandler<EventArgs> Activated;
+        public event EventHandler<EventArgs> DeActivated;
+        
+        private void OnFocusChanged(object sender, EventArgs e)
+        {
+            if (IsActive)
+                Activated?.Invoke(this, EventArgs.Empty);
+            else
+                DeActivated?.Invoke(this, EventArgs.Empty);
+        }
+
         public void Dispose()
         {
             _nativeWindow?.Dispose();
@@ -80,8 +102,8 @@ namespace Yagl.Windowing
         {
             while (!_nativeWindow.IsClosed)
             {
-                Thread.Sleep(5);
                 Glfw.PollEvents();
+                Thread.Sleep(5);
             }
         }
     }
