@@ -16,8 +16,8 @@ namespace Demo
             Console.Write("Creating Window... ");
             using var window = new Window();
             window.Title = "YAGL Demo Project";
-            window.Width = 800;
-            window.Height = 600;
+            window.ClientWidth = 800;
+            window.ClientHeight = 600;
             window.Top = 50;
             window.Left = 100;
             Console.WriteLine("OK");

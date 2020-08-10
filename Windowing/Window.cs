@@ -9,7 +9,6 @@ namespace Yagl.Windowing
     /// <summary>
     /// Represents a cross-platform window for drawing graphics.
     /// </summary>
-    /// TODO: Client size.
     /// TODO: User Resizing options.
     /// TODO: Focus change event.
     /// TODO: Client size change event.
@@ -51,6 +50,18 @@ namespace Yagl.Windowing
         {
             get => _nativeWindow.Size.Height;
             set => _nativeWindow.Size = new Size(_nativeWindow.Size.Width, value);
+        }
+        
+        public int ClientWidth
+        {
+            get => _nativeWindow.ClientSize.Width;
+            set => _nativeWindow.ClientSize = new Size(value, _nativeWindow.ClientSize.Height);
+        }
+        
+        public int ClientHeight
+        {
+            get => _nativeWindow.ClientSize.Height;
+            set => _nativeWindow.ClientSize = new Size(_nativeWindow.ClientSize.Width, value);
         }
 
         public void Dispose()
