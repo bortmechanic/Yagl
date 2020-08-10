@@ -20,6 +20,7 @@ namespace Demo
             window.ClientHeight = 600;
             window.Top = 50;
             window.Left = 100;
+            window.ResizeMode = ResizeMode.Resizable;
             Console.WriteLine("OK");
             
             Console.WriteLine("Running the program.");

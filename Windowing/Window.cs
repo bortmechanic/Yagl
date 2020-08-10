@@ -9,7 +9,6 @@ namespace Yagl.Windowing
     /// <summary>
     /// Represents a cross-platform window for drawing graphics.
     /// </summary>
-    /// TODO: User Resizing options.
     /// TODO: Focus change event.
     /// TODO: Client size change event.
     /// TODO: Events processing.
@@ -20,6 +19,7 @@ namespace Yagl.Windowing
         public Window()
         {
             _nativeWindow = new NativeWindow();
+            ResizeMode = ResizeMode.Default;
         }
 
         public string Title
@@ -62,6 +62,13 @@ namespace Yagl.Windowing
         {
             get => _nativeWindow.ClientSize.Height;
             set => _nativeWindow.ClientSize = new Size(_nativeWindow.ClientSize.Width, value);
+        }
+
+        public ResizeMode ResizeMode
+        {
+            get => _nativeWindow.IsResizable ? ResizeMode.Resizable : ResizeMode.NotResizable;
+            set => Glfw.SetWindowAttribute(_nativeWindow.Handle, WindowAttribute.Resizable,
+                value == ResizeMode.Resizable);
         }
 
         public void Dispose()
