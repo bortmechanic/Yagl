@@ -1,5 +1,7 @@
 ﻿using System;
+using GLFW;
 using Yagl.Windowing;
+using Window = Yagl.Windowing.Window;
 
 namespace Demo
 {
@@ -10,13 +12,14 @@ namespace Demo
             Console.WriteLine("YAGL library demo project.");
 
             Console.Write("Initializing native library resolver... ");
-            NativeLibraryResolver.Initialize();
+            Yagl.NativeLibLoader.NetCore3.Loader.Init();
             Console.WriteLine("OK");
             
             Console.Write("Creating Window... ");
             using var window = new Window
             {
                 Title = "YAGL Demo Project",
+                Decorations = Decorations.Default,
                 ClientWidth = 800,
                 ClientHeight = 600,
                 Top = 50,
@@ -41,6 +44,8 @@ namespace Demo
             
             Console.WriteLine("Running the program.");
             window.Run();
+            
+            Glfw.Terminate();
             
             Console.WriteLine("The program has completed. Exiting...");
         }

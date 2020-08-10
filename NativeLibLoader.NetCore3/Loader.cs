@@ -3,11 +3,11 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using GLFW;
 
-namespace Demo
+namespace Yagl.NativeLibLoader.NetCore3
 {
-    internal static class NativeLibraryResolver
+    public static class Loader
     {
-        internal static void Initialize()
+        public static void Init()
         {
             NativeLibrary.SetDllImportResolver(typeof(Glfw).Assembly, ImportResolver);
         }
