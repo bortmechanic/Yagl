@@ -7,7 +7,7 @@ namespace Demo
     {
         private static void Main()
         {
-            Console.WriteLine("Yagl library demo project.");
+            Console.WriteLine("YAGL library demo project.");
 
             Console.Write("Initializing native library resolver... ");
             NativeLibraryResolver.Initialize();
@@ -15,6 +15,7 @@ namespace Demo
             
             Console.Write("Creating Window... ");
             using var window = new Window();
+            window.Title = "YAGL Demo Project";
             Console.WriteLine("OK");
             
             Console.WriteLine("Running the program.");

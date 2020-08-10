@@ -13,6 +13,12 @@ namespace Yagl.Windowing
             _nativeWindow = new NativeWindow();
         }
 
+        public string Title
+        {
+            get => _nativeWindow.Title;
+            set => _nativeWindow.Title = value;
+        }
+
         public void Dispose()
         {
             _nativeWindow?.Dispose();
