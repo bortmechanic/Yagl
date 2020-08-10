@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Threading;
 using GLFW;
@@ -12,7 +13,6 @@ namespace Yagl.Windowing
     /// Represents a cross-platform window for drawing graphics.
     /// </summary>
     /// TODO: Events processing.
-    /// TODO: Closing and Closed events.
     public class Window : IDisposable
     {
         private readonly NativeWindow _wnd;
@@ -26,8 +26,10 @@ namespace Yagl.Windowing
             _wnd.FocusChanged += OnFocusChanged;
             _wnd.SizeChanged += OnSizeChanged;
             _wnd.Refreshed += OnPaint;
+            _wnd.Closing += OnClosing;
+            _wnd.Closed += OnClosed;
         }
-
+        
         #endregion
 
         #region Title
@@ -124,6 +126,25 @@ namespace Yagl.Windowing
         private void OnPaint(object sender, EventArgs e)
         {
             RePaint?.Invoke(this, RepaintEventArgs.Instance);
+        }
+        
+        #endregion
+        
+        #region Closing Window.
+
+        public event EventHandler<ClosingEventArgs> Closing;
+        public event EventHandler<ClosedEventArgs> Closed;
+        
+        private void OnClosing(object sender, CancelEventArgs e)
+        {
+            var args = new ClosingEventArgs();
+            Closing?.Invoke(this, args);
+            e.Cancel = args.Cancel;
+        }
+        
+        private void OnClosed(object sender, EventArgs e)
+        {
+            Closed?.Invoke(this, ClosedEventArgs.Instance);
         }
         
         #endregion

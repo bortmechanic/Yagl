@@ -28,4 +28,14 @@ namespace Yagl.Windowing
     {
         internal static readonly RepaintEventArgs Instance = new RepaintEventArgs();
     }
+
+    public class ClosingEventArgs : EventArgs
+    {
+        public bool Cancel = false;
+    }
+
+    public class ClosedEventArgs : EventArgs
+    {
+        internal static readonly  ClosedEventArgs Instance = new ClosedEventArgs();
+    }
 }

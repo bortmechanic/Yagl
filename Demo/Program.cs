@@ -30,7 +30,12 @@ namespace Demo
                 Console.WriteLine($"Window resized. Size: {e.Width}x{e.Height}px, Client: {e.ClientWidth}x{e.ClientHeight}px.");
             window.RePaint += (sender, e) =>
                 Console.WriteLine($"Window repaint.");
-                Console.WriteLine("OK");
+            window.Closing += (sender, e) =>
+                Console.WriteLine($"Window is about to Close.");
+            window.Closed += (sender, e) =>
+                Console.WriteLine($"Window is Closed.");
+
+            Console.WriteLine("OK");
             
             Console.WriteLine("Running the program.");
             window.Run();
