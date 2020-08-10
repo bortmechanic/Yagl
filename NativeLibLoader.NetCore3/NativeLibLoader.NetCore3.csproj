@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>Yagl.NativeLibLoader.NetCore3</AssemblyName>
+        <RootNamespace>Yagl.NativeLibLoader.NetCore3</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Windowing\Windowing.csproj" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <ApplicationIcon />
+        <StartupObject />
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NativeLibLoader.NetCore3\NativeLibLoader.NetCore3.csproj" />
+      <ProjectReference Include="..\Windowing\Windowing.csproj" />
+    </ItemGroup>
+
+</Project>
