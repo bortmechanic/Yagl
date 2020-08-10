@@ -17,90 +17,119 @@ namespace Yagl.Windowing
     /// TODO: Closing and Closed events.
     public class Window : IDisposable
     {
-        private readonly NativeWindow _nativeWindow;
+        private readonly NativeWindow _wnd;
 
+        #region Constructor(s)
+        
         public Window()
         {
-            _nativeWindow = new NativeWindow();
+            _wnd = new NativeWindow();
             ResizeMode = ResizeMode.Default;
-            _nativeWindow.FocusChanged += OnFocusChanged;
+            _wnd.FocusChanged += OnFocusChanged;
+            _wnd.SizeChanged += OnSizeChanged;
         }
+        
+        #endregion
 
+        #region Title
+        
         public string Title
         {
-            get => _nativeWindow.Title;
-            set => _nativeWindow.Title = value;
+            get => _wnd.Title;
+            set => _wnd.Title = value;
         }
+        
+        #endregion
 
+        #region Position and Size
+        
         public int Left
         {
-            get => _nativeWindow.Position.X;
-            set => _nativeWindow.Position = new Point(value, _nativeWindow.Position.Y);
+            get => _wnd.Position.X;
+            set => _wnd.Position = new Point(value, _wnd.Position.Y);
         }
         
         public int Top
         {
-            get => _nativeWindow.Position.Y;
-            set => _nativeWindow.Position = new Point(_nativeWindow.Position.X, value);
+            get => _wnd.Position.Y;
+            set => _wnd.Position = new Point(_wnd.Position.X, value);
         }
 
         public int Width
         {
-            get => _nativeWindow.Size.Width;
-            set => _nativeWindow.Size = new Size(value, _nativeWindow.Size.Height);
+            get => _wnd.Size.Width;
+            set => _wnd.Size = new Size(value, _wnd.Size.Height);
         }
         
         public int Height
         {
-            get => _nativeWindow.Size.Height;
-            set => _nativeWindow.Size = new Size(_nativeWindow.Size.Width, value);
+            get => _wnd.Size.Height;
+            set => _wnd.Size = new Size(_wnd.Size.Width, value);
         }
         
         public int ClientWidth
         {
-            get => _nativeWindow.ClientSize.Width;
-            set => _nativeWindow.ClientSize = new Size(value, _nativeWindow.ClientSize.Height);
+            get => _wnd.ClientSize.Width;
+            set => _wnd.ClientSize = new Size(value, _wnd.ClientSize.Height);
         }
         
         public int ClientHeight
         {
-            get => _nativeWindow.ClientSize.Height;
-            set => _nativeWindow.ClientSize = new Size(_nativeWindow.ClientSize.Width, value);
+            get => _wnd.ClientSize.Height;
+            set => _wnd.ClientSize = new Size(_wnd.ClientSize.Width, value);
         }
 
         public ResizeMode ResizeMode
         {
-            get => _nativeWindow.IsResizable ? ResizeMode.Resizable : ResizeMode.NotResizable;
-            set => Glfw.SetWindowAttribute(_nativeWindow.Handle, WindowAttribute.Resizable,
+            get => _wnd.IsResizable ? ResizeMode.Resizable : ResizeMode.NotResizable;
+            set => Glfw.SetWindowAttribute(_wnd.Handle, WindowAttribute.Resizable,
                 value == ResizeMode.Resizable);
         }
+        
+        public event EventHandler<SizeChangedEventArgs> SizeChanged;
+        
+        private void OnSizeChanged(object sender, SizeChangeEventArgs e)
+        {
+            SizeChanged?.Invoke(this, new SizeChangedEventArgs
+                {Width = Width, Height = Height, ClientWidth = ClientWidth, ClientHeight = ClientHeight});
+        }
+        
+        #endregion
+        
+        #region Active Status
 
-        public bool IsActive => _nativeWindow.IsFocused;
+        public bool IsActive => _wnd.IsFocused;
 
         public void Activate()
         {
-            Glfw.FocusWindow(_nativeWindow);
+            Glfw.FocusWindow(_wnd);
         }
 
-        public event EventHandler<EventArgs> Activated;
-        public event EventHandler<EventArgs> DeActivated;
+        public event EventHandler<ActivatedEventArgs> Activated;
+        public event EventHandler<DeActivatedEventArgs> DeActivated;
         
         private void OnFocusChanged(object sender, EventArgs e)
         {
             if (IsActive)
-                Activated?.Invoke(this, EventArgs.Empty);
+                Activated?.Invoke(this, ActivatedEventArgs.Instance);
             else
-                DeActivated?.Invoke(this, EventArgs.Empty);
+                DeActivated?.Invoke(this, DeActivatedEventArgs.Instance);
         }
+        
+        #endregion
+        
+        #region Disposable
 
         public void Dispose()
         {
-            _nativeWindow?.Dispose();
+            _wnd?.Dispose();
         }
+        
+        #endregion
 
         public void Run()
         {
-            while (!_nativeWindow.IsClosed)
+            while (!_wnd.IsClosed)
             {
                 Glfw.PollEvents();
                 Thread.Sleep(5);

@@ -22,8 +22,12 @@ namespace Demo
             window.Left = 100;
             window.ResizeMode = ResizeMode.Resizable;
             window.Activate();
-            window.Activated += (sender, args) => Console.WriteLine($"Window \"{window.Title}\" Activated."); 
-            window.DeActivated += (sender, args) => Console.WriteLine($"Window \"{window.Title}\" DeActivated."); 
+            window.Activated += (sender, e) => 
+                Console.WriteLine($"Window \"{window.Title}\" Activated."); 
+            window.DeActivated += (sender, e) => 
+                Console.WriteLine($"Window \"{window.Title}\" DeActivated.");
+            window.SizeChanged += (sender, e) =>
+                Console.WriteLine($"Window resized. Size: {e.Width}x{e.Height}px, Client: {e.ClientWidth}x{e.ClientHeight}px.");
             Console.WriteLine("OK");
             
             Console.WriteLine("Running the program.");
