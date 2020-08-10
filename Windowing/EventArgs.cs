@@ -23,4 +23,9 @@ namespace Yagl.Windowing
         public readonly bool IsActive = false;
         internal static readonly DeActivatedEventArgs Instance = new DeActivatedEventArgs();
     }
+    
+    public class RepaintEventArgs : EventArgs
+    {
+        internal static readonly RepaintEventArgs Instance = new RepaintEventArgs();
+    }
 }

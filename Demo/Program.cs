@@ -28,7 +28,9 @@ namespace Demo
                 Console.WriteLine($"Window \"{window.Title}\" DeActivated.");
             window.SizeChanged += (sender, e) =>
                 Console.WriteLine($"Window resized. Size: {e.Width}x{e.Height}px, Client: {e.ClientWidth}x{e.ClientHeight}px.");
-            Console.WriteLine("OK");
+            window.RePaint += (sender, e) =>
+                Console.WriteLine($"Window repaint.");
+                Console.WriteLine("OK");
             
             Console.WriteLine("Running the program.");
             window.Run();

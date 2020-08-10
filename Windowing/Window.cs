@@ -11,9 +11,7 @@ namespace Yagl.Windowing
     /// <summary>
     /// Represents a cross-platform window for drawing graphics.
     /// </summary>
-    /// TODO: Client size change event.
     /// TODO: Events processing.
-    /// TODO: Paint event.
     /// TODO: Closing and Closed events.
     public class Window : IDisposable
     {
@@ -27,8 +25,9 @@ namespace Yagl.Windowing
             ResizeMode = ResizeMode.Default;
             _wnd.FocusChanged += OnFocusChanged;
             _wnd.SizeChanged += OnSizeChanged;
+            _wnd.Refreshed += OnPaint;
         }
-        
+
         #endregion
 
         #region Title
@@ -114,6 +113,17 @@ namespace Yagl.Windowing
                 Activated?.Invoke(this, ActivatedEventArgs.Instance);
             else
                 DeActivated?.Invoke(this, DeActivatedEventArgs.Instance);
+        }
+        
+        #endregion
+        
+        #region Repainting window
+
+        public event EventHandler<RepaintEventArgs> RePaint;
+        
+        private void OnPaint(object sender, EventArgs e)
+        {
+            RePaint?.Invoke(this, RepaintEventArgs.Instance);
         }
         
         #endregion
