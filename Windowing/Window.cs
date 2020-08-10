@@ -31,12 +31,18 @@ namespace Yagl.Windowing
         
         #endregion
 
-        #region Title
+        #region General Look
         
         public string Title
         {
             get => _wnd.Title;
             set => _wnd.Title = value;
+        }
+
+        public Decorations Decorations
+        {
+            get => _wnd.IsDecorated ? Decorations.TitleBar : Decorations.None;
+            set => Glfw.SetWindowAttribute(_wnd.Handle, WindowAttribute.Decorated, value == Decorations.TitleBar);
         }
         
         #endregion
@@ -163,8 +169,6 @@ namespace Yagl.Windowing
         {
             Glfw.PollEvents();
         }
-        
-        #endregion
 
         public void Run()
         {
@@ -173,6 +177,9 @@ namespace Yagl.Windowing
                 ProcessEvents();
                 Thread.Sleep(5);
             }
+            ProcessEvents();
         }
+        
+        #endregion
     }
 }
