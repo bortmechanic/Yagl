@@ -1,5 +1,4 @@
 using System;
-using System.Dynamic;
 // ReSharper disable UnusedMember.Global
 
 namespace Yagl.Windowing

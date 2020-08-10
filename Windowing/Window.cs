@@ -12,7 +12,6 @@ namespace Yagl.Windowing
     /// <summary>
     /// Represents a cross-platform window for drawing graphics.
     /// </summary>
-    /// TODO: Events processing.
     public class Window : IDisposable
     {
         private readonly NativeWindow _wnd;
@@ -157,12 +156,21 @@ namespace Yagl.Windowing
         }
         
         #endregion
+        
+        #region Events Processing
+
+        public static void ProcessEvents()
+        {
+            Glfw.PollEvents();
+        }
+        
+        #endregion
 
         public void Run()
         {
             while (!_wnd.IsClosed)
             {
-                Glfw.PollEvents();
+                ProcessEvents();
                 Thread.Sleep(5);
             }
         }
