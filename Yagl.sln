@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windowing", "Windowing\Wind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{6295465D-7CF6-4012-ABCC-509D6DBDF801}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NativeLibLoader.NetCore3", "NativeLibLoader.NetCore3\NativeLibLoader.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windowing.NativeLibLoader.NetCore3", "Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

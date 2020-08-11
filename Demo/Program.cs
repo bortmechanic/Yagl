@@ -12,7 +12,7 @@ namespace Demo
             Console.WriteLine("YAGL library demo project.");
 
             Console.Write("Initializing native library resolver... ");
-            Yagl.NativeLibLoader.NetCore3.Loader.Init();
+            Yagl.Windowing.NativeLibLoader.NetCore3.Loader.Init();
             Console.WriteLine("OK");
             
             Console.Write("Creating Window... ");
