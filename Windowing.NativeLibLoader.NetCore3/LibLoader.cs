@@ -5,7 +5,7 @@ using GLFW;
 
 namespace Yagl.Windowing.NativeLibLoader.NetCore3
 {
-    public static class Loader
+    public static class LibLoader
     {
         public static void Init()
         {

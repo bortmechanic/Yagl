@@ -1,9 +1,7 @@
 ﻿using System;
-using GLFW;
 using Yagl.Windowing;
-using Window = Yagl.Windowing.Window;
 
-namespace Demo
+namespace Yagl.Demo
 {
     internal static class Program
     {
@@ -12,7 +10,7 @@ namespace Demo
             Console.WriteLine("YAGL library demo project.");
 
             Console.Write("Initializing native library resolver... ");
-            Yagl.Windowing.NativeLibLoader.NetCore3.Loader.Init();
+            Windowing.NativeLibLoader.NetCore3.LibLoader.Init();
             Console.WriteLine("OK");
             
             Console.Write("Creating Window... ");
@@ -44,9 +42,7 @@ namespace Demo
             
             Console.WriteLine("Running the program.");
             window.Run();
-            
-            Glfw.Terminate();
-            
+
             Console.WriteLine("The program has completed. Exiting...");
         }
     }
