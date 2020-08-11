@@ -55,6 +55,7 @@ namespace Yagl.Demo
         {
             Gl.ClearColor(0, 0, 0.25f, 1.0f);
             Gl.Clear(16384);
+            
             (sender as Window)?.SwapBuffers();
         }
     }
