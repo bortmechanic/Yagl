@@ -6,9 +6,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windowing.NativeLibLoader.NetCore3", "Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gl", "Gl\Gl.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Gl", "Graphics.Gl\Graphics.Gl.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gl.Generator", "Gl.Generator\Gl.Generator.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Gl.Gen", "Graphics.Gl.Gen\Graphics.Gl.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

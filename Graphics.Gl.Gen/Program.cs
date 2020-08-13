@@ -12,7 +12,7 @@ namespace Yagl.Gl.Generator
     {
         private static void Main()
         {
-            Console.WriteLine("Gl.Generator.\n");
+            Console.WriteLine("Yagl.Gl.Gen.\n");
 
             LoadSpec();
             ParseSpec();
@@ -86,7 +86,7 @@ namespace Yagl.Gl.Generator
             result.AppendLine();
             result.AppendLine("    }");
             result.AppendLine("}");
-            File.WriteAllText(@"../../../../Gl/Gl.Gen.cs", result.ToString());
+            File.WriteAllText(@"../../../../Graphics.Gl/Gl.Gen.cs", result.ToString());
         }
 
         private static void Out(StringBuilder block, string text = "")
