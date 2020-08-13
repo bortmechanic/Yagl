@@ -21,9 +21,10 @@ namespace Yagl.Gl.Generator
         
         private static XDocument _xml;
         
-        private static readonly StringBuilder Enums = new StringBuilder();
+        private static readonly StringBuilder Enumerations = new StringBuilder();
+        private static readonly StringBuilder Delegates = new StringBuilder();
         private static readonly StringBuilder Functions = new StringBuilder();
-        private static readonly StringBuilder Loaders = new StringBuilder();
+        private static readonly StringBuilder Initialization = new StringBuilder();
         
         private static void LoadSpec()
         {
@@ -42,51 +43,90 @@ namespace Yagl.Gl.Generator
 
         private static void SaveResults()
         {
-            var result = new StringBuilder();
-            result.AppendLine("// ReSharper disable UnusedMember.Global");
-            result.AppendLine("// ReSharper disable InconsistentNaming");
-            result.AppendLine("// ReSharper disable UnusedParameter.Global");
-            result.AppendLine("// ReSharper disable IdentifierTypo");
-            result.AppendLine("// ReSharper disable CommentTypo");
-            result.AppendLine("// ReSharper disable StringLiteralTypo");
-            result.AppendLine("using System;");
-            result.AppendLine("using System.Runtime.InteropServices;");
-            result.AppendLine();
-            result.AppendLine("namespace Yagl.Graphics");
-            result.AppendLine("{");
-            result.AppendLine("    public static partial class Gl");
-            result.AppendLine("    {");
-            result.AppendLine();
-            result.AppendLine("        #region Enums");
-            result.AppendLine();
-            result.Append(Enums);
-            result.AppendLine();
-            result.AppendLine("        #endregion");
-            result.AppendLine();
-            result.AppendLine("        #region Functions");
-            result.AppendLine();
-            result.Append(Functions);
-            result.AppendLine();
-            result.AppendLine("        #endregion");
-            result.AppendLine();
-            result.AppendLine("        #region Loaders");
-            result.AppendLine();
-            result.AppendLine("        public static void Init(Func<string,IntPtr> getProcAddress)");
-            result.AppendLine("        {");
-            result.Append(Loaders);
-            result.AppendLine("        }");
-            result.AppendLine();
-            result.AppendLine("        private static T LoadProcByName<T>(string procName, Func<string,IntPtr> getProcAddress) where T: Delegate");
-            result.AppendLine("        {");
-            result.AppendLine("            var ptr = getProcAddress.Invoke(procName);");
-            result.AppendLine("            return ptr != IntPtr.Zero ? Marshal.GetDelegateForFunctionPointer<T>(ptr) : null;");
-            result.AppendLine("        }");
-            result.AppendLine();
-            result.AppendLine("        #endregion");
-            result.AppendLine();
-            result.AppendLine("    }");
-            result.AppendLine("}");
-            File.WriteAllText(@"../../../../Graphics.Gl/Gl.Gen.cs", result.ToString());
+            var file = new StringBuilder();
+            
+            // Gl.Enumerations.
+            file.Clear();
+            file.AppendLine("// ReSharper disable UnusedMember.Global");
+            file.AppendLine("// ReSharper disable InconsistentNaming");
+            file.AppendLine("// ReSharper disable IdentifierTypo");
+            file.AppendLine("// ReSharper disable CommentTypo");
+            file.AppendLine();
+            file.AppendLine("namespace Yagl.Graphics");
+            file.AppendLine("{");
+            file.AppendLine("    public static partial class Gl");
+            file.AppendLine("    {");
+            file.AppendLine();
+            file.Append(Enumerations);
+            file.AppendLine();
+            file.AppendLine("    }");
+            file.AppendLine("}");
+            File.WriteAllText(@"../../../../Graphics.Gl/Gl.Enumerations.cs", file.ToString());
+            
+            // Gl.Delegates.
+            file.Clear();
+            file.AppendLine("// ReSharper disable InconsistentNaming");
+            file.AppendLine("// ReSharper disable IdentifierTypo");
+            file.AppendLine("// ReSharper disable CommentTypo");
+            file.AppendLine();
+            file.AppendLine("using System;");
+            file.AppendLine();
+            file.AppendLine("namespace Yagl.Graphics");
+            file.AppendLine("{");
+            file.AppendLine("    public static partial class Gl");
+            file.AppendLine("    {");
+            file.AppendLine();
+            file.Append(Delegates);
+            file.AppendLine();
+            file.AppendLine("    }");
+            file.AppendLine("}");
+            File.WriteAllText(@"../../../../Graphics.Gl/Gl.Delegates.cs", file.ToString());
+            
+            // Gl.Functions.
+            file.Clear();
+            file.AppendLine("// ReSharper disable InconsistentNaming");
+            file.AppendLine("// ReSharper disable IdentifierTypo");
+            file.AppendLine("// ReSharper disable CommentTypo");
+            file.AppendLine();
+            file.AppendLine("using System;");
+            file.AppendLine();
+            file.AppendLine("namespace Yagl.Graphics");
+            file.AppendLine("{");
+            file.AppendLine("    public static partial class Gl");
+            file.AppendLine("    {");
+            file.AppendLine();
+            file.Append(Functions);
+            file.AppendLine();
+            file.AppendLine("    }");
+            file.AppendLine("}");
+            File.WriteAllText(@"../../../../Graphics.Gl/Gl.Functions.cs", file.ToString());
+
+            // Gl.Initialization.
+            file.Clear();
+            file.AppendLine("// ReSharper disable StringLiteralTypo");
+            file.AppendLine();
+            file.AppendLine("using System;");
+            file.AppendLine("using System.Runtime.InteropServices;");
+            file.AppendLine();
+            file.AppendLine("namespace Yagl.Graphics");
+            file.AppendLine("{");
+            file.AppendLine("    public static partial class Gl");
+            file.AppendLine("    {");
+            file.AppendLine();
+            file.AppendLine("        public static void Init(Func<string,IntPtr> getProcAddress)");
+            file.AppendLine("        {");
+            file.Append(Initialization);
+            file.AppendLine("        }");
+            file.AppendLine();
+            file.AppendLine("        private static T LoadProcByName<T>(string procName, Func<string,IntPtr> getProcAddress) where T: Delegate");
+            file.AppendLine("        {");
+            file.AppendLine("            var ptr = getProcAddress.Invoke(procName);");
+            file.AppendLine("            return ptr != IntPtr.Zero ? Marshal.GetDelegateForFunctionPointer<T>(ptr) : null;");
+            file.AppendLine("        }");
+            file.AppendLine();
+            file.AppendLine("    }");
+            file.AppendLine("}");
+            File.WriteAllText(@"../../../../Graphics.Gl/Gl.Initialization.cs", file.ToString());
         }
 
         private static void Out(StringBuilder block, string text = "")
@@ -108,8 +148,6 @@ namespace Yagl.Gl.Generator
                     ProcessEnum(element);
                 else if (element.Name == "commands")
                     ProcessCommands(element);
-                else
-                    Console.WriteLine($"Section '{element.Name}' could not be parsed.");
             }
         }
 
@@ -160,10 +198,10 @@ namespace Yagl.Gl.Generator
             var comment = element.Attribute("comment")?.Value;
             var type = element.Attribute("type")?.Value;
             comment = ProcessComment(comment);
-            Out(Enums, $"// {name}. {comment}");
+            Out(Enumerations, $"// {name}. {comment}");
             foreach (var el in element.Elements())
                 ProcessEnumItem(el, type);
-            Out(Enums);
+            Out(Enumerations);
         }
 
         private static string ProcessComment(string comment)
@@ -188,7 +226,7 @@ namespace Yagl.Gl.Generator
                 if (string.IsNullOrWhiteSpace(type) || type == "bitmask")
                     type = TryDetermineType(value);
                 type = ConvertType(type, "int");
-                Out(Enums, $"public const {type} {name} = {value};");
+                Out(Enumerations, $"public const {type} {name} = {value};");
                 CheckAttributes(element, new[] {"name", "value", "group", "comment", "alias", "type", "api"});
             }
             else if (element.Name == "unused")
@@ -197,10 +235,10 @@ namespace Yagl.Gl.Generator
                 var end = element.Attribute("end")?.Value;
                 var comment = element.Attribute("comment")?.Value;
                 comment = ProcessComment(comment);
-                Out(Enums, $"// Unused {start}{(end != null ? ".." + end : "")}. {comment}");
+                Out(Enumerations, $"// Unused {start}{(end != null ? ".." + end : "")}. {comment}");
             }
             else
-                Out(Enums, $"// '{element.Name}' could not be parsed.");
+                Out(Enumerations, $"// '{element.Name}' could not be parsed.");
         }
         
         private static void ProcessCommands(XElement element)
@@ -213,11 +251,12 @@ namespace Yagl.Gl.Generator
         {
             if (element.Name != "command")
             {
-                Out(Functions, $"Couldn't parse '{element.Name}' inside Commands section.");
+                Console.WriteLine($"Couldn't parse '{element.Name}' inside Commands section.");
                 return;
             }
             var comment = element.Attribute("comment")?.Value;
-            var name = element.Element("proto")?.Element("name")?.Value;
+            var originalName = element.Element("proto")?.Element("name")?.Value;
+            var name = ProcessName(originalName);
             var rType = element.Element("proto")?.Element("ptype")?.Value
                        ?? (element.Element("proto")?.Value.StartsWith("void") == true ? "void" : "");
             rType = ConvertType(rType);
@@ -239,15 +278,27 @@ namespace Yagl.Gl.Generator
                 pType = ProcessArraysAndPointers(pType);
                 parameters.Add(new Tuple<string, string>($"{pType} {(!string.IsNullOrWhiteSpace(pTypeGroup) ? "/*" + pTypeGroup + "*/ " : "")}", $"{pName}"));
             }
-            Out(Functions, $"// {name}");
-            if (!string.IsNullOrWhiteSpace(comment))
-                Out(Functions, $"// {comment}");
-            Out(Functions, $"public static {rType} {name}({(string.Join(", ", parameters.Select(p => $"{p.Item1} {p.Item2}")))}) => {name}Ptr?.Invoke({(string.Join(", ", parameters.Select(p => p.Item2)))}){(rType != "void" ? " ?? default" : "")};");
-            Out(Functions, $"private delegate {rType} {name}Del({(string.Join(", ", parameters.Select(p => $"{p.Item1} {p.Item2}")))});");
-            Out(Functions, $"private static {name}Del {name}Ptr;");
-            Out(Functions);
             
-            Out(Loaders, $"    {name}Ptr = LoadProcByName<{name}Del>(\"{name}\", getProcAddress);");
+            // Delegates.
+            Out(Delegates, $"// {originalName}");
+            if (!string.IsNullOrWhiteSpace(comment))
+                Out(Delegates, $"// {comment}");
+            Out(Delegates, $"private delegate {rType} {name}Del({(string.Join(", ", parameters.Select(p => $"{p.Item1} {p.Item2}")))}); private static {name}Del {name}Ptr;");
+            Out(Delegates);
+
+            // Functions.
+            Out(Functions, $"public static {rType} {name}({(string.Join(", ", parameters.Select(p => $"{p.Item1} {p.Item2}")))}) => {name}Ptr?.Invoke({(string.Join(", ", parameters.Select(p => p.Item2)))}){(rType != "void" ? " ?? default" : "")};");
+            
+            // Initialization.
+            Out(Initialization, $"    {name}Ptr = LoadProcByName<{name}Del>(\"{originalName}\", getProcAddress);");
+        }
+
+        private static string ProcessName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name)) return name;
+            if (name.StartsWith("gl"))
+                name = name.Substring(2);
+            return name;
         }
 
         private static string ProcessArraysAndPointers(string pType)

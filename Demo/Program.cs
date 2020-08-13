@@ -53,8 +53,8 @@ namespace Yagl.Demo
 
         private static void RePaint(object sender, RepaintEventArgs e)
         {
-            Gl.glClearColor(0.75f, 0.35f, 0.0f, 1.0f);
-            Gl.glClear(16384);
+            Gl.ClearColor(0.75f, 0.35f, 0.0f, 1.0f);
+            Gl.Clear(16384);
             
             (sender as Window)?.SwapBuffers();
         }
