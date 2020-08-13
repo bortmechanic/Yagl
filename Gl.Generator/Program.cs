@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
-// ReSharper disable HeapView.ObjectAllocation.Possible
 
 namespace Yagl.Gl.Generator
 {
@@ -22,7 +21,9 @@ namespace Yagl.Gl.Generator
         
         private static XDocument _xml;
         
-        private static readonly StringBuilder Result = new StringBuilder();
+        private static readonly StringBuilder Enums = new StringBuilder();
+        private static readonly StringBuilder Functions = new StringBuilder();
+        private static readonly StringBuilder Loaders = new StringBuilder();
         
         private static void LoadSpec()
         {
@@ -47,21 +48,50 @@ namespace Yagl.Gl.Generator
             result.AppendLine("// ReSharper disable UnusedParameter.Global");
             result.AppendLine("// ReSharper disable IdentifierTypo");
             result.AppendLine("// ReSharper disable CommentTypo");
+            result.AppendLine("// ReSharper disable StringLiteralTypo");
             result.AppendLine("using System;");
+            result.AppendLine("using System.Runtime.InteropServices;");
             result.AppendLine();
             result.AppendLine("namespace Yagl.Graphics");
             result.AppendLine("{");
             result.AppendLine("    public static partial class Gl");
             result.AppendLine("    {");
-            result.Append(Result);
+            result.AppendLine();
+            result.AppendLine("        #region Enums");
+            result.AppendLine();
+            result.Append(Enums);
+            result.AppendLine();
+            result.AppendLine("        #endregion");
+            result.AppendLine();
+            result.AppendLine("        #region Functions");
+            result.AppendLine();
+            result.Append(Functions);
+            result.AppendLine();
+            result.AppendLine("        #endregion");
+            result.AppendLine();
+            result.AppendLine("        #region Loaders");
+            result.AppendLine();
+            result.AppendLine("        public static void Init(Func<string,IntPtr> getProcAddress)");
+            result.AppendLine("        {");
+            result.Append(Loaders);
+            result.AppendLine("        }");
+            result.AppendLine();
+            result.AppendLine("        private static T LoadProcByName<T>(string procName, Func<string,IntPtr> getProcAddress) where T: Delegate");
+            result.AppendLine("        {");
+            result.AppendLine("            var ptr = getProcAddress.Invoke(procName);");
+            result.AppendLine("            return ptr != IntPtr.Zero ? Marshal.GetDelegateForFunctionPointer<T>(ptr) : null;");
+            result.AppendLine("        }");
+            result.AppendLine();
+            result.AppendLine("        #endregion");
+            result.AppendLine();
             result.AppendLine("    }");
             result.AppendLine("}");
             File.WriteAllText(@"../../../../Gl/Gl.Gen.cs", result.ToString());
         }
 
-        private static void Out(string text = "")
+        private static void Out(StringBuilder block, string text = "")
         {
-            Result.AppendLine($"        {text}");
+            block.AppendLine($"        {text}");
         }
 
         private static void ProcessSection(XContainer section)
@@ -130,10 +160,10 @@ namespace Yagl.Gl.Generator
             var comment = element.Attribute("comment")?.Value;
             var type = element.Attribute("type")?.Value;
             comment = ProcessComment(comment);
-            Out($"// {name}. {comment}");
+            Out(Enums, $"// {name}. {comment}");
             foreach (var el in element.Elements())
                 ProcessEnumItem(el, type);
-            Out();
+            Out(Enums);
         }
 
         private static string ProcessComment(string comment)
@@ -158,7 +188,7 @@ namespace Yagl.Gl.Generator
                 if (string.IsNullOrWhiteSpace(type) || type == "bitmask")
                     type = TryDetermineType(value);
                 type = ConvertType(type, "int");
-                Out($"public const {type} {name} = {value};");
+                Out(Enums, $"public const {type} {name} = {value};");
                 CheckAttributes(element, new[] {"name", "value", "group", "comment", "alias", "type", "api"});
             }
             else if (element.Name == "unused")
@@ -167,10 +197,10 @@ namespace Yagl.Gl.Generator
                 var end = element.Attribute("end")?.Value;
                 var comment = element.Attribute("comment")?.Value;
                 comment = ProcessComment(comment);
-                Out($"// Unused {start}{(end != null ? ".." + end : "")}. {comment}");
+                Out(Enums, $"// Unused {start}{(end != null ? ".." + end : "")}. {comment}");
             }
             else
-                Out($"// '{element.Name}' could not be parsed.");
+                Out(Enums, $"// '{element.Name}' could not be parsed.");
         }
         
         private static void ProcessCommands(XElement element)
@@ -183,7 +213,7 @@ namespace Yagl.Gl.Generator
         {
             if (element.Name != "command")
             {
-                Out($"Couldn't parse '{element.Name}' inside Commands section.");
+                Out(Functions, $"Couldn't parse '{element.Name}' inside Commands section.");
                 return;
             }
             var comment = element.Attribute("comment")?.Value;
@@ -194,9 +224,7 @@ namespace Yagl.Gl.Generator
             var typeGroup = element.Element("proto")?.Attribute("group")?.Value;
             if (!string.IsNullOrWhiteSpace(typeGroup))
                 rType = $"{rType} /*{typeGroup}*/";
-            if (!string.IsNullOrWhiteSpace(comment))
-                Out($"// {comment}");
-            var parameters = new List<string>();
+            var parameters = new List<Tuple<string, string>>();
             foreach (var param in element.Elements("param"))
             {
                 var pName = param.Element("name")?.Value;
@@ -209,9 +237,17 @@ namespace Yagl.Gl.Generator
                 if (param.ToString().Contains("*<name"))
                     pType = $"{pType}*";
                 pType = ProcessArraysAndPointers(pType);
-                parameters.Add($"{pType} {(!string.IsNullOrWhiteSpace(pTypeGroup) ? "/*" + pTypeGroup + "*/ " : "")}{pName}");
+                parameters.Add(new Tuple<string, string>($"{pType} {(!string.IsNullOrWhiteSpace(pTypeGroup) ? "/*" + pTypeGroup + "*/ " : "")}", $"{pName}"));
             }
-            Out($"public static {rType} {name}({(string.Join(", ", parameters))}) {{ {(rType == "void" ? "" : "return default;")} }}");
+            Out(Functions, $"// {name}");
+            if (!string.IsNullOrWhiteSpace(comment))
+                Out(Functions, $"// {comment}");
+            Out(Functions, $"public static {rType} {name}({(string.Join(", ", parameters.Select(p => $"{p.Item1} {p.Item2}")))}) => {name}Ptr?.Invoke({(string.Join(", ", parameters.Select(p => p.Item2)))}){(rType != "void" ? " ?? default" : "")};");
+            Out(Functions, $"private delegate {rType} {name}Del({(string.Join(", ", parameters.Select(p => $"{p.Item1} {p.Item2}")))});");
+            Out(Functions, $"private static {name}Del {name}Ptr;");
+            Out(Functions);
+            
+            Out(Loaders, $"    {name}Ptr = LoadProcByName<{name}Del>(\"{name}\", getProcAddress);");
         }
 
         private static string ProcessArraysAndPointers(string pType)
@@ -380,7 +416,7 @@ namespace Yagl.Gl.Generator
                 .Where(a => !exclude.Contains(a.Name.LocalName))
                 .ToArray();
             if (unusedAttributes.Length > 0)
-                Out($"Attributes not processed: {string.Join<XAttribute>(", ", unusedAttributes)}");
+                Console.WriteLine($"Attributes not processed: {element.Name}.{string.Join<XAttribute>(", ", unusedAttributes)}");
         }
         
     }

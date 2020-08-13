@@ -34,7 +34,7 @@ namespace Yagl.Demo
             window.DeActivated += (sender, e) => 
                 Console.WriteLine($"Window \"{(sender as Window)?.Title}\" DeActivated.");
             window.SizeChanged += (sender, e) =>
-                Console.WriteLine($"Window resized. Size: {e.Width}x{e.Height}px, Client: {e.ClientWidth}x{e.ClientHeight}px.");
+                Console.WriteLine($"Window resized. Size: {e.Width.ToString()}x{e.Height.ToString()}px, Client: {e.ClientWidth.ToString()}x{e.ClientHeight.ToString()}px.");
             //window.RePaint += (sender, e) =>
             //    Console.WriteLine("Window repaint.");
             window.Closing += (sender, e) =>
@@ -53,8 +53,8 @@ namespace Yagl.Demo
 
         private static void RePaint(object sender, RepaintEventArgs e)
         {
-            Gl.ClearColor(0, 0, 0.25f, 1.0f);
-            Gl.Clear(16384);
+            Gl.glClearColor(0.75f, 0.35f, 0.0f, 1.0f);
+            Gl.glClear(16384);
             
             (sender as Window)?.SwapBuffers();
         }
