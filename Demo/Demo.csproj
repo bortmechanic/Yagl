@@ -5,10 +5,15 @@
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <ApplicationIcon />
         <StartupObject />
+        <AssemblyName>Yagl.Demo</AssemblyName>
+        <RootNamespace>Yagl.Demo</RootNamespace>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\NativeLibLoader.NetCore3\NativeLibLoader.NetCore3.csproj" />
+      <ProjectReference Include="..\Graphics.Gl\Graphics.Gl.csproj" />
+      <ProjectReference Include="..\Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj" />
       <ProjectReference Include="..\Windowing\Windowing.csproj" />
     </ItemGroup>
 

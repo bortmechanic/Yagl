@@ -2,8 +2,10 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>Yagl.NativeLibLoader.NetCore3</AssemblyName>
-        <RootNamespace>Yagl.NativeLibLoader.NetCore3</RootNamespace>
+        <AssemblyName>Yagl.Windowing.NativeLibLoader.NetCore3</AssemblyName>
+        <RootNamespace>Yagl.Windowing.NativeLibLoader.NetCore3</RootNamespace>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
     </PropertyGroup>
 
     <ItemGroup>

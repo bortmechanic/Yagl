@@ -3,9 +3,9 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using GLFW;
 
-namespace Yagl.NativeLibLoader.NetCore3
+namespace Yagl.Windowing.NativeLibLoader.NetCore3
 {
-    public static class Loader
+    public static class LibLoader
     {
         public static void Init()
         {

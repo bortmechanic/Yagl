@@ -154,6 +154,20 @@ namespace Yagl.Windowing
         
         #endregion
         
+        #region GL context
+
+        public IntPtr GetContextHandle()
+        {
+            return _wnd.Handle;
+        }
+
+        public Func<string, IntPtr> GetProcAddressDelegate()
+        {
+            return Glfw.GetProcAddress;
+        }
+        
+        #endregion
+
         #region Disposable
 
         public void Dispose()
@@ -168,6 +182,11 @@ namespace Yagl.Windowing
         public static void ProcessEvents()
         {
             Glfw.PollEvents();
+        }
+        
+        public void SwapBuffers()
+        {
+            _wnd.SwapBuffers();
         }
 
         public void Run()
