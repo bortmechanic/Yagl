@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ This source file is a part of the project YAGL.
+ Copyright (c) 2020 Pavel Melnikov.
+ Distributed under the MIT License (http://opensource.org/licenses/MIT).
+ See LICENSE.txt for the full license text.
+*/
+
+using System;
 using Yagl.Graphics;
 using Yagl.Windowing;
 
@@ -55,6 +62,16 @@ namespace Yagl.Demo
         {
             Gl.ClearColor(0.75f, 0.35f, 0.0f, 1.0f);
             Gl.Clear(16384);
+
+            // Draw a triangle:
+            Gl.Begin(Gl.TRIANGLES);
+            Gl.Color3f(1.0f, 0.0f, 0.0f);
+            Gl.Vertex3f(-0.5f, -0.5f, 0);
+            Gl.Color3f(0.0f, 1.0f, 0.0f);
+            Gl.Vertex3f(0.5f, 0.0f, 0);
+            Gl.Color3f(0.0f, 0.0f, 1.0f);
+            Gl.Vertex3f(0.0f, 0.5f, 0);
+            Gl.End();
             
             (sender as Window)?.SwapBuffers();
         }
