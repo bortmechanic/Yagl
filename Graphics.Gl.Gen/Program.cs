@@ -1,3 +1,10 @@
+/*
+ This source file is a part of the project YAGL.
+ Copyright (c) 2020 Pavel Melnikov.
+ Distributed under the MIT License (http://opensource.org/licenses/MIT).
+ See LICENSE.txt for the full license text.
+*/
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -47,6 +54,13 @@ namespace Yagl.Gl.Generator
             
             // Gl.Enumerations.
             file.Clear();
+            file.AppendLine("/*");
+            file.AppendLine(" This source file is a part of the project YAGL.");
+            file.AppendLine(" Copyright (c) 2020 Pavel Melnikov.");
+            file.AppendLine(" Distributed under the MIT License (http://opensource.org/licenses/MIT).");
+            file.AppendLine(" See LICENSE.txt for the full license text.");
+            file.AppendLine("*/");
+            file.AppendLine();
             file.AppendLine("// ReSharper disable UnusedMember.Global");
             file.AppendLine("// ReSharper disable InconsistentNaming");
             file.AppendLine("// ReSharper disable IdentifierTypo");
@@ -65,6 +79,13 @@ namespace Yagl.Gl.Generator
             
             // Gl.Delegates.
             file.Clear();
+            file.AppendLine("/*");
+            file.AppendLine(" This source file is a part of the project YAGL.");
+            file.AppendLine(" Copyright (c) 2020 Pavel Melnikov.");
+            file.AppendLine(" Distributed under the MIT License (http://opensource.org/licenses/MIT).");
+            file.AppendLine(" See LICENSE.txt for the full license text.");
+            file.AppendLine("*/");
+            file.AppendLine();
             file.AppendLine("// ReSharper disable InconsistentNaming");
             file.AppendLine("// ReSharper disable IdentifierTypo");
             file.AppendLine("// ReSharper disable CommentTypo");
@@ -84,6 +105,13 @@ namespace Yagl.Gl.Generator
             
             // Gl.Functions.
             file.Clear();
+            file.AppendLine("/*");
+            file.AppendLine(" This source file is a part of the project YAGL.");
+            file.AppendLine(" Copyright (c) 2020 Pavel Melnikov.");
+            file.AppendLine(" Distributed under the MIT License (http://opensource.org/licenses/MIT).");
+            file.AppendLine(" See LICENSE.txt for the full license text.");
+            file.AppendLine("*/");
+            file.AppendLine();
             file.AppendLine("// ReSharper disable InconsistentNaming");
             file.AppendLine("// ReSharper disable IdentifierTypo");
             file.AppendLine("// ReSharper disable CommentTypo");
@@ -103,6 +131,13 @@ namespace Yagl.Gl.Generator
 
             // Gl.Initialization.
             file.Clear();
+            file.AppendLine("/*");
+            file.AppendLine(" This source file is a part of the project YAGL.");
+            file.AppendLine(" Copyright (c) 2020 Pavel Melnikov.");
+            file.AppendLine(" Distributed under the MIT License (http://opensource.org/licenses/MIT).");
+            file.AppendLine(" See LICENSE.txt for the full license text.");
+            file.AppendLine("*/");
+            file.AppendLine();
             file.AppendLine("// ReSharper disable StringLiteralTypo");
             file.AppendLine();
             file.AppendLine("using System;");
