@@ -5,10 +5,15 @@
  See LICENSE.txt for the full license text.
 */
 
+using System.IO;
+
 namespace Yagl.Graphics.Imaging
 {
-    public enum PixelFormat
+    public interface IImageFormat
     {
-        
+        bool CanLoad(string filename);
+        bool CanSave(bool allowAdaptation);
+        Image Load(Stream stream);
+        void Save(Image image, Stream stream);
     }
 }

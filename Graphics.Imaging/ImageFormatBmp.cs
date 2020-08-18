@@ -1,11 +1,19 @@
+/*
+ This source file is a part of the project YAGL.
+ Copyright (c) 2020 Pavel Melnikov.
+ Distributed under the MIT License (http://opensource.org/licenses/MIT).
+ See LICENSE.txt for the full license text.
+*/
+
 // ReSharper disable NotAccessedField.Local
 
 using System;
+using System.Globalization;
 using System.IO;
 
 namespace Yagl.Graphics.Imaging
 {
-    public class ImageFormatBmp
+    public class ImageFormatBmp : IImageFormat
     {
         private class Color
         {
@@ -14,7 +22,16 @@ namespace Yagl.Graphics.Imaging
             public byte Blue;
             public byte Reserved;
         }
+
+        public bool CanLoad(string filename)
+        {
+            if (filename?.EndsWith(".bmp", true, CultureInfo.InvariantCulture) == true)
+                return true;
+            return false;
+        }
         
+        public bool CanSave(bool allowAdaptation) => false;
+
         public Image Load(Stream stream)
         {
             var reader = new BinaryReader(stream);
@@ -89,7 +106,7 @@ namespace Yagl.Graphics.Imaging
             return image;
         }
 
-        public void Save(Stream stream)
+        public void Save(Image image, Stream stream)
         {
             throw new NotImplementedException();
         }
