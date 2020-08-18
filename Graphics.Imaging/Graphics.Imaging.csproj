@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Yagl.Graphics.Imaging</AssemblyName>
+        <RootNamespace>Yagl.Graphics.Imaging</RootNamespace>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
+    </PropertyGroup>
+
+</Project>
