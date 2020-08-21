@@ -5,6 +5,9 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable UnusedMember.Global
+
 namespace Yagl.Graphics.Imaging
 {
     public class PixelFormatDescriptor
@@ -16,7 +19,7 @@ namespace Yagl.Graphics.Imaging
         public enum ChannelType
         {
             General = 0,
-            Luminocity = 1,
+            Luminosity = 1,
             Red = 2,
             Green = 3,
             Blue = 4,

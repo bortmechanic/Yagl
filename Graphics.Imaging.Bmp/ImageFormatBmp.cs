@@ -65,10 +65,9 @@ namespace Yagl.Graphics.Imaging
                 colorsUsed = (uint)2 << (bitsPerPixel - 1);
 
             // Color Table.
-            Color[] colorTable = null;
             if (bitsPerPixel <= 8)
             {
-                colorTable = new Color[colorsUsed];
+                var colorTable = new Color[colorsUsed];
                 for (var i = 0; i < colorsUsed; i++)
                     colorTable[i] = new Color { Red = reader.ReadByte(), Green = reader.ReadByte(), Blue = reader.ReadByte(), Reserved = reader.ReadByte() };
             }
@@ -87,23 +86,22 @@ namespace Yagl.Graphics.Imaging
             {
                 Width = (int) width,
                 Height = (int) height,
-                Palette = new Palette {Colors = new Palette.Color[colorTable?.Length ?? 0]}
-            };
-            for (var i = 0; i < colorTable?.Length; i++)
-                image.Palette.Colors[i] = new Palette.Color
-                    { Red = 255.0 / colorTable[i].Red, Green = 255.0 / colorTable[i].Green, Blue = 255.0 / colorTable[i].Blue };
-            image.PixelFormatDescriptor = new PixelFormatDescriptor
-            {
-                Channels = new[]
+                PixelFormatDescriptor = new PixelFormatDescriptor
                 {
-                    new PixelFormatDescriptor.Channel { NumberOfBits = 8, Type = PixelFormatDescriptor.ChannelType.Blue },
-                    new PixelFormatDescriptor.Channel { NumberOfBits = 8, Type = PixelFormatDescriptor.ChannelType.Green },
-                    new PixelFormatDescriptor.Channel { NumberOfBits = 8, Type = PixelFormatDescriptor.ChannelType.Red }
+                    Channels = new[]
+                    {
+                        new PixelFormatDescriptor.Channel
+                            {NumberOfBits = 8, Type = PixelFormatDescriptor.ChannelType.Blue},
+                        new PixelFormatDescriptor.Channel
+                            {NumberOfBits = 8, Type = PixelFormatDescriptor.ChannelType.Green},
+                        new PixelFormatDescriptor.Channel
+                            {NumberOfBits = 8, Type = PixelFormatDescriptor.ChannelType.Red}
+                    },
+                    RowPadding = (int) rowSize * 8 - (int) rowSizeInBits
                 },
-                RowPadding = (int) rowSize * 8 - (int) rowSizeInBits
+                BitMap = pixelData
             };
-            image.BitMap = pixelData;
-
+            
             return image;
         }
 

@@ -114,7 +114,6 @@ namespace Yagl.Graphics.Imaging
             {
                 Width = (int) width,
                 Height = (int) height,
-                Palette = new Palette {Colors = new Palette.Color[0]},
                 PixelFormatDescriptor = new PixelFormatDescriptor
                     {Channels = new PixelFormatDescriptor.Channel[numberOfChannels]},
                 BitMap = bitMap
@@ -122,12 +121,12 @@ namespace Yagl.Graphics.Imaging
             if (numberOfChannels == 1)
             {
                 image.PixelFormatDescriptor.Channels[0] = new PixelFormatDescriptor.Channel
-                    {NumberOfBits = bitsPerChannel, Type = PixelFormatDescriptor.ChannelType.Luminocity};
+                    {NumberOfBits = bitsPerChannel, Type = PixelFormatDescriptor.ChannelType.Luminosity};
             }
             else if (numberOfChannels == 2)
             {
                 image.PixelFormatDescriptor.Channels[0] = new PixelFormatDescriptor.Channel
-                    {NumberOfBits = bitsPerChannel, Type = PixelFormatDescriptor.ChannelType.Luminocity};
+                    {NumberOfBits = bitsPerChannel, Type = PixelFormatDescriptor.ChannelType.Luminosity};
                 image.PixelFormatDescriptor.Channels[1] = new PixelFormatDescriptor.Channel
                     {NumberOfBits = bitsPerChannel, Type = PixelFormatDescriptor.ChannelType.Alpha};
             }
