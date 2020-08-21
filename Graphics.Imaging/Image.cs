@@ -8,6 +8,9 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 // ReSharper disable UnusedMember.Global
 
+using System;
+using System.IO;
+
 namespace Yagl.Graphics.Imaging
 {
     public class Image
@@ -19,12 +22,20 @@ namespace Yagl.Graphics.Imaging
 
         public static Image Load(string filename)
         {
-            return ImageFormats.Load(filename);
+            var format = FormatRegistry.FindFormat(filename);
+            if (format == null)
+                throw new NotSupportedException($"Image format of the file '{filename}' is not supported.");
+            using var stream = File.OpenRead(filename);
+            return format.Load(stream);
         }
 
-        public void Save(string filename, bool allowAdaptation)
+        public void Save(string filename)
         {
-            ImageFormats.Save(this, filename, allowAdaptation);
+            var format = FormatRegistry.FindFormat(filename);
+            if (format == null)
+                throw new NotSupportedException($"No suitable encoder found to save the image '{filename}'.");
+            using var stream = File.OpenWrite(filename);
+            format.Save(this, stream);
         }
     }
 }

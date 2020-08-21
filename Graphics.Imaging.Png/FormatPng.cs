@@ -14,15 +14,13 @@ using System.IO.Compression;
 
 namespace Yagl.Graphics.Imaging
 {
-    public class ImageFormatPng : IImageFormat
+    public class FormatPng : IFormat
     {
-        public bool CanLoad(string filename)
+        public bool CanProcess(string filename)
         {
             return filename?.EndsWith(".png", true, CultureInfo.InvariantCulture) == true;
         }
 
-        public bool CanSave(string filename, Image image, bool allowAdaptation) => false;
-        
         public Image Load(Stream stream)
         {
             using var reader = new BinaryReader(stream);

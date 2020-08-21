@@ -12,10 +12,9 @@ using System.IO;
 
 namespace Yagl.Graphics.Imaging
 {
-    public interface IImageFormat
+    public interface IFormat
     {
-        bool CanLoad(string filename);
-        bool CanSave(string filename, Image image, bool allowAdaptation);
+        bool CanProcess(string filename);
         Image Load(Stream stream);
         void Save(Image image, Stream stream);
     }

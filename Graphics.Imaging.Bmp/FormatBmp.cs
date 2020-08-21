@@ -14,7 +14,7 @@ using System.IO;
 
 namespace Yagl.Graphics.Imaging
 {
-    public class ImageFormatBmp : IImageFormat
+    public class FormatBmp : IFormat
     {
         private class Color
         {
@@ -24,14 +24,12 @@ namespace Yagl.Graphics.Imaging
             public byte Reserved;
         }
 
-        public bool CanLoad(string filename)
+        public bool CanProcess(string filename)
         {
             if (filename?.EndsWith(".bmp", true, CultureInfo.InvariantCulture) == true)
                 return true;
             return false;
         }
-        
-        public bool CanSave(string filename, Image image, bool allowAdaptation) => false;
 
         public Image Load(Stream stream)
         {
