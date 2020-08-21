@@ -12,9 +12,9 @@ using System;
 using System.Globalization;
 using System.IO;
 
-namespace Yagl.Graphics.Imaging
+namespace Yagl.Graphics.Imaging.Formats
 {
-    public class FormatBmp : IFormat
+    public class Bmp : IFormat
     {
         private class Color
         {

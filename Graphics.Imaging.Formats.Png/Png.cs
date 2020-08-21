@@ -12,9 +12,9 @@ using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 
-namespace Yagl.Graphics.Imaging
+namespace Yagl.Graphics.Imaging.Formats
 {
-    public class FormatPng : IFormat
+    public class Png : IFormat
     {
         public bool CanProcess(string filename)
         {

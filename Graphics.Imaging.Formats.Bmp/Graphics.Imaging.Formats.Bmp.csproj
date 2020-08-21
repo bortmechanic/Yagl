@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Yagl.Graphics.Imaging.Png</AssemblyName>
-        <RootNamespace>Yagl.Graphics.Imaging</RootNamespace>
+        <AssemblyName>Yagl.Graphics.Imaging.Formats.Bmp</AssemblyName>
+        <RootNamespace>Yagl.Graphics.Imaging.Formats</RootNamespace>
         <LangVersion>8</LangVersion>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
