@@ -1,14 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windowing", "Windowing\Windowing.csproj", "{00E522E0-B975-4EE3-9546-41385FAE7EA2}"
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30406.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windowing", "Windowing\Windowing.csproj", "{00E522E0-B975-4EE3-9546-41385FAE7EA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{6295465D-7CF6-4012-ABCC-509D6DBDF801}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", "{6295465D-7CF6-4012-ABCC-509D6DBDF801}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windowing.NativeLibLoader.NetCore3", "Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windowing.NativeLibLoader.NetCore3", "Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Gl", "Graphics.Gl\Graphics.Gl.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.Gl", "Graphics.Gl\Graphics.Gl.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Gl.Gen", "Graphics.Gl.Gen\Graphics.Gl.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.Gl.Gen", "Graphics.Gl.Gen\Graphics.Gl.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Common", "Graphics.Common\Graphics.Common.csproj", "{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}"
 EndProject
@@ -42,5 +45,11 @@ Global
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34EAE6FA-626A-4964-B100-675583628F9A}
 	EndGlobalSection
 EndGlobal

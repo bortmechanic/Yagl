@@ -13,6 +13,7 @@ namespace Yagl.Demo
 {
     internal static class Program
     {
+
         private static void Main()
         {
             Console.WriteLine("YAGL library demo project.");
