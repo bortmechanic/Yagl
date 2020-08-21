@@ -5,6 +5,9 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable UnusedMember.Global
+
 namespace Yagl.Graphics.Imaging
 {
     public class Image
@@ -18,6 +21,11 @@ namespace Yagl.Graphics.Imaging
         public static Image Load(string filename)
         {
             return ImageFormats.Load(filename);
+        }
+
+        public void Save(string filename, bool allowAdaptation)
+        {
+            ImageFormats.Save(this, filename, allowAdaptation);
         }
     }
 }

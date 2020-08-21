@@ -5,6 +5,9 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedParameter.Global
+
 using System.IO;
 
 namespace Yagl.Graphics.Imaging
@@ -12,7 +15,7 @@ namespace Yagl.Graphics.Imaging
     public interface IImageFormat
     {
         bool CanLoad(string filename);
-        bool CanSave(bool allowAdaptation);
+        bool CanSave(string filename, Image image, bool allowAdaptation);
         Image Load(Stream stream);
         void Save(Image image, Stream stream);
     }

@@ -5,6 +5,9 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable UnusedMember.Global
+
 namespace Yagl.Graphics.Imaging
 {
     public class Palette

@@ -16,11 +16,12 @@ namespace Yagl.Graphics.Imaging
         public enum ChannelType
         {
             General = 0,
-            Red = 1,
-            Green = 2,
-            Blue = 3,
-            Alpha = 4,
-            PaletteColor = 5
+            Luminocity = 1,
+            Red = 2,
+            Green = 3,
+            Blue = 4,
+            Alpha = 5,
+            PaletteColor = 6
         }
         
         public class Channel

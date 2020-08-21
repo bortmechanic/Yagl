@@ -6,6 +6,7 @@
 */
 
 // ReSharper disable NotAccessedField.Local
+// ReSharper disable UnusedType.Global
 
 using System;
 using System.Globalization;
@@ -30,7 +31,7 @@ namespace Yagl.Graphics.Imaging
             return false;
         }
         
-        public bool CanSave(bool allowAdaptation) => false;
+        public bool CanSave(string filename, Image image, bool allowAdaptation) => false;
 
         public Image Load(Stream stream)
         {
@@ -108,7 +109,7 @@ namespace Yagl.Graphics.Imaging
 
         public void Save(Image image, Stream stream)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException("Saving BMP images is not supported at this time.");
         }
     }
 }

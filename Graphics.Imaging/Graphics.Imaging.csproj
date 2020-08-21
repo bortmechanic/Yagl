@@ -6,6 +6,7 @@
         <RootNamespace>Yagl.Graphics.Imaging</RootNamespace>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
+        <LangVersion>8</LangVersion>
     </PropertyGroup>
 
 </Project>

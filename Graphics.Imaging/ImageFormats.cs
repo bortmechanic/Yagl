@@ -5,6 +5,8 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedMember.Global
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,10 +28,18 @@ namespace Yagl.Graphics.Imaging
             var format = Formats.FirstOrDefault(f => f.CanLoad(filename));
             if (format == null)
                 throw new NotSupportedException($"Image format of the file '{filename}' is not supported.");
-            using (var stream = File.OpenRead(filename))
-                return format.Load(stream);
+            using var stream = File.OpenRead(filename);
+            return format.Load(stream);
         }
-        
-        
+
+
+        public static void Save(Image image, string filename, bool allowAdaptation)
+        {
+            var format = Formats.FirstOrDefault(f => f.CanSave(filename, image, allowAdaptation));
+            if (format == null)
+                throw new NotSupportedException($"No suitable encoders found to save the image '{filename}'.");
+            using var stream = File.OpenWrite(filename);
+            format.Save(image, stream);
+        }
     }
 }
