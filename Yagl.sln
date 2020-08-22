@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Imaging.Formats.Bm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Imaging.Formats.Png", "Graphics.Imaging.Formats.Png\Graphics.Imaging.Formats.Png.csproj", "{06280C1E-8ED5-4A40-85AF-51A145A49B4C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Imaging.Formats.Yaf", "Graphics.Imaging.Formats.Yaf\Graphics.Imaging.Formats.Yaf.csproj", "{C833166E-CF27-438B-9E91-63528B637F41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
