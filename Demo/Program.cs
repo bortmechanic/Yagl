@@ -6,8 +6,11 @@
 */
 
 using System;
+using System.ComponentModel;
+
 using Yagl.Graphics;
 using Yagl.Windowing;
+
 
 namespace Yagl.Demo
 {
@@ -57,6 +60,13 @@ namespace Yagl.Demo
             window.Run();
 
             Console.WriteLine("The program has completed. Exiting...");
+
+            //Yagl.Graphics.Vector v1 = new Vector(1, 1, 1);
+            //Vector v2 = new Vector(2, 2, 2);
+            //Vector v3 = new Vector();
+            //v3=MathVM.Add(v1, v2);
+            
+
         }
 
         private static void RePaint(object sender, RepaintEventArgs e)

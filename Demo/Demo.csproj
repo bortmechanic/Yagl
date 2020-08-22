@@ -12,6 +12,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Graphics.Common\Graphics.Common.csproj" />
       <ProjectReference Include="..\Graphics.Gl\Graphics.Gl.csproj" />
       <ProjectReference Include="..\Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj" />
       <ProjectReference Include="..\Windowing\Windowing.csproj" />
