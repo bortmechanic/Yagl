@@ -16,8 +16,8 @@ namespace Yagl.Graphics.Imaging.Formats
     {
         private static class FileDescChunk
         {
-            public const uint Code = 0x53434446;  // FDSC.
-            private const ushort Size = 20;
+            public const uint Code = 0x43534446;  // FDSC.
+            private const uint Size = 20;
 
             private const uint FileType = 0x21464159;  // YAF!.
             private const uint FileSubType = 0x21474d49;  // IMG!
@@ -47,7 +47,7 @@ namespace Yagl.Graphics.Imaging.Formats
                 writer.Write(FileType);  // File type.
                 writer.Write(FileSubType);  // File sub type.
                 writer.Write(VersionMinor);  // Minor component of the format version.
-                writer.Write(VersionMinor);  // Major component of the format version.
+                writer.Write(VersionMajor);  // Major component of the format version.
                 writer.Write(Reserved);  // Reserved for future use.
                 writer.Write(0u);  // Reserved.
             }

@@ -102,7 +102,6 @@ namespace Yagl.Graphics.Imaging.Formats
                 if (filter == 4)
                     ApplyPaethFilterDecoding(rowBuffer, previousRowBuffer, bytesPerPixelRounded);
                 Array.Copy(rowBuffer, 1, bitMap, (height - i - 1) * outRowSize, rowSize);
-                Console.Write($"{filter.ToString()} ");
                 var temp = rowBuffer;
                 rowBuffer = previousRowBuffer;
                 previousRowBuffer = temp;
