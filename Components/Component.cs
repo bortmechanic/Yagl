@@ -26,10 +26,15 @@ namespace Yagl.Components
             get => _name ?? $"Component #{Id.ToString()}";
             set => _name = value;
         }
+        
+        public ComponentState State { get; internal set; }
 
         public bool IsEnabled { get; set; }
+        
         public bool IsVisible { get; set; }
+        
         public int UpdateOrder { get; set; }
+        
         public int DrawOrder { get; set; }
 
         #endregion
