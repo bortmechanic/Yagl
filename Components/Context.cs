@@ -27,13 +27,13 @@ namespace Yagl.Components
 
         #region Context Life Cycle Triggers
 
-        public void Initialize() => _root.Initialize();
+        public void Initialize() => _root.InitializeInternal();
         
-        public void Update(Time time) => _root.Update(time);
+        public void Update(Time time) => _root.UpdateInternal(time);
         
-        public void Draw(Time time) => _root.Draw(time);
+        public void Draw(Time time) => _root.DrawInternal(time);
         
-        public void ShutDown() => _root.ShutDown();
+        public void ShutDown() => _root.ShutDownInternal();
 
         #endregion
     }

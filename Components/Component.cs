@@ -29,7 +29,7 @@ namespace Yagl.Components
             set => _name = value;
         }
         
-        public ComponentState State { get; internal set; }
+        public ComponentState State { get; private set; }
 
         public bool IsEnabled { get; set; }
         
@@ -63,6 +63,7 @@ namespace Yagl.Components
             IsVisible = true;
             UpdateOrder = 0;
             DrawOrder = 0;
+            State = ComponentState.New;
             Console.WriteLine($"COMPONENT '{Name}' CREATED.");
         }
 
@@ -74,35 +75,79 @@ namespace Yagl.Components
         #endregion
 
         #region Component Life Cycle Events
-        
-        public virtual void Initialize()
+
+        protected virtual void Initialize()
         {
             Console.WriteLine($"COMPONENT '{Name}' INITIALIZE.");
         }
-        
-        public virtual void LoadContent()
+
+        protected virtual void LoadContent()
         {
             Console.WriteLine($"COMPONENT '{Name}' LOAD CONTENT.");
         }
-        
-        public virtual void Update(Time time)
+
+        protected virtual void Update(Time time)
         {
             Console.WriteLine($"COMPONENT '{Name}' UPDATE.");
         }
-        
-        public virtual void Draw(Time time)
+
+        protected virtual void Draw(Time time)
         {
             Console.WriteLine($"COMPONENT '{Name}' DRAW.");
         }
-        
-        public virtual void UnloadContent()
+
+        protected virtual void UnloadContent()
         {
             Console.WriteLine($"COMPONENT '{Name}' UNLOAD CONTENT.");
         }
 
-        public virtual void ShutDown()
+        protected virtual void ShutDown()
         {
             Console.WriteLine($"COMPONENT '{Name}' SHUTDOWN.");
+        }
+
+        #endregion
+        
+        #region Component Life Cycle Triggers
+        
+        internal void InitializeInternal()
+        {
+            if (State != ComponentState.New) return;
+            State = ComponentState.Initializing;
+            Initialize();
+            State = ComponentState.Active;
+        }
+        
+        internal void LoadContentInternal()
+        {
+            if (State != ComponentState.Active) return;
+            LoadContent();
+        }
+        
+        internal void UpdateInternal(Time time)
+        {
+            if (!IsEnabled) return;
+            Update(time);
+        }
+        
+        internal void DrawInternal(Time time)
+        {
+            if (!IsVisible) return;
+            Draw(time);
+        }
+        
+        internal void UnloadContentInternal()
+        {
+            if (State != ComponentState.Active) return;
+            UnloadContent();
+        }
+
+        internal void ShutDownInternal()
+        {
+            if (State != ComponentState.Active) return;
+            State = ComponentState.ShuttingDown;
+            ShutDown();
+            State = ComponentState.Disposed;
         }
 
         #endregion
