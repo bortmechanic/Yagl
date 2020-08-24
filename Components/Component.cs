@@ -2,8 +2,8 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 // ReSharper disable UnusedType.Global
 // ReSharper disable UnusedMember.Global
-
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+
 namespace Yagl.Components
 {
     public abstract class Component
@@ -29,7 +29,7 @@ namespace Yagl.Components
 
         protected Component()
         {
-            Id = 0;
+            Id = IdGenerator.Generate();
             Name = null;
             IsEnabled = true;
             IsVisible = true;
