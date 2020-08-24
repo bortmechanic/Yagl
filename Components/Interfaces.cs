@@ -10,9 +10,19 @@ namespace Yagl.Components
         void Update(Time time);
     }
 
-    public interface IContent
+    public interface IHasContent
     {
         void LoadContent();
         void UnloadContent();
+    }
+
+    public interface INeedsInitialization
+    {
+        void Initialize();
+    }
+
+    public interface INeedsShuttingDown
+    {
+        void ShutDown();
     }
 }
