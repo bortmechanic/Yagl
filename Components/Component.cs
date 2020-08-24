@@ -29,7 +29,7 @@ namespace Yagl.Components
             set => _name = value;
         }
         
-        public ComponentState State { get; private set; }
+        public ComponentState State { get; internal set; }
 
         public bool IsEnabled { get; set; }
         
@@ -38,6 +38,8 @@ namespace Yagl.Components
         public int UpdateOrder { get; set; }
         
         public int DrawOrder { get; set; }
+
+        public readonly Collection Components;
 
         #endregion
 
@@ -63,6 +65,7 @@ namespace Yagl.Components
             IsVisible = true;
             UpdateOrder = 0;
             DrawOrder = 0;
+            Components = new Collection(this);
             State = ComponentState.New;
             Console.WriteLine($"COMPONENT '{Name}' CREATED.");
         }
@@ -76,80 +79,37 @@ namespace Yagl.Components
 
         #region Component Life Cycle Events
 
-        protected virtual void Initialize()
+        protected internal virtual void Initialize()
         {
             Console.WriteLine($"COMPONENT '{Name}' INITIALIZE.");
         }
 
-        protected virtual void LoadContent()
+        protected internal virtual void LoadContent()
         {
             Console.WriteLine($"COMPONENT '{Name}' LOAD CONTENT.");
         }
 
-        protected virtual void Update(Time time)
+        protected internal virtual void Update(Time time)
         {
             Console.WriteLine($"COMPONENT '{Name}' UPDATE.");
         }
 
-        protected virtual void Draw(Time time)
+        protected internal virtual void Draw(Time time)
         {
             Console.WriteLine($"COMPONENT '{Name}' DRAW.");
         }
 
-        protected virtual void UnloadContent()
+        protected internal virtual void UnloadContent()
         {
             Console.WriteLine($"COMPONENT '{Name}' UNLOAD CONTENT.");
         }
 
-        protected virtual void ShutDown()
+        protected internal virtual void ShutDown()
         {
             Console.WriteLine($"COMPONENT '{Name}' SHUTDOWN.");
         }
 
         #endregion
         
-        #region Component Life Cycle Triggers
-        
-        internal void InitializeInternal()
-        {
-            if (State != ComponentState.New) return;
-            State = ComponentState.Initializing;
-            Initialize();
-            State = ComponentState.Active;
-        }
-        
-        internal void LoadContentInternal()
-        {
-            if (State != ComponentState.Active) return;
-            LoadContent();
-        }
-        
-        internal void UpdateInternal(Time time)
-        {
-            if (!IsEnabled) return;
-            Update(time);
-        }
-        
-        internal void DrawInternal(Time time)
-        {
-            if (!IsVisible) return;
-            Draw(time);
-        }
-        
-        internal void UnloadContentInternal()
-        {
-            if (State != ComponentState.Active) return;
-            UnloadContent();
-        }
-
-        internal void ShutDownInternal()
-        {
-            if (State != ComponentState.Active) return;
-            State = ComponentState.ShuttingDown;
-            ShutDown();
-            State = ComponentState.Disposed;
-        }
-
-        #endregion
     }
 }
