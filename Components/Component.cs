@@ -11,7 +11,7 @@ namespace Yagl.Components
         #region Public Fields
         
         public long Id { get; }
-        public string Name { get; set; }
+        public string Name { get => _name ?? $"Component #{Id.ToString()}"; set => _name = value; }
         public bool IsEnabled { get; set; }
         public bool IsVisible { get; set; }
         public int UpdateOrder { get; set; }
@@ -22,6 +22,12 @@ namespace Yagl.Components
         #region Protected Fields
         
         // protected internal Context Context { get; internal set; };
+        
+        #endregion
+        
+        #region Private Fields
+
+        private string _name;
         
         #endregion
         
