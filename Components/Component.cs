@@ -13,9 +13,11 @@
 // ReSharper disable VirtualMemberNeverOverridden.Global
 // ReSharper disable UnusedParameter.Global
 
+using System;
+
 namespace Yagl.Components
 {
-    public abstract class Component
+    public class Component
     {
         #region Public Fields
 
@@ -41,7 +43,7 @@ namespace Yagl.Components
 
         #region Protected Fields
 
-        // protected internal Context Context { get; internal set; };
+        protected internal Context Context { get; internal set; }
 
         #endregion
 
@@ -61,6 +63,12 @@ namespace Yagl.Components
             IsVisible = true;
             UpdateOrder = 0;
             DrawOrder = 0;
+            Console.WriteLine($"COMPONENT '{Name}' CREATED.");
+        }
+
+        internal Component(Context context) : this()
+        {
+            Context = context;
         }
 
         #endregion
@@ -69,26 +77,32 @@ namespace Yagl.Components
         
         public virtual void Initialize()
         {
+            Console.WriteLine($"COMPONENT '{Name}' INITIALIZE.");
         }
         
         public virtual void LoadContent()
         {
+            Console.WriteLine($"COMPONENT '{Name}' LOAD CONTENT.");
         }
         
         public virtual void Update(Time time)
         {
+            Console.WriteLine($"COMPONENT '{Name}' UPDATE.");
         }
         
         public virtual void Draw(Time time)
         {
+            Console.WriteLine($"COMPONENT '{Name}' DRAW.");
         }
         
         public virtual void UnloadContent()
         {
+            Console.WriteLine($"COMPONENT '{Name}' UNLOAD CONTENT.");
         }
 
         public virtual void ShutDown()
         {
+            Console.WriteLine($"COMPONENT '{Name}' SHUTDOWN.");
         }
 
         #endregion
