@@ -79,37 +79,78 @@ namespace Yagl.Components
 
         #region Component Life Cycle Events
 
-        protected internal virtual void Initialize()
+        protected virtual void Initialize()
         {
             Console.WriteLine($"COMPONENT '{Name}' INITIALIZE.");
         }
 
-        protected internal virtual void LoadContent()
+        protected virtual void LoadContent()
         {
             Console.WriteLine($"COMPONENT '{Name}' LOAD CONTENT.");
         }
 
-        protected internal virtual void Update(Time time)
+        protected virtual void Update(Time time)
         {
             Console.WriteLine($"COMPONENT '{Name}' UPDATE.");
         }
 
-        protected internal virtual void Draw(Time time)
+        protected virtual void Draw(Time time)
         {
             Console.WriteLine($"COMPONENT '{Name}' DRAW.");
         }
 
-        protected internal virtual void UnloadContent()
+        protected virtual void UnloadContent()
         {
             Console.WriteLine($"COMPONENT '{Name}' UNLOAD CONTENT.");
         }
 
-        protected internal virtual void ShutDown()
+        protected virtual void ShutDown()
         {
             Console.WriteLine($"COMPONENT '{Name}' SHUTDOWN.");
         }
 
         #endregion
         
+        #region Component Life Cycle Triggers
+
+        internal void InitializeInternal()
+        {
+            if (State != ComponentState.New)
+                throw new InvalidOperationException($"Can't initialize component '{Name}' because it is not in state '{ComponentState.New}'. Actual state of the component is '{State}'.");
+            State = ComponentState.Initializing;
+            Initialize();
+            LoadContent();
+            State = ComponentState.Active;
+        }
+        
+        internal void UpdateInternal(Time time, bool recursive)
+        {
+            if (!IsEnabled) return;
+            Update(time);
+            if (recursive)
+                foreach (var sub in Components)
+                    sub.UpdateInternal(time, true);
+        }
+        
+        internal void DrawInternal(Time time, bool recursive)
+        {
+            if (!IsVisible) return;
+            Draw(time);
+            if (recursive)
+                foreach (var sub in Components)
+                    sub.DrawInternal(time, true);
+        }
+        
+        internal void ShutDownInternal()
+        {
+            if (State != ComponentState.Active)
+                throw new InvalidOperationException($"Can't shut down component '{Name}' because it is not in state '{ComponentState.Active}'. Actual state of the component is '{State}'.");
+            State = ComponentState.ShuttingDown;
+            UnloadContent();
+            ShutDown();
+            State = ComponentState.Disposed;
+        }
+        
+        #endregion
     }
 }

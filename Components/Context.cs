@@ -24,6 +24,7 @@ namespace Yagl.Components
         #region Private Fields
 
         private readonly Component _root;
+        internal readonly ChangeManager ChangeManager;
         
         #endregion
 
@@ -31,6 +32,7 @@ namespace Yagl.Components
 
         public Context()
         {
+            ChangeManager = new ChangeManager();
             _root = new Component(this) {Name = "ROOT"};
             Components = _root.Components;
         }
@@ -39,13 +41,31 @@ namespace Yagl.Components
 
         #region Context Life Cycle Triggers
 
-        public void Initialize() => ComponentManager.Initialize(_root);
-        
-        public void Update(Time time) => ComponentManager.Update(_root, time);
-        
-        public void Draw(Time time) => ComponentManager.Draw(_root, time);
-        
-        public void ShutDown() => ComponentManager.ShutDown(_root);
+        public void Initialize()
+        {
+            _root.InitializeInternal();
+            ChangeManager.ApplyAllChanges();
+        }
+
+        public void Update(Time time)
+        {
+            _root.UpdateInternal(time, true);
+            ChangeManager.ApplyAllChanges();
+        }
+
+        public void Draw(Time time)
+        {
+            _root.DrawInternal(time, true);
+            ChangeManager.ApplyAllChanges();
+        }
+
+        public void ShutDown()
+        {
+            foreach (var component in _root.Components)
+                _root.Components.Remove(component);
+            ChangeManager.ApplyAllChanges();
+            _root.ShutDownInternal();
+        }
 
         #endregion
     }
