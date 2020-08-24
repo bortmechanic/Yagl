@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Yagl.Components</AssemblyName>
+        <RootNamespace>Yagl.Components</RootNamespace>
+        <LangVersion>8</LangVersion>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
+    </PropertyGroup>
+
+</Project>
