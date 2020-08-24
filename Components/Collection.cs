@@ -18,6 +18,8 @@ namespace Yagl.Components
 
         private readonly Component _component;
         private readonly List<Component> _components;
+        internal readonly List<Component> ActiveComponents;
+        internal readonly List<Component> VisualComponents;
 
         #endregion
         
@@ -28,6 +30,8 @@ namespace Yagl.Components
             _component = component ?? throw new ArgumentException($"Parameter {nameof(component)} should not be null.",
                 nameof(component));
             _components = new List<Component>();
+            ActiveComponents = new List<Component>();
+            VisualComponents = new List<Component>();
         }
 
         #endregion
@@ -75,13 +79,47 @@ namespace Yagl.Components
         {
             component.InitializeInternal();
             _components.Add(component);
+            ActiveComponents.Add(component);
+            VisualComponents.Add(component);
         }
 
         internal void RemoveInternal(Component component)
         {
             component.ShutDownInternal();
             _components.Remove(component);
+            ActiveComponents.Remove(component);
+            VisualComponents.Remove(component);
             component.Context = null;
+        }
+        
+        internal void SortOrderedCollections()
+        {
+            ActiveComponents.Sort(ActiveComponentsSortComparerInstance);
+            VisualComponents.Sort(VisualComponentsSortComparerInstance);
+        }
+        
+        private static readonly ActiveComponentsSortComparer ActiveComponentsSortComparerInstance = new ActiveComponentsSortComparer();
+        private class ActiveComponentsSortComparer : IComparer<Component>
+        {
+            public int Compare(Component x, Component y)
+            {
+                var result = x?.UpdateOrder ?? 0 - y?.UpdateOrder ?? 0;
+                if (result == 0)
+                    result = (int)(x?.Id ?? 0 - y?.Id ?? 0);
+                return result;
+            }
+        }
+
+        private static readonly VisualComponentsSortComparer VisualComponentsSortComparerInstance = new VisualComponentsSortComparer();
+        private class VisualComponentsSortComparer : IComparer<Component>
+        {
+            public int Compare(Component x, Component y)
+            {
+                var result = x?.DrawOrder ?? 0 - y?.DrawOrder ?? 0;
+                if (result == 0)
+                    result = (int)(x?.Id ?? 0 - y?.Id ?? 0);
+                return result;
+            }
         }
 
         #endregion

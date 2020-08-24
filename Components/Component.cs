@@ -35,9 +35,9 @@ namespace Yagl.Components
         
         public bool IsVisible { get; set; }
         
-        public int UpdateOrder { get; set; }
+        public int UpdateOrder { get => _updateOrder; set => ChangeUpdateOrder(value); }
         
-        public int DrawOrder { get; set; }
+        public int DrawOrder { get => _drawOrder; set => ChangeDrawOrder(value); }
 
         public readonly Collection Components;
 
@@ -52,6 +52,8 @@ namespace Yagl.Components
         #region Private Fields
 
         private string _name;
+        private int _updateOrder;
+        private int _drawOrder;
 
         #endregion
 
@@ -128,7 +130,7 @@ namespace Yagl.Components
             if (!IsEnabled) return;
             Update(time);
             if (recursive)
-                foreach (var sub in Components)
+                foreach (var sub in Components.ActiveComponents)
                     sub.UpdateInternal(time, true);
         }
         
@@ -137,7 +139,7 @@ namespace Yagl.Components
             if (!IsVisible) return;
             Draw(time);
             if (recursive)
-                foreach (var sub in Components)
+                foreach (var sub in Components.VisualComponents)
                     sub.DrawInternal(time, true);
         }
         
@@ -149,6 +151,40 @@ namespace Yagl.Components
             UnloadContent();
             ShutDown();
             State = ComponentState.Disposed;
+        }
+        
+        #endregion
+        
+        #region Draw / Update Order Change Logic
+
+        private void ChangeUpdateOrder(int newOrder)
+        {
+            if (State == ComponentState.Active)
+                Context.ChangeManager.RegisterUpdateOrderChange(this, newOrder);
+            else
+                _updateOrder = newOrder;
+        }
+        
+        private void ChangeDrawOrder(int newOrder)
+        {
+            if (State == ComponentState.Active)
+                Context.ChangeManager.RegisterDrawOrderChange(this, newOrder);
+            else
+                _drawOrder = newOrder;
+        }
+        
+        internal void ChangeUpdateOrderInternal(int newOrder)
+        {
+            if (newOrder == UpdateOrder) return;
+            _updateOrder = newOrder;
+            Components.SortOrderedCollections();
+        }
+
+        internal void ChangeDrawOrderInternal(int newOrder)
+        {
+            if (newOrder == DrawOrder) return;
+            _drawOrder = newOrder;
+            Components.SortOrderedCollections();
         }
         
         #endregion

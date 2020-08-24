@@ -24,6 +24,18 @@ namespace Yagl.Components
             Console.WriteLine($"REMOVE REGISTERED: {component.Name}.");
         }
         
+        public void RegisterUpdateOrderChange(Component component, int newOrder)
+        {
+            _changesQueue.Enqueue(new Change { Component = component, Action = Action.ChangeUpdateOrder, Order = newOrder });
+            Console.WriteLine($"UPDATE ORDER CHANGE REGISTERED: {component.Name} order {newOrder.ToString()}.");
+        }
+
+        public void RegisterDrawOrderChange(Component component, int newOrder)
+        {
+            _changesQueue.Enqueue(new Change { Component = component, Action = Action.ChangeDrawOrder, Order = newOrder });
+            Console.WriteLine($"DRAW ORDER CHANGE REGISTERED: {component.Name} order {newOrder.ToString()}.");
+        }
+        
         private void ApplyAddChange(Change change)
         {
             change.Collection.AddInternal(change.Component);
@@ -32,6 +44,16 @@ namespace Yagl.Components
         private void ApplyRemoveChange(Change change)
         {
             change.Collection.RemoveInternal(change.Component);
+        }
+        
+        private void ApplyChangeUpdateOrder(Change change)
+        {
+            change.Component.ChangeUpdateOrderInternal(change.Order);
+        }
+
+        private void ApplyChangeDrawOrder(Change change)
+        {
+            change.Component.ChangeDrawOrderInternal(change.Order);
         }
         
         public void ApplyAllChanges()
@@ -43,6 +65,8 @@ namespace Yagl.Components
                 {
                     case Action.AddComponent: ApplyAddChange(change); break;
                     case Action.RemoveComponent: ApplyRemoveChange(change); break;
+                    case Action.ChangeUpdateOrder: ApplyChangeUpdateOrder(change); break;
+                    case Action.ChangeDrawOrder: ApplyChangeDrawOrder(change); break;
                     default: throw new NotSupportedException($"Change action '{change.Action}' is not supported.");
                 }
             }
@@ -53,12 +77,15 @@ namespace Yagl.Components
             public Action Action;
             public Component Component;
             public Collection Collection;
+            public int Order;
         }
 
         private enum Action
         {
             AddComponent = 10,
-            RemoveComponent = 20
+            RemoveComponent = 20,
+            ChangeUpdateOrder = 30,
+            ChangeDrawOrder = 40
         }
     }
 }
