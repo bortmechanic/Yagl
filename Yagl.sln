@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Imaging.Formats.Ya
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components", "Components\Components.csproj", "{5894AD7C-358E-4A8A-9D4D-9776889FA0C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLoop", "GameLoop\GameLoop.csproj", "{21D131EB-CE8D-4812-A264-E4FC14D48D30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,5 +68,9 @@ Global
 		{C833166E-CF27-438B-9E91-63528B637F41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C833166E-CF27-438B-9E91-63528B637F41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C833166E-CF27-438B-9E91-63528B637F41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21D131EB-CE8D-4812-A264-E4FC14D48D30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21D131EB-CE8D-4812-A264-E4FC14D48D30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21D131EB-CE8D-4812-A264-E4FC14D48D30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21D131EB-CE8D-4812-A264-E4FC14D48D30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
