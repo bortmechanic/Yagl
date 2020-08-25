@@ -6,44 +6,47 @@
  See LICENSE.txt for the full license text.
 */
 
-public struct Vector3d
+namespace Yagl.Graphics
 {
-    public double X;
-    public double Y;
-    public double Z;
-
-    public Vector3d(double x, double y, double z)
+    public struct Vector3d
     {
-        X = x;
-        Y = y;
-        Z = z;
+        public double X;
+        public double Y;
+        public double Z;
+
+        public Vector3d(double x, double y, double z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
     }
-}
 
-public struct Vector3f
-{
-    public float X;
-    public float Y;
-    public float Z;
-
-    public Vector3f(float x, float y, float z)
+    public struct Vector3f
     {
-        X = x;
-        Y = y;
-        Z = z;
+        public float X;
+        public float Y;
+        public float Z;
+
+        public Vector3f(float x, float y, float z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
     }
-}
 
-public struct Vector3i
-{
-    public int X;
-    public int Y;
-    public int Z;
-
-    public Vector3i(int x, int y, int z)
+    public struct Vector3i
     {
-        X = x;
-        Y = y;
-        Z = z;
+        public int X;
+        public int Y;
+        public int Z;
+
+        public Vector3i(int x, int y, int z)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+        }
     }
 }

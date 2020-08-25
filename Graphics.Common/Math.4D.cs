@@ -319,7 +319,6 @@ namespace Yagl.Graphics
                                  0, 0, 0, 1);
         }
 
-        //v Transform(v, m)
         public static Vector4d Transform(Matrix4d m, Vector4d v)
         {
             return new Vector4d(m.M11 * v.X + m.M12 * v.Y + m.M13 * v.Z + m.M14 * v.S,
@@ -343,7 +342,5 @@ namespace Yagl.Graphics
                 m.M31 * v.X + m.M32 * v.Y + m.M33 * v.Z + m.M34 * v.S,
                 m.M41 * v.X + m.M42 * v.Y + m.M43 * v.Z + m.M44 * v.S);
         }
-        
-        
     }
 }

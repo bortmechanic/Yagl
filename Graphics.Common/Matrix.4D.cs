@@ -26,10 +26,7 @@ namespace Yagl.Graphics
             M41 = m41; M42 = m42; M43 = m43; M44 = m44;
         }
     }
-}
 
-namespace Yagl.Graphics
-{
     public struct Matrix4f
     {
         public float M11, M12, M13, M14;
@@ -48,10 +45,7 @@ namespace Yagl.Graphics
             M41 = m41; M42 = m42; M43 = m43; M44 = m44;
         }
     }
-}
 
-namespace Yagl.Graphics
-{
     public struct Matrix4i
     {
         public int M11, M12, M13, M14;

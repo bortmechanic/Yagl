@@ -20,10 +20,7 @@ namespace Yagl.Graphics
             M21 = m21; M22 = m22;
         }
     }
-}
 
-namespace Yagl.Graphics
-{
     public struct Matrix2f
     {
         public float M11, M12;
@@ -36,11 +33,7 @@ namespace Yagl.Graphics
             M21 = m21; M22 = m22;
         }
     }
-}
 
-
-namespace Yagl.Graphics
-{
     public struct Matrix2i
     {
         public int M11, M12;

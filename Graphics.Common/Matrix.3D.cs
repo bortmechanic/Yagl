@@ -30,10 +30,7 @@ namespace Yagl.Graphics
             M31 = m31; M32 = m32; M33 = m33;
         }
     }
-}
 
-namespace Yagl.Graphics
-{
     public struct Matrix3f
     {
         public float M11, M12, M13;
@@ -49,10 +46,7 @@ namespace Yagl.Graphics
             M31 = m31; M32 = m32; M33 = m33;
         }
     }
-}
 
-namespace Yagl.Graphics
-{
     public struct Matrix3i
     {
         public int M11, M12, M13;

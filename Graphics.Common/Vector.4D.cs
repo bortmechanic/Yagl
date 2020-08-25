@@ -6,50 +6,53 @@
  See LICENSE.txt for the full license text.
 */
 
-public struct Vector4d
+namespace Yagl.Graphics
 {
-    public double X;
-    public double Y;
-    public double Z;
-    public double S;
-
-    public Vector4d(double x, double y, double z,double s)
+    public struct Vector4d
     {
-        X = x;
-        Y = y;
-        Z = z;
-        S = s;
+        public double X;
+        public double Y;
+        public double Z;
+        public double S;
+
+        public Vector4d(double x, double y, double z,double s)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+            S = s;
+        }
     }
-}
 
-public struct Vector4f
-{
-    public float X;
-    public float Y;
-    public float Z;
-    public float S;
-
-    public Vector4f(float x, float y, float z, float s)
+    public struct Vector4f
     {
-        X = x;
-        Y = y;
-        Z = z;
-        S = s;
+        public float X;
+        public float Y;
+        public float Z;
+        public float S;
+
+        public Vector4f(float x, float y, float z, float s)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+            S = s;
+        }
     }
-}
 
-public struct Vector4i
-{
-    public int X;
-    public int Y;
-    public int Z;
-    public int S;
-
-    public Vector4i(int x, int y, int z, int s)
+    public struct Vector4i
     {
-        X = x;
-        Y = y;
-        Z = z;
-        S = s;
+        public int X;
+        public int Y;
+        public int Z;
+        public int S;
+
+        public Vector4i(int x, int y, int z, int s)
+        {
+            X = x;
+            Y = y;
+            Z = z;
+            S = s;
+        }
     }
 }

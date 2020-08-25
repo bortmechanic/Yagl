@@ -24,10 +24,7 @@ namespace Yagl.Graphics
         {
             return Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
         }
-
-        //Dot Vector2
-
-        //Dot Vector3
+        
         public static double Dot(Vector3d v1, Vector3d v2)
         {
             return v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
@@ -42,11 +39,7 @@ namespace Yagl.Graphics
         {
             return v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
         }
-
-
-        //Add Vector2
-
-        //Add Vector3
+        
         public static Vector3d Add(Vector3d v1, Vector3d v2)
         {
             return new Vector3d(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
@@ -62,9 +55,6 @@ namespace Yagl.Graphics
             return new Vector3i(v1.X + v2.X, v1.Y + v2.Y, v1.Z + v2.Z);
         }
 
-        //Subtract Vector2
-
-        //Subtract Vector3
         public static Vector3d Subtract(Vector3d v1, Vector3d v2)
         {
             return new Vector3d(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
@@ -80,9 +70,6 @@ namespace Yagl.Graphics
             return new Vector3i(v1.X - v2.X, v1.Y - v2.Y, v1.Z - v2.Z);
         }
 
-        //Multiply Vector2
-
-        //Multiply Vector3
         public static Vector3d Multiply(Vector3d v, double a)
         {
             return new Vector3d(a * v.X, a * v.Y, a * v.Z);
@@ -98,13 +85,11 @@ namespace Yagl.Graphics
             return new Vector3i(a * v.X, a * v.Y, a * v.Z);
         }
 
-        //Divide Vector2
-
-        //Divide Vector3
         public static Vector3d Divide(Vector3d v, double a)
         {
             return new Vector3d(v.X / a, v.Y / a, v.Z / a);
         }
+        
         public static Vector3f Divide(Vector3f v, float a)
         {
             return new Vector3f(v.X / a, v.Y / a, v.Z / a);
@@ -114,15 +99,13 @@ namespace Yagl.Graphics
         {
             return new Vector3f(v.X / (float) a, v.Y / (float) a, v.Z / (float) a);
         }
-        
-        //Normalize Vector2
 
-        //Normalize Vector3
         public static Vector3d Normalize(Vector3d v)
         {
             double a = Length(v);
             return new Vector3d(v.X / a, v.Y / a, v.Z / a);
         }
+        
         public static Vector3f Normalize(Vector3f v)
         {
             float a = Length(v);
@@ -134,14 +117,12 @@ namespace Yagl.Graphics
             float a = Length(v);
             return new Vector3f(v.X / a, v.Y / a, v.Z / a);
         }
-        
-        //Negate Vector2
 
-        //Negate Vector3
         public static Vector3d Negate(Vector3d v)
         {
             return new Vector3d(-v.X, -v.Y, -v.Z);
         }
+        
         public static Vector3f Negate(Vector3f v)
         {
             return new Vector3f(-v.X, -v.Y, -v.Z);
@@ -151,8 +132,7 @@ namespace Yagl.Graphics
         {
             return new Vector3i(-v.X, -v.Y, -v.Z);
         }
-                
-        //Cross Vector3
+
         public static Vector3d Cross(Vector3d v1, Vector3d v2)
         {
             return new Vector3d(v1.Y * v2.Z - v1.Z * v2.Y, v1.Z * v2.X - v1.X * v2.Z, v1.X * v2.Y - v1.Y * v2.X);
@@ -167,16 +147,14 @@ namespace Yagl.Graphics
         {
             return new Vector3i(v1.Y * v2.Z - v1.Z * v2.Y, v1.Z * v2.X - v1.X * v2.Z, v1.X * v2.Y - v1.Y * v2.X);
         }
-                
-        //Multiply Matrix2
 
-        //Multiply Matrix3
         public static Matrix3d Multiply(Matrix3d m, double a)
         {
             return new Matrix3d(m.M11 * a, m.M12 * a, m.M13 * a,
                                 m.M21 * a, m.M22 * a, m.M23 * a,
                                 m.M31 * a, m.M32 * a, m.M33 * a);
         }
+        
         public static Matrix3f Multiply(Matrix3f m, float a)
         {
             return new Matrix3f(m.M11 * a, m.M12 * a, m.M13 * a,
@@ -190,18 +168,14 @@ namespace Yagl.Graphics
                 m.M21 * a, m.M22 * a, m.M23 * a,
                 m.M31 * a, m.M32 * a, m.M33 * a);
         }
-        
-        //Multiply Matrix4
 
-        //Divide Matrix2
-
-        //Divide Matrix3
         public static Matrix3d Divide(Matrix3d m, double a)
         {
             return new Matrix3d(m.M11 / a, m.M12 / a, m.M13 / a,
                                 m.M21 / a, m.M22 / a, m.M23 / a,
                                 m.M31 / a, m.M32 / a, m.M33 / a);
         }
+        
         public static Matrix3f Divide(Matrix3f m, float a)
         {
             return new Matrix3f(m.M11 / a, m.M12 / a, m.M13 / a,
@@ -215,18 +189,14 @@ namespace Yagl.Graphics
                 m.M21 / (float) a, m.M22 / (float) a, m.M23 / (float) a,
                 m.M31 / (float) a, m.M32 / (float) a, m.M33 / (float) a);
         }
-        
-        //Divide Matrix4
 
-        //Add Matrix2
-
-        //Add Matrix3
         public static Matrix3d Add(Matrix3d m1, Matrix3d m2)
         {
             return new Matrix3d(m1.M11 + m2.M11, m1.M12 + m2.M12, m1.M13 + m2.M13,
                                 m1.M21 + m2.M21, m1.M22 + m2.M22, m1.M23 + m2.M23,
                                 m1.M31 + m2.M31, m1.M32 + m2.M32, m1.M33 + m2.M33);
         }
+        
         public static Matrix3f Add(Matrix3f m1, Matrix3f m2)
         {
             return new Matrix3f(m1.M11 + m2.M11, m1.M12 + m2.M12, m1.M13 + m2.M13,
@@ -240,18 +210,14 @@ namespace Yagl.Graphics
                 m1.M21 + m2.M21, m1.M22 + m2.M22, m1.M23 + m2.M23,
                 m1.M31 + m2.M31, m1.M32 + m2.M32, m1.M33 + m2.M33);
         }
-        
-        //Add Matrix4
 
-        //Subtract Matrix2
-
-        //Subtract Matrix3
         public static Matrix3d Subtract(Matrix3d m1, Matrix3d m2)
         {
             return new Matrix3d(m1.M11 - m2.M11, m1.M12 - m2.M12, m1.M13 - m2.M13,
                                 m1.M21 - m2.M21, m1.M22 - m2.M22, m1.M23 - m2.M23,
                                 m1.M31 - m2.M31, m1.M32 - m2.M32, m1.M33 - m2.M33);
         }
+        
         public static Matrix3f Subtract(Matrix3f m1, Matrix3f m2)
         {
             return new Matrix3f(m1.M11 - m2.M11, m1.M12 - m2.M12, m1.M13 - m2.M13,
@@ -266,15 +232,11 @@ namespace Yagl.Graphics
                 m1.M31 - m2.M31, m1.M32 - m2.M32, m1.M33 - m2.M33);
         }
 
-        //Subtract Matrix4
-
-        //Determinant Matrix2
-
-        //Determinant Matrix3
         public static double Determinant(Matrix3d m)
         {
             return m.M11 * m.M22 * m.M33 + m.M12 * m.M23 * m.M31 + m.M21 * m.M32 * m.M13 - m.M31 * m.M22 * m.M13 - m.M21 * m.M12 * m.M33 - m.M32 * m.M23 * m.M11;
         }
+        
         public static float Determinant(Matrix3f m)
         {
             return m.M11 * m.M22 * m.M33 + m.M12 * m.M23 * m.M31 + m.M21 * m.M32 * m.M13 - m.M31 * m.M22 * m.M13 - m.M21 * m.M12 * m.M33 - m.M32 * m.M23 * m.M11;
@@ -284,12 +246,7 @@ namespace Yagl.Graphics
         {
             return m.M11 * m.M22 * m.M33 + m.M12 * m.M23 * m.M31 + m.M21 * m.M32 * m.M13 - m.M31 * m.M22 * m.M13 - m.M21 * m.M12 * m.M33 - m.M32 * m.M23 * m.M11;
         }
-       
-        //Determinant Matrix4
 
-        //Multiply Matrix2
-
-        //Multiply Matrix3
         public static Matrix3d Multiply(Matrix3d m1, Matrix3d m2)
         {
             return new Matrix3d(
@@ -314,11 +271,6 @@ namespace Yagl.Graphics
                 m1.M31 * m2.M11 + m1.M32 * m2.M21 + m1.M33 * m2.M31, m1.M31 * m2.M12 + m1.M32 * m2.M22 + m1.M33 * m2.M32, m1.M31 * m2.M13 + m1.M32 * m2.M23 + m1.M33 * m2.M33);
         }
 
-        //Multiply Matrix4
-
-        //Invert Matrix2
-
-        //Invert Matrix3
         public static Matrix3d Invert(Matrix3d m)
         {
             Matrix3d St = new Matrix3d(m.M22 * m.M33 - m.M23 * m.M32, m.M13 * m.M32 - m.M12 * m.M33, m.M12 * m.M23 - m.M22 * m.M13,
@@ -327,6 +279,7 @@ namespace Yagl.Graphics
             
             return Divide(St,Determinant(m));
         }
+        
         public static Matrix3f Invert(Matrix3f m)
         {
             Matrix3f St = new Matrix3f(m.M22 * m.M33 - m.M23 * m.M32, m.M13 * m.M32 - m.M12 * m.M33, m.M12 * m.M23 - m.M22 * m.M13,
@@ -344,8 +297,6 @@ namespace Yagl.Graphics
 
             return Divide(St, Determinant(m));
         }
-        
-        //Invert Matrix4
 
         public static Vector3d Transform(Matrix3d m, Vector3d v)
         {
