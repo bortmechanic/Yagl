@@ -9,6 +9,8 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 
+using System.Globalization;
+
 namespace Yagl.Graphics
 {
     public struct Vector4d
@@ -22,6 +24,9 @@ namespace Yagl.Graphics
             Z = z;
             W = w;
         }
+        
+        public override string ToString() =>
+            $"({X.ToString(CultureInfo.InvariantCulture)}, {Y.ToString(CultureInfo.InvariantCulture)}, {Z.ToString(CultureInfo.InvariantCulture)}, {W.ToString(CultureInfo.InvariantCulture)})";
     }
 
     public struct Vector4f
@@ -35,6 +40,9 @@ namespace Yagl.Graphics
             Z = z;
             W = w;
         }
+        
+        public override string ToString() =>
+            $"({X.ToString(CultureInfo.InvariantCulture)}, {Y.ToString(CultureInfo.InvariantCulture)}, {Z.ToString(CultureInfo.InvariantCulture)}, {W.ToString(CultureInfo.InvariantCulture)})";
     }
 
     public struct Vector4i
@@ -48,5 +56,8 @@ namespace Yagl.Graphics
             Z = z;
             W = w;
         }
+        
+        public override string ToString() =>
+            $"({X.ToString()}, {Y.ToString()}, {Z.ToString()}, {W.ToString()})";
     }
 }

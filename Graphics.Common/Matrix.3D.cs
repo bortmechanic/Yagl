@@ -9,6 +9,8 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 
+using System.Globalization;
+
 namespace Yagl.Graphics
 {
     public struct Matrix3d
@@ -30,6 +32,9 @@ namespace Yagl.Graphics
             M32 = m32;
             M33 = m33;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}, {M13.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}, {M23.ToString(CultureInfo.InvariantCulture)}), ({M31.ToString(CultureInfo.InvariantCulture)}, {M32.ToString(CultureInfo.InvariantCulture)}, {M33.ToString(CultureInfo.InvariantCulture)}) )";
     }
 
     public struct Matrix3f
@@ -51,6 +56,9 @@ namespace Yagl.Graphics
             M32 = m32;
             M33 = m33;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}, {M13.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}, {M23.ToString(CultureInfo.InvariantCulture)}), ({M31.ToString(CultureInfo.InvariantCulture)}, {M32.ToString(CultureInfo.InvariantCulture)}, {M33.ToString(CultureInfo.InvariantCulture)}) )";
     }
 
     public struct Matrix3i
@@ -71,5 +79,8 @@ namespace Yagl.Graphics
             M32 = m32;
             M33 = m33;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString()}, {M12.ToString()}, {M13.ToString()}), ({M21.ToString()}, {M22.ToString()}, {M23.ToString()}), ({M31.ToString()}, {M32.ToString()}, {M33.ToString()}) )";
     }
 }

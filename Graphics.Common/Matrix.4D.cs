@@ -9,6 +9,8 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 
+using System.Globalization;
+
 namespace Yagl.Graphics
 {
     public struct Matrix4d
@@ -38,6 +40,9 @@ namespace Yagl.Graphics
             M43 = m43;
             M44 = m44;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}, {M13.ToString(CultureInfo.InvariantCulture)}, {M14.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}, {M23.ToString(CultureInfo.InvariantCulture)} {M24.ToString(CultureInfo.InvariantCulture)}), ({M31.ToString(CultureInfo.InvariantCulture)}, {M32.ToString(CultureInfo.InvariantCulture)}, {M33.ToString(CultureInfo.InvariantCulture)} {M34.ToString(CultureInfo.InvariantCulture)}), ({M41.ToString(CultureInfo.InvariantCulture)}, {M42.ToString(CultureInfo.InvariantCulture)}, {M43.ToString(CultureInfo.InvariantCulture)} {M44.ToString(CultureInfo.InvariantCulture)}) )";
     }
 
     public struct Matrix4f
@@ -67,6 +72,9 @@ namespace Yagl.Graphics
             M43 = m43;
             M44 = m44;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}, {M13.ToString(CultureInfo.InvariantCulture)}, {M14.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}, {M23.ToString(CultureInfo.InvariantCulture)} {M24.ToString(CultureInfo.InvariantCulture)}), ({M31.ToString(CultureInfo.InvariantCulture)}, {M32.ToString(CultureInfo.InvariantCulture)}, {M33.ToString(CultureInfo.InvariantCulture)} {M34.ToString(CultureInfo.InvariantCulture)}), ({M41.ToString(CultureInfo.InvariantCulture)}, {M42.ToString(CultureInfo.InvariantCulture)}, {M43.ToString(CultureInfo.InvariantCulture)} {M44.ToString(CultureInfo.InvariantCulture)}) )";
     }
 
     public struct Matrix4i
@@ -96,5 +104,8 @@ namespace Yagl.Graphics
             M43 = m43;
             M44 = m44;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString()}, {M12.ToString()}, {M13.ToString()}, {M14.ToString()}), ({M21.ToString()}, {M22.ToString()}, {M23.ToString()} {M24.ToString()}), ({M31.ToString()}, {M32.ToString()}, {M33.ToString()} {M34.ToString()}), ({M41.ToString()}, {M42.ToString()}, {M43.ToString()} {M44.ToString()}) )";
     }
 }

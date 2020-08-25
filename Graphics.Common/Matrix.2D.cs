@@ -9,6 +9,8 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
 
+using System.Globalization;
+
 namespace Yagl.Graphics
 {
     public struct Matrix2d
@@ -23,6 +25,9 @@ namespace Yagl.Graphics
             M21 = m21;
             M22 = m22;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}) )";
     }
 
     public struct Matrix2f
@@ -37,6 +42,9 @@ namespace Yagl.Graphics
             M21 = m21;
             M22 = m22;
         }
+        
+        public override string ToString() =>
+            $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}) )";
     }
 
     public struct Matrix2i
@@ -51,5 +59,8 @@ namespace Yagl.Graphics
             M21 = m21;
             M22 = m22;
         }
+
+        public override string ToString() =>
+            $"( ({M11.ToString()}, {M12.ToString()}), ({M21.ToString()}, {M22.ToString()}) )";
     }
 }
