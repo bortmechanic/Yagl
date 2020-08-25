@@ -4,14 +4,18 @@
  Distributed under the MIT License (http://opensource.org/licenses/MIT).
  See LICENSE.txt for the full license text.
 */
-public struct Vector2f
+public struct Vector4d
 {
-    public float X;
-    public float Y;
+    public double X;
+    public double Y;
+    public double Z;
+    public double S;
 
-    public Vector2f(float x, float y)
+    public Vector4d(double x, double y, double z,double s)
     {
         X = x;
         Y = y;
+        Z = z;
+        S = s;
     }
 }

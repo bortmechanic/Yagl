@@ -1,27 +1,33 @@
-﻿namespace Yagl.Graphics
+﻿/*
+ This source file is a part of the project YAGL.
+ Copyright (c) 2020 Viktor Kalmuk, Pavel Melnikov.
+ Distributed under the MIT License (http://opensource.org/licenses/MIT).
+ See LICENSE.txt for the full license text.
+*/
+namespace Yagl.Graphics
 {
     public partial class Math
     {
         //Length Vector2
         public static double Length(Vector2d v)
         {
-            return System.Math.Sqrt(v.X * v.X + v.Y * v.Y );
+            return Sqrt(v.X * v.X + v.Y * v.Y );
         }
 
         public static float Length(Vector2f v)
         {
-            return (float)(System.Math.Sqrt(v.X * v.X + v.Y * v.Y ));
+            return Sqrt(v.X * v.X + v.Y * v.Y );
         }
 
         //Length Vector3
         public static double Length(Vector3d v)
         {
-            return System.Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
+            return Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
         }
 
         public static float Length(Vector3f v)
         {
-            return (float)(System.Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z));
+            return Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
         }
 
         //Dot Vector2
@@ -135,39 +141,43 @@
         //Normalize Vector2
         public static Vector2d Normalize(Vector2d v)
         {
-            return new Vector2d(v.X / Length(v), v.Y / Length(v));
+            double a = Length(v);
+            return new Vector2d(v.X / a, v.Y / a);
         }
         public static Vector2f Normalize(Vector2f v)
         {
-            return new Vector2f(v.X / Length(v), v.Y / Length(v));
+            float a = Length(v);
+            return new Vector2f(v.X / a, v.Y / a);
         }
         
         //Normalize Vector3
         public static Vector3d Normalize(Vector3d v)
         {
-            return new Vector3d(v.X / Length(v), v.Y / Length(v), v.Z / Length(v));
+            double a = Length(v);
+            return new Vector3d(v.X / a, v.Y / a, v.Z / a);
         }
         public static Vector3f Normalize(Vector3f v)
         {
-            return new Vector3f(v.X / Length(v), v.Y / Length(v), v.Z / Length(v));
+            float a = Length(v);
+            return new Vector3f(v.X / a, v.Y / a, v.Z / a);
         }
         
         //Negate Vector2
-        public static Vector2d Negative(Vector2d v)
+        public static Vector2d Negate(Vector2d v)
         {
             return new Vector2d(-v.X, -v.Y); ;
         }
-        public static Vector2f Negative(Vector2f v)
+        public static Vector2f Negate(Vector2f v)
         {
             return new Vector2f(-v.X, -v.Y);
         }
        
         //Negate Vector3
-        public static Vector3d Negative(Vector3d v)
+        public static Vector3d Negate(Vector3d v)
         {
             return new Vector3d(-v.X, -v.Y, -v.Z);
         }
-        public static Vector3f Negative(Vector3f v)
+        public static Vector3f Negate(Vector3f v)
         {
             return new Vector3f(-v.X, -v.Y, -v.Z);
         }
@@ -228,12 +238,6 @@
         }
                 
         //Divide Matrix2
-        /// <summary>
-        /// Divide matrix 2x2
-        /// </summary>
-        /// <param name="m">matrix 2x2</param>
-        /// <param name="a">a!=0</param>
-        /// <returns></returns>
         public static Matrix2d Divide(Matrix2d m, double a)
         {
             return new Matrix2d(m.M11 / a, m.M12 / a,
@@ -563,7 +567,7 @@
         }
         //x,y,z - distance to new point 
         //page 183-184 PavelBook
-        public static Matrix4f Translation(float x, float y, float z)
+        public static Matrix4f CreateTranslation(float x, float y, float z)
         {
             return new Matrix4f( 1, 0, 0, x,
                                  0, 1, 0, y,
@@ -571,31 +575,31 @@
                                  0, 0, 0, 1);
         }
 
-        public static Matrix4f RotationX(float a)
+        public static Matrix4f CreateRotationX(float a)
         {
-            return new Matrix4f( 1, 0,                           0,                             0,
-                                 0, (float)(System.Math.Cos(a)), -(float)(System.Math.Sin(a)),  0,
-                                 0, (float)(System.Math.Sin(a)),  (float)(System.Math.Cos(a)),  0,
-                                 0, 0,                           0,                             1);
-        }
-
-        public static Matrix4f RotationY(float a)
-        {
-            return new Matrix4f((float)(System.Math.Cos(a)), 0, (float)(System.Math.Sin(a)), 0,
-                                 0, 1, 0, 0,
-                                 -(float)(System.Math.Sin(a)), 0, (float)(System.Math.Cos(a)), 0,
+            return new Matrix4f(1, 0, 0, 0,
+                                 0, Cos(a), -Sin(a), 0,
+                                 0, Sin(a), Cos(a), 0,
                                  0, 0, 0, 1);
         }
 
-        public static Matrix4f RotationZ(float a)
+        public static Matrix4f CreateRotationY(float a)
         {
-            return new Matrix4f((float)(System.Math.Cos(a)), (float)(System.Math.Sin(a)), 0, 0,
-                                (float)(System.Math.Sin(a)), (float)(System.Math.Cos(a)), 0, 0,
+            return new Matrix4f(Cos(a), 0, Sin(a), 0,
+                                 0, 1, 0, 0,
+                                 -Sin(a), 0, Cos(a), 0,
+                                 0, 0, 0, 1);
+        }
+
+        public static Matrix4f CreateRotationZ(float a)
+        {
+            return new Matrix4f(Cos(a), Sin(a), 0, 0,
+                                Sin(a), Cos(a), 0, 0,
                                   0, 0, 1, 0,
                                   0, 0, 0, 1);
         }
 
-        public static Matrix4f Scaling(float x, float y, float z)
+        public static Matrix4f CreateScaling(float x, float y, float z)
         {
             return new Matrix4f( x, 0, 0, 0,
                                  0, y, 0, 0,
@@ -603,12 +607,43 @@
                                  0, 0, 0, 1);
         }
 
-        public static Matrix4f ShearX(float a)
+        public static Matrix4f CreateShearX(float a)
         {
-            return new Matrix4f( 1, (float)(System.Math.Cos(a)/ System.Math.Sin(a)), 0, 0,
+            return new Matrix4f( 1, Cos(a)/ Sin(a), 0, 0,
                                  0, 1, 0, 0,
                                  0, 0, 1, 0,
                                  0, 0, 0, 1);
+        }
+
+        //v Transform(v, m)
+        public static Vector4d Transform(Matrix4d m, Vector4d v)
+        {
+            return new Vector4d(m.M11 * v.X + m.M12 * v.Y + m.M13 * v.Z + m.M14 * v.S,
+                                m.M21 * v.X + m.M22 * v.Y + m.M23 * v.Z + m.M24 * v.S,
+                                m.M31 * v.X + m.M32 * v.Y + m.M33 * v.Z + m.M34 * v.S,
+                                m.M41 * v.X + m.M42 * v.Y + m.M43 * v.Z + m.M44 * v.S);
+        }
+
+        public static Vector4f Transform(Matrix4f m, Vector4f v)
+        {
+            return new Vector4f(m.M11 * v.X + m.M12 * v.Y + m.M13 * v.Z + m.M14 * v.S,
+                                m.M21 * v.X + m.M22 * v.Y + m.M23 * v.Z + m.M24 * v.S,
+                                m.M31 * v.X + m.M32 * v.Y + m.M33 * v.Z + m.M34 * v.S,
+                                m.M41 * v.X + m.M42 * v.Y + m.M43 * v.Z + m.M44 * v.S);
+        }
+
+        public static Vector3d Transform(Matrix3d m, Vector3d v)
+        {
+            return new Vector3d(m.M11 * v.X + m.M12 * v.Y + m.M13 * v.Z,
+                                m.M21 * v.X + m.M22 * v.Y + m.M23 * v.Z,
+                                m.M31 * v.X + m.M32 * v.Y + m.M33 * v.Z);
+        }
+
+        public static Vector3f Transform(Matrix3f m, Vector3f v)
+        {
+            return new Vector3f(m.M11 * v.X + m.M12 * v.Y + m.M13 * v.Z,
+                                m.M21 * v.X + m.M22 * v.Y + m.M23 * v.Z,
+                                m.M31 * v.X + m.M32 * v.Y + m.M33 * v.Z);
         }
     }
 }

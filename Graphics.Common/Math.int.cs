@@ -1,17 +1,23 @@
-﻿namespace Yagl.Graphics
+﻿/*
+ This source file is a part of the project YAGL.
+ Copyright (c) 2020 Viktor Kalmuk, Pavel Melnikov.
+ Distributed under the MIT License (http://opensource.org/licenses/MIT).
+ See LICENSE.txt for the full license text.
+*/
+namespace Yagl.Graphics
 {
     public partial class Math
     {
         //Length Vector2
         public static float Length(Vector2i v)
         {
-            return (float)System.Math.Sqrt(v.X * v.X + v.Y * v.Y);
+            return Sqrt(v.X * v.X + v.Y * v.Y);
         }
 
         //Length Vector3
         public static float Length(Vector3i v)
         {
-            return (float)System.Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
+            return Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
         }
 
         //Dot Vector2
@@ -77,23 +83,25 @@
         //Normalize Vector2(try..catch Length!=0)
         public static Vector2f Normalize(Vector2i v)
         {
-            return new Vector2f(v.X / Length(v), v.Y / Length(v));
+            float a = Length(v);
+            return new Vector2f(v.X / a, v.Y / a);
         }
 
         //Normalize Vector3(try..catch Length!=0)
         public static Vector3f Normalize(Vector3i v)
         {
-            return new Vector3f(v.X / Length(v), v.Y / Length(v), v.Z / Length(v));
+            float a = Length(v);
+            return new Vector3f(v.X / a, v.Y / a, v.Z / a);
         }
 
         //Negative Vector2
-        public static Vector2i Negative(Vector2i v)
+        public static Vector2i Negate(Vector2i v)
         {
             return new Vector2i(-v.X, -v.Y);
         }
 
         //Negative Vector3
-        public static Vector3i Negative(Vector3i v)
+        public static Vector3i Negate(Vector3i v)
         {
             return new Vector3i(-v.X, -v.Y, -v.Z);
         }
@@ -304,6 +312,21 @@
                                          m.M11 * m.M22 * m.M33 + m.M12 * m.M23 * m.M31 + m.M21 * m.M32 * m.M13 - m.M31 * m.M22 * m.M13 - m.M21 * m.M12 * m.M33 - m.M32 * m.M23 * m.M11);
 
             return Divide(St, Determinant(m));
+        }
+
+        public static Vector4i Transform(Matrix4i m, Vector4i v)
+        {
+            return new Vector4i(m.M11 * v.X + m.M12 * v.Y + m.M13 * v.Z + m.M14 * v.S,
+                                m.M21 * v.X + m.M22 * v.Y + m.M23 * v.Z + m.M24 * v.S,
+                                m.M31 * v.X + m.M32 * v.Y + m.M33 * v.Z + m.M34 * v.S,
+                                m.M41 * v.X + m.M42 * v.Y + m.M43 * v.Z + m.M44 * v.S);
+        }
+
+        public static Vector3i Transform(Matrix3i m, Vector3i v)
+        {
+            return new Vector3i(m.M11 * v.X + m.M12 * v.Y + m.M13 * v.Z,
+                                m.M21 * v.X + m.M22 * v.Y + m.M23 * v.Z,
+                                m.M31 * v.X + m.M32 * v.Y + m.M33 * v.Z);
         }
     }
 }
