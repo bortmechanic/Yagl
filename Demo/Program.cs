@@ -32,9 +32,12 @@ namespace Yagl.Demo
                 Left = 100,
                 ResizeMode = ResizeMode.Resizable
             };
+            Console.WriteLine("OK");
             
+            Console.Write("Initializing OpenGL... OK");
             Gl.Init(window.GetProcAddressDelegate());
-            
+            Console.WriteLine("OK");
+
             window.Activate();
             window.Activated += (sender, e) => 
                 Console.WriteLine($"Window \"{(sender as Window)?.Title}\" Activated."); 
@@ -50,17 +53,15 @@ namespace Yagl.Demo
                 Console.WriteLine("Window is Closed.");
             window.RePaint += RePaint;
 
-            Console.WriteLine("OK");
-            
             Console.WriteLine("Running the program.");
             window.Run();
 
             Console.WriteLine("The program has completed. Exiting...");
         }
-
+        
         private static void RePaint(object sender, RepaintEventArgs e)
         {
-            Gl.ClearColor(0.75f, 0.35f, 0.0f, 1.0f);
+            Gl.ClearColor(0.75f, 0.35f, 0.0f, 1.0f);  // Yellow.
             Gl.Clear(16384);
 
             // Draw a triangle:

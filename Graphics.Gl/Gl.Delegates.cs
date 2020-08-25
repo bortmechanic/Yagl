@@ -2494,7 +2494,7 @@ namespace Yagl.Graphics
         private delegate uint GenSymbolsEXTDel(uint /*DataTypeEXT*/  datatype, uint /*VertexShaderStorageTypeEXT*/  storagetype, uint /*ParameterRangeEXT*/  range, uint  components); private static GenSymbolsEXTDel GenSymbolsEXTPtr;
         
         // glGenTextures
-        private delegate void GenTexturesDel(uint  n, uint[] /*Texture*/  textures); private static GenTexturesDel GenTexturesPtr;
+        private delegate void GenTexturesDel(uint  n, ref uint /*Texture*/  textures); private static GenTexturesDel GenTexturesPtr;
         
         // glGenTexturesEXT
         private delegate void GenTexturesEXTDel(uint  n, uint[] /*Texture*/  textures); private static GenTexturesEXTDel GenTexturesEXTPtr;
@@ -7652,7 +7652,7 @@ namespace Yagl.Graphics
         private delegate void TexImage1DDel(uint /*TextureTarget*/  target, int /*CheckedInt32*/  level, int /*InternalFormat*/  internalformat, uint  width, int /*CheckedInt32*/  border, uint /*PixelFormat*/  format, uint /*PixelType*/  type, IntPtr  pixels); private static TexImage1DDel TexImage1DPtr;
         
         // glTexImage2D
-        private delegate void TexImage2DDel(uint /*TextureTarget*/  target, int /*CheckedInt32*/  level, int /*InternalFormat*/  internalformat, uint  width, uint  height, int /*CheckedInt32*/  border, uint /*PixelFormat*/  format, uint /*PixelType*/  type, IntPtr  pixels); private static TexImage2DDel TexImage2DPtr;
+        private delegate void TexImage2DDel(uint /*TextureTarget*/  target, int /*CheckedInt32*/  level, int /*InternalFormat*/  internalformat, uint  width, uint  height, int /*CheckedInt32*/  border, uint /*PixelFormat*/  format, uint /*PixelType*/  type, byte[] pixels); private static TexImage2DDel TexImage2DPtr;
         
         // glTexImage2DMultisample
         private delegate void TexImage2DMultisampleDel(uint /*TextureTarget*/  target, uint  samples, uint /*InternalFormat*/  internalformat, uint  width, uint  height, bool /*Boolean*/  fixedsamplelocations); private static TexImage2DMultisampleDel TexImage2DMultisamplePtr;
