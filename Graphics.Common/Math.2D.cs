@@ -6,6 +6,10 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedType.Global
+// ReSharper disable UnusedMember.Global
+// ReSharper disable MemberCanBePrivate.Global
+
 namespace Yagl.Graphics
 {
     public partial class Math
@@ -102,26 +106,25 @@ namespace Yagl.Graphics
 
         public static Vector2d Normalize(Vector2d v)
         {
-            double a = Length(v);
+            var a = Length(v);
             return new Vector2d(v.X / a, v.Y / a);
         }
 
         public static Vector2f Normalize(Vector2f v)
         {
-            float a = Length(v);
+            var a = Length(v);
             return new Vector2f(v.X / a, v.Y / a);
         }
 
         public static Vector2f Normalize(Vector2i v)
         {
-            float a = Length(v);
+            var a = Length(v);
             return new Vector2f(v.X / a, v.Y / a);
         }
 
         public static Vector2d Negate(Vector2d v)
         {
             return new Vector2d(-v.X, -v.Y);
-            ;
         }
 
         public static Vector2f Negate(Vector2f v)
@@ -136,74 +139,62 @@ namespace Yagl.Graphics
 
         public static Matrix2d Multiply(Matrix2d m, double a)
         {
-            return new Matrix2d(m.M11 * a, m.M12 * a,
-                m.M21 * a, m.M22 * a);
+            return new Matrix2d(m.M11 * a, m.M12 * a, m.M21 * a, m.M22 * a);
         }
 
         public static Matrix2f Multiply(Matrix2f m, float a)
         {
-            return new Matrix2f(m.M11 * a, m.M12 * a,
-                m.M21 * a, m.M22 * a);
+            return new Matrix2f(m.M11 * a, m.M12 * a, m.M21 * a, m.M22 * a);
         }
 
         public static Matrix2i Multiply(Matrix2i m, int a)
         {
-            return new Matrix2i(m.M11 * a, m.M12 * a,
-                m.M21 * a, m.M22 * a);
+            return new Matrix2i(m.M11 * a, m.M12 * a, m.M21 * a, m.M22 * a);
         }
 
         public static Matrix2d Divide(Matrix2d m, double a)
         {
-            return new Matrix2d(m.M11 / a, m.M12 / a,
-                m.M21 / a, m.M22 / a);
+            return new Matrix2d(m.M11 / a, m.M12 / a, m.M21 / a, m.M22 / a);
         }
 
         public static Matrix2f Divide(Matrix2f m, float a)
         {
-            return new Matrix2f(m.M11 / a, m.M12 / a,
-                m.M21 / a, m.M22 / a);
+            return new Matrix2f(m.M11 / a, m.M12 / a, m.M21 / a, m.M22 / a);
         }
 
         public static Matrix2f Divide(Matrix2i m, int a)
         {
-            return new Matrix2f(m.M11 / (float) a, m.M12 / (float) a,
-                m.M21 / (float) a, m.M22 / (float) a);
+            return new Matrix2f(m.M11 / (float) a, m.M12 / (float) a, m.M21 / (float) a, m.M22 / (float) a);
         }
 
         public static Matrix2d Add(Matrix2d m1, Matrix2d m2)
         {
-            return new Matrix2d(m1.M11 + m2.M11, m1.M12 + m2.M12,
-                m1.M21 + m2.M21, m1.M22 + m2.M22);
+            return new Matrix2d(m1.M11 + m2.M11, m1.M12 + m2.M12, m1.M21 + m2.M21, m1.M22 + m2.M22);
         }
 
         public static Matrix2f Add(Matrix2f m1, Matrix2f m2)
         {
-            return new Matrix2f(m1.M11 + m2.M11, m1.M12 + m2.M12,
-                m1.M21 + m2.M21, m1.M22 + m2.M22);
+            return new Matrix2f(m1.M11 + m2.M11, m1.M12 + m2.M12, m1.M21 + m2.M21, m1.M22 + m2.M22);
         }
 
         public static Matrix2i Add(Matrix2i m1, Matrix2i m2)
         {
-            return new Matrix2i(m1.M11 + m2.M11, m1.M12 + m2.M12,
-                m1.M21 + m2.M21, m1.M22 + m2.M22);
+            return new Matrix2i(m1.M11 + m2.M11, m1.M12 + m2.M12, m1.M21 + m2.M21, m1.M22 + m2.M22);
         }
 
         public static Matrix2d Subtract(Matrix2d m1, Matrix2d m2)
         {
-            return new Matrix2d(m1.M11 - m2.M11, m1.M12 - m2.M12,
-                m1.M21 - m2.M21, m1.M22 - m2.M22);
+            return new Matrix2d(m1.M11 - m2.M11, m1.M12 - m2.M12, m1.M21 - m2.M21, m1.M22 - m2.M22);
         }
 
         public static Matrix2f Subtract(Matrix2f m1, Matrix2f m2)
         {
-            return new Matrix2f(m1.M11 - m2.M11, m1.M12 - m2.M12,
-                m1.M21 - m2.M21, m1.M22 - m2.M22);
+            return new Matrix2f(m1.M11 - m2.M11, m1.M12 - m2.M12, m1.M21 - m2.M21, m1.M22 - m2.M22);
         }
 
         public static Matrix2i Subtract(Matrix2i m1, Matrix2i m2)
         {
-            return new Matrix2i(m1.M11 - m2.M11, m1.M12 - m2.M12,
-                m1.M21 - m2.M21, m1.M22 - m2.M22);
+            return new Matrix2i(m1.M11 - m2.M11, m1.M12 - m2.M12, m1.M21 - m2.M21, m1.M22 - m2.M22);
         }
 
         public static double Determinant(Matrix2d m)
@@ -235,33 +226,26 @@ namespace Yagl.Graphics
 
         public static Matrix2i Multiply(Matrix2i m1, Matrix2i m2)
         {
-            return new Matrix2i(
-                m1.M11 * m2.M11 + m1.M12 * m2.M21, m1.M11 * m2.M12 + m1.M12 * m2.M22,
+            return new Matrix2i(m1.M11 * m2.M11 + m1.M12 * m2.M21, m1.M11 * m2.M12 + m1.M12 * m2.M22,
                 m1.M21 * m2.M11 + m1.M22 * m2.M21, m1.M21 * m2.M12 + m1.M22 * m2.M22);
         }
 
         public static Matrix2d Invert(Matrix2d m)
         {
-            Matrix2d St = new Matrix2d(m.M22, -m.M12,
-                -m.M21, m.M11);
-
-            return Divide(St, Determinant(m));
+            var st = new Matrix2d(m.M22, -m.M12, -m.M21, m.M11);
+            return Divide(st, Determinant(m));
         }
 
         public static Matrix2f Invert(Matrix2f m)
         {
-            Matrix2f St = new Matrix2f(m.M22, -m.M12,
-                -m.M21, m.M11);
-
-            return Divide(St, Determinant(m));
+            var st = new Matrix2f(m.M22, -m.M12, -m.M21, m.M11);
+            return Divide(st, Determinant(m));
         }
 
         public static Matrix2f Invert(Matrix2i m)
         {
-            Matrix2i St = new Matrix2i(m.M22, -m.M12,
-                -m.M21, m.M11);
-
-            return Divide(St, Determinant(m));
+            var st = new Matrix2i(m.M22, -m.M12, -m.M21, m.M11);
+            return Divide(st, Determinant(m));
         }
     }
 }

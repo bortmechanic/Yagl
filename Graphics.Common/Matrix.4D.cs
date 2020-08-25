@@ -6,6 +6,9 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+
 namespace Yagl.Graphics
 {
     public struct Matrix4d
@@ -15,15 +18,25 @@ namespace Yagl.Graphics
         public double M31, M32, M33, M34;
         public double M41, M42, M43, M44;
 
-        public Matrix4d(double m11, double m12, double m13, double m14,
-                        double m21, double m22, double m23, double m24,
-                        double m31, double m32, double m33, double m34,
-                        double m41, double m42, double m43, double m44)
+        public Matrix4d(double m11, double m12, double m13, double m14, double m21, double m22, double m23, double m24,
+            double m31, double m32, double m33, double m34, double m41, double m42, double m43, double m44)
         {
-            M11 = m11; M12 = m12; M13 = m13; M14 = m14;
-            M21 = m21; M22 = m22; M23 = m23; M24 = m24;
-            M31 = m31; M32 = m32; M33 = m33; M34 = m34;
-            M41 = m41; M42 = m42; M43 = m43; M44 = m44;
+            M11 = m11;
+            M12 = m12;
+            M13 = m13;
+            M14 = m14;
+            M21 = m21;
+            M22 = m22;
+            M23 = m23;
+            M24 = m24;
+            M31 = m31;
+            M32 = m32;
+            M33 = m33;
+            M34 = m34;
+            M41 = m41;
+            M42 = m42;
+            M43 = m43;
+            M44 = m44;
         }
     }
 
@@ -34,15 +47,25 @@ namespace Yagl.Graphics
         public float M31, M32, M33, M34;
         public float M41, M42, M43, M44;
 
-        public Matrix4f(float m11, float m12, float m13, float m14,
-            float m21, float m22, float m23, float m24,
-            float m31, float m32, float m33, float m34,
-            float m41, float m42, float m43, float m44)
+        public Matrix4f(float m11, float m12, float m13, float m14, float m21, float m22, float m23, float m24,
+            float m31, float m32, float m33, float m34, float m41, float m42, float m43, float m44)
         {
-            M11 = m11; M12 = m12; M13 = m13; M14 = m14;
-            M21 = m21; M22 = m22; M23 = m23; M24 = m24;
-            M31 = m31; M32 = m32; M33 = m33; M34 = m34;
-            M41 = m41; M42 = m42; M43 = m43; M44 = m44;
+            M11 = m11;
+            M12 = m12;
+            M13 = m13;
+            M14 = m14;
+            M21 = m21;
+            M22 = m22;
+            M23 = m23;
+            M24 = m24;
+            M31 = m31;
+            M32 = m32;
+            M33 = m33;
+            M34 = m34;
+            M41 = m41;
+            M42 = m42;
+            M43 = m43;
+            M44 = m44;
         }
     }
 
@@ -53,15 +76,25 @@ namespace Yagl.Graphics
         public int M31, M32, M33, M34;
         public int M41, M42, M43, M44;
 
-        public Matrix4i(int m11, int m12, int m13, int m14,
-            int m21, int m22, int m23, int m24,
-            int m31, int m32, int m33, int m34,
-            int m41, int m42, int m43, int m44)
+        public Matrix4i(int m11, int m12, int m13, int m14, int m21, int m22, int m23, int m24, int m31, int m32,
+            int m33, int m34, int m41, int m42, int m43, int m44)
         {
-            M11 = m11; M12 = m12; M13 = m13; M14 = m14;
-            M21 = m21; M22 = m22; M23 = m23; M24 = m24;
-            M31 = m31; M32 = m32; M33 = m33; M34 = m34;
-            M41 = m41; M42 = m42; M43 = m43; M44 = m44;
+            M11 = m11;
+            M12 = m12;
+            M13 = m13;
+            M14 = m14;
+            M21 = m21;
+            M22 = m22;
+            M23 = m23;
+            M24 = m24;
+            M31 = m31;
+            M32 = m32;
+            M33 = m33;
+            M34 = m34;
+            M41 = m41;
+            M42 = m42;
+            M43 = m43;
+            M44 = m44;
         }
     }
 }

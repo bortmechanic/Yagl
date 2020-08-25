@@ -6,53 +6,47 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+
 namespace Yagl.Graphics
 {
     public struct Vector4d
     {
-        public double X;
-        public double Y;
-        public double Z;
-        public double S;
+        public double X, Y, Z, W;
 
-        public Vector4d(double x, double y, double z,double s)
+        public Vector4d(double x, double y, double z,double w)
         {
             X = x;
             Y = y;
             Z = z;
-            S = s;
+            W = w;
         }
     }
 
     public struct Vector4f
     {
-        public float X;
-        public float Y;
-        public float Z;
-        public float S;
+        public float X, Y, Z, W;
 
-        public Vector4f(float x, float y, float z, float s)
+        public Vector4f(float x, float y, float z, float w)
         {
             X = x;
             Y = y;
             Z = z;
-            S = s;
+            W = w;
         }
     }
 
     public struct Vector4i
     {
-        public int X;
-        public int Y;
-        public int Z;
-        public int S;
+        public int X, Y, Z, W;
 
-        public Vector4i(int x, int y, int z, int s)
+        public Vector4i(int x, int y, int z, int w)
         {
             X = x;
             Y = y;
             Z = z;
-            S = s;
+            W = w;
         }
     }
 }

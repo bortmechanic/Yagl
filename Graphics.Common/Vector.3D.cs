@@ -6,13 +6,14 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable InconsistentNaming
+// ReSharper disable FieldCanBeMadeReadOnly.Global
+
 namespace Yagl.Graphics
 {
     public struct Vector3d
     {
-        public double X;
-        public double Y;
-        public double Z;
+        public double X, Y, Z;
 
         public Vector3d(double x, double y, double z)
         {
@@ -24,9 +25,7 @@ namespace Yagl.Graphics
 
     public struct Vector3f
     {
-        public float X;
-        public float Y;
-        public float Z;
+        public float X, Y, Z;
 
         public Vector3f(float x, float y, float z)
         {
@@ -38,9 +37,7 @@ namespace Yagl.Graphics
 
     public struct Vector3i
     {
-        public int X;
-        public int Y;
-        public int Z;
+        public int X, Y, Z;
 
         public Vector3i(int x, int y, int z)
         {
