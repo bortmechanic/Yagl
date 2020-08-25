@@ -17,3 +17,31 @@ public struct Vector3d
         Z = z;
     }
 }
+
+public struct Vector3f
+{
+    public float X;
+    public float Y;
+    public float Z;
+
+    public Vector3f(float x, float y, float z)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+    }
+}
+
+public struct Vector3i
+{
+    public int X;
+    public int Y;
+    public int Z;
+
+    public Vector3i(int x, int y, int z)
+    {
+        X = x;
+        Y = y;
+        Z = z;
+    }
+}
