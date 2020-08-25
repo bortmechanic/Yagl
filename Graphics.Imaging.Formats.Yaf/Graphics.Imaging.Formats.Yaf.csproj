@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Yagl.Graphics.Imaging.Formats.Yaf</AssemblyName>
+        <RootNamespace>Yagl.Graphics.Imaging.Formats</RootNamespace>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Graphics.Imaging\Graphics.Imaging.csproj" />
+    </ItemGroup>
+
+</Project>
