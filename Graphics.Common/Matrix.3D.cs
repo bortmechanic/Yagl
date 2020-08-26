@@ -8,6 +8,7 @@
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable UnusedMember.Global
 
 using System.Globalization;
 
@@ -33,6 +34,8 @@ namespace Yagl.Graphics
             M33 = m33;
         }
         
+        public static Matrix3d Identity => new Matrix3d(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        
         public override string ToString() =>
             $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}, {M13.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}, {M23.ToString(CultureInfo.InvariantCulture)}), ({M31.ToString(CultureInfo.InvariantCulture)}, {M32.ToString(CultureInfo.InvariantCulture)}, {M33.ToString(CultureInfo.InvariantCulture)}) )";
     }
@@ -57,6 +60,8 @@ namespace Yagl.Graphics
             M33 = m33;
         }
         
+        public static Matrix3f Identity => new Matrix3f(1, 0, 0, 0, 1, 0, 0, 0, 1);
+        
         public override string ToString() =>
             $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}, {M13.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}, {M23.ToString(CultureInfo.InvariantCulture)}), ({M31.ToString(CultureInfo.InvariantCulture)}, {M32.ToString(CultureInfo.InvariantCulture)}, {M33.ToString(CultureInfo.InvariantCulture)}) )";
     }
@@ -79,6 +84,8 @@ namespace Yagl.Graphics
             M32 = m32;
             M33 = m33;
         }
+        
+        public static Matrix3i Identity => new Matrix3i(1, 0, 0, 0, 1, 0, 0, 0, 1);
         
         public override string ToString() =>
             $"( ({M11.ToString()}, {M12.ToString()}, {M13.ToString()}), ({M21.ToString()}, {M22.ToString()}, {M23.ToString()}), ({M31.ToString()}, {M32.ToString()}, {M33.ToString()}) )";

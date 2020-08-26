@@ -8,6 +8,7 @@
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable UnusedMember.Global
 
 using System.Globalization;
 
@@ -22,6 +23,10 @@ namespace Yagl.Graphics
             X = x;
             Y = y;
         }
+        
+        public static Vector2d Zero => new Vector2d(0, 0);
+        public static Vector2d UnitX => new Vector2d(1, 0);
+        public static Vector2d UnitY => new Vector2d(0, 1);
 
         public override string ToString() =>
             $"({X.ToString(CultureInfo.InvariantCulture)}, {Y.ToString(CultureInfo.InvariantCulture)})";
@@ -36,6 +41,10 @@ namespace Yagl.Graphics
             X = x;
             Y = y;
         }
+        
+        public static Vector2f Zero => new Vector2f(0, 0);
+        public static Vector2f UnitX => new Vector2f(1, 0);
+        public static Vector2f UnitY => new Vector2f(0, 1);
 
         public override string ToString() =>
             $"({X.ToString(CultureInfo.InvariantCulture)}, {Y.ToString(CultureInfo.InvariantCulture)})";
@@ -50,6 +59,10 @@ namespace Yagl.Graphics
             X = x;
             Y = y;
         }
+        
+        public static Vector2i Zero => new Vector2i(0, 0);
+        public static Vector2i UnitX => new Vector2i(1, 0);
+        public static Vector2i UnitY => new Vector2i(0, 1);
 
         public override string ToString() =>
             $"({X.ToString()}, {Y.ToString()})";

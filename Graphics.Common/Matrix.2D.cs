@@ -8,6 +8,7 @@
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable UnusedMember.Global
 
 using System.Globalization;
 
@@ -26,6 +27,8 @@ namespace Yagl.Graphics
             M22 = m22;
         }
         
+        public static Matrix2d Identity => new Matrix2d(1, 0, 1, 0);
+        
         public override string ToString() =>
             $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}) )";
     }
@@ -43,6 +46,8 @@ namespace Yagl.Graphics
             M22 = m22;
         }
         
+        public static Matrix2f Identity => new Matrix2f(1, 0, 1, 0);
+        
         public override string ToString() =>
             $"( ({M11.ToString(CultureInfo.InvariantCulture)}, {M12.ToString(CultureInfo.InvariantCulture)}), ({M21.ToString(CultureInfo.InvariantCulture)}, {M22.ToString(CultureInfo.InvariantCulture)}) )";
     }
@@ -59,6 +64,8 @@ namespace Yagl.Graphics
             M21 = m21;
             M22 = m22;
         }
+        
+        public static Matrix2i Identity => new Matrix2i(1, 0, 1, 0);
 
         public override string ToString() =>
             $"( ({M11.ToString()}, {M12.ToString()}), ({M21.ToString()}, {M22.ToString()}) )";
