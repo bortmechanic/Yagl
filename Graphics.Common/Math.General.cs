@@ -17,6 +17,8 @@ namespace Yagl.Graphics
         public const double Pi = 3.141592653589793;
         public const double PiOverTwo = 1.570796326794897;
         public const double PiOverFour = 0.785398163397448;
+        private const double RadiansIn1Degree = 0.017453292519943;
+        private const double DegreesIn1Radian = 57.295779513082321;
 
         public static double Abs(double v) => v >= 0 ? v : -v;
         public static float Abs(float v) => v >= 0 ? v : -v;
@@ -39,6 +41,14 @@ namespace Yagl.Graphics
         public static double Max(double v1, double v2) => System.Math.Max(v1, v2);
         public static float Max(float v1, float v2) => System.Math.Max(v1, v2);
         public static int Max(int v1, int v2) => System.Math.Max(v1, v2);
+        public static double ToDegrees(double r) => r * DegreesIn1Radian;
+        public static float ToDegrees(float r) => r * (float)DegreesIn1Radian;
+        public static double ToRadians(double d) => d * RadiansIn1Degree;
+        public static float ToRadians(float d) => d * (float)RadiansIn1Degree;
+        public static double Clamp(double value, double min, double max) =>
+            value < min ? min : value > max ? max : value;
+        public static float Clamp(float value, float min, float max) =>
+            value < min ? min : value > max ? max : value;
         public static double Sin(double a) => System.Math.Sin(a);
         public static float Sin(float a) => (float)System.Math.Sin(a);
         public static double Cos(double a) => System.Math.Cos(a);
