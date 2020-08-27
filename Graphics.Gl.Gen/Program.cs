@@ -268,8 +268,8 @@ namespace Yagl.Gl.Generator
                 if (enumGroup == group)
                     group = null;
                 group = group?
-                    .Replace($"{enumGroup},", "")
-                    .Replace($",{enumGroup}", "");
+                    .Replace($"{enumGroup ?? "asdffdsa"},", "")
+                    .Replace($",{enumGroup ?? "asdffdsa"}", "");
                 if (!string.IsNullOrWhiteSpace(alias))
                     Out(Enumerations, $"// Alias of {alias}");
                 if (!string.IsNullOrWhiteSpace(comment))
