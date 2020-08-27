@@ -14,6 +14,24 @@ namespace Yagl.Graphics
 {
     public static partial class Gl
     {
+        // Constants.
+        // SpecialNumbers. Tokens whose numeric value is intrinsically meaningful
+        public const int FALSE = 0; // Boolean,VertexShaderWriteMaskEXT,ClampColorModeARB
+        public const int NO_ERROR = 0; // GraphicsResetStatus,ErrorCode
+        public const int ZERO = 0; // TextureSwizzle,StencilOp,BlendingFactor
+        public const int NONE = 0; // TextureCompareMode,PathColorFormat,CombinerBiasNV,CombinerScaleNV,DrawBufferMode,PixelTexGenMode,ReadBufferMode,ColorBuffer,PathGenMode,PathTransformType,PathFontStyle
+        public const int NONE_OES = 0; // ReadBufferMode,DrawBufferMode
+        public const int TRUE = 1; // Boolean,VertexShaderWriteMaskEXT,ClampColorModeARB
+        public const int ONE = 1; // TextureSwizzle,BlendingFactor
+        public const uint INVALID_INDEX = 0xFFFFFFFF;
+        public const uint ALL_PIXELS_AMD = 0xFFFFFFFF;
+        public const ulong TIMEOUT_IGNORED = 0xFFFFFFFFFFFFFFFF;
+        public const ulong TIMEOUT_IGNORED_APPLE = 0xFFFFFFFFFFFFFFFF;
+        public const int VERSION_ES_CL_1_0 = 1; // Not an API enum. API definition macro for ES 1.0/1.1 headers
+        public const int VERSION_ES_CM_1_1 = 1; // Not an API enum. API definition macro for ES 1.0/1.1 headers
+        public const int VERSION_ES_CL_1_1 = 1; // Not an API enum. API definition macro for ES 1.0/1.1 headers
+        public const int UUID_SIZE_EXT = 16;
+        public const int LUID_SIZE_EXT = 8;
 
         // AttribMask. 
         public const uint CURRENT_BIT = 0x00000001;
@@ -383,31 +401,7 @@ namespace Yagl.Graphics
         public const ushort RESTART_SUN = 0x0001;
         public const ushort REPLACE_MIDDLE_SUN = 0x0002;
         public const ushort REPLACE_OLDEST_SUN = 0x0003;
-        
-        // SpecialNumbers. Tokens whose numeric value is intrinsically meaningful
-        public const int FALSE = 0; // Boolean,VertexShaderWriteMaskEXT,ClampColorModeARB
-        public const int NO_ERROR = 0; // GraphicsResetStatus,ErrorCode
-        public const int ZERO = 0; // TextureSwizzle,StencilOp,BlendingFactor
-        public const int NONE = 0; // TextureCompareMode,PathColorFormat,CombinerBiasNV,CombinerScaleNV,DrawBufferMode,PixelTexGenMode,ReadBufferMode,ColorBuffer,PathGenMode,PathTransformType,PathFontStyle
-        public const int NONE_OES = 0; // ReadBufferMode,DrawBufferMode
-        public const int TRUE = 1; // Boolean,VertexShaderWriteMaskEXT,ClampColorModeARB
-        public const int ONE = 1; // TextureSwizzle,BlendingFactor
-        // Tagged as uint
-        public const uint INVALID_INDEX = 0xFFFFFFFF;
-        public const uint ALL_PIXELS_AMD = 0xFFFFFFFF;
-        // Tagged as uint64
-        public const ulong TIMEOUT_IGNORED = 0xFFFFFFFFFFFFFFFF;
-        // Tagged as uint64
-        public const ulong TIMEOUT_IGNORED_APPLE = 0xFFFFFFFFFFFFFFFF;
-        // Not an API enum. API definition macro for ES 1.0/1.1 headers
-        public const int VERSION_ES_CL_1_0 = 1;
-        // Not an API enum. API definition macro for ES 1.0/1.1 headers
-        public const int VERSION_ES_CM_1_1 = 1;
-        // Not an API enum. API definition macro for ES 1.0/1.1 headers
-        public const int VERSION_ES_CL_1_1 = 1;
-        public const int UUID_SIZE_EXT = 16;
-        public const int LUID_SIZE_EXT = 8;
-        
+
         // . Mostly OpenGL 1.0/1.1 enum assignments. Unused ranges should generally remain unused.
         public const ushort POINTS = 0x0000; // PrimitiveType
         public const ushort LINES = 0x0001; // PrimitiveType

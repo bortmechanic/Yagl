@@ -2,24 +2,6 @@ namespace Yagl.Graphics
 {
     public static partial class Gl
     {
-        // SpecialNumbers. Tokens whose numeric value is intrinsically meaningful
-        public const int FALSE = 0; // Boolean,VertexShaderWriteMaskEXT,ClampColorModeARB
-        public const int NO_ERROR = 0; // GraphicsResetStatus,ErrorCode
-        public const int ZERO = 0; // TextureSwizzle,StencilOp,BlendingFactor
-        public const int NONE = 0; // TextureCompareMode,PathColorFormat,CombinerBiasNV,CombinerScaleNV,DrawBufferMode,PixelTexGenMode,ReadBufferMode,ColorBuffer,PathGenMode,PathTransformType,PathFontStyle
-        public const int NONE_OES = 0; // ReadBufferMode,DrawBufferMode
-        public const int TRUE = 1; // Boolean,VertexShaderWriteMaskEXT,ClampColorModeARB
-        public const int ONE = 1; // TextureSwizzle,BlendingFactor
-        public const uint INVALID_INDEX = 0xFFFFFFFF;
-        public const uint ALL_PIXELS_AMD = 0xFFFFFFFF;
-        public const ulong TIMEOUT_IGNORED = 0xFFFFFFFFFFFFFFFF;
-        public const ulong TIMEOUT_IGNORED_APPLE = 0xFFFFFFFFFFFFFFFF;
-        public const int VERSION_ES_CL_1_0 = 1; // Not an API enum. API definition macro for ES 1.0/1.1 headers
-        public const int VERSION_ES_CM_1_1 = 1; // Not an API enum. API definition macro for ES 1.0/1.1 headers
-        public const int VERSION_ES_CL_1_1 = 1; // Not an API enum. API definition macro for ES 1.0/1.1 headers
-        public const int UUID_SIZE_EXT = 16;
-        public const int LUID_SIZE_EXT = 8;
-
         public enum AttribMask : uint
         {
             CURRENT_BIT = 0x00000001,
@@ -482,28 +464,28 @@ namespace Yagl.Graphics
             TRIANGLE_FAN = 0x0006,
             QUADS = 0x0007,
             QUADS_EXT = 0x0007,
-            QUADS_OES = 0x0007;
+            QUADS_OES = 0x0007,
             QUAD_STRIP = 0x0008,
             POLYGON = 0x0009,
             LINES_ADJACENCY = 0x000A,
             LINES_ADJACENCY_ARB = 0x000A,
             LINES_ADJACENCY_EXT = 0x000A,
-            LINES_ADJACENCY_OES = 0x000A;
+            LINES_ADJACENCY_OES = 0x000A,
             LINE_STRIP_ADJACENCY = 0x000B,
             LINE_STRIP_ADJACENCY_ARB = 0x000B,
             LINE_STRIP_ADJACENCY_EXT = 0x000B,
-            LINE_STRIP_ADJACENCY_OES = 0x000B;
+            LINE_STRIP_ADJACENCY_OES = 0x000B,
             TRIANGLES_ADJACENCY = 0x000C,
             TRIANGLES_ADJACENCY_ARB = 0x000C,
             TRIANGLES_ADJACENCY_EXT = 0x000C,
-            TRIANGLES_ADJACENCY_OES = 0x000C;
+            TRIANGLES_ADJACENCY_OES = 0x000C,
             TRIANGLE_STRIP_ADJACENCY = 0x000D,
             TRIANGLE_STRIP_ADJACENCY_ARB = 0x000D,
             TRIANGLE_STRIP_ADJACENCY_EXT = 0x000D,
-            TRIANGLE_STRIP_ADJACENCY_OES = 0x000D;
+            TRIANGLE_STRIP_ADJACENCY_OES = 0x000D,
             PATCHES = 0x000E,
             PATCHES_EXT = 0x000E,
-            PATCHES_OES = 0x000E;
+            PATCHES_OES = 0x000E,
             // Unused 0x000F..0x00FF. Unused for PrimitiveType
         }
 
@@ -513,7 +495,7 @@ namespace Yagl.Graphics
             LOAD = 0x0101,
             RETURN = 0x0102,
             MULT = 0x0103,
-            ADD = 0x0104; // TextureEnvMode,LightEnvModeSGIX
+            ADD = 0x0104, // TextureEnvMode,LightEnvModeSGIX
             // Unused 0x0105..0x01FF. Unused for AccumOp
         }
     }
