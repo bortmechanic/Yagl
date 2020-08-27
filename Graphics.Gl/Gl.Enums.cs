@@ -498,5 +498,424 @@ namespace Yagl.Graphics
             ADD = 0x0104, // TextureEnvMode,LightEnvModeSGIX
             // Unused 0x0105..0x01FF. Unused for AccumOp
         }
+        
+        // TODO: May be merge the following 4 enums.
+        
+        // StencilFunction,IndexFunctionEXT,AlphaFunction,DepthFunction
+        public enum AlphaFunction : uint
+        {
+            NEVER = 0x0200,
+            LESS = 0x0201,
+            EQUAL = 0x0202,
+            LEQUAL = 0x0203,
+            GREATER = 0x0204,
+            NOTEQUAL = 0x0205,
+            GEQUAL = 0x0206,
+            ALWAYS = 0x0207,
+            // Unused 0x0208..0x02FF. Unused for AlphaFunction
+        }
+        
+        public enum DepthFunction : uint
+        {
+            NEVER = 0x0200,
+            LESS = 0x0201,
+            EQUAL = 0x0202,
+            LEQUAL = 0x0203,
+            GREATER = 0x0204,
+            NOTEQUAL = 0x0205,
+            GEQUAL = 0x0206,
+            ALWAYS = 0x0207,
+            // Unused 0x0208..0x02FF. Unused for AlphaFunction
+        }
+        
+        public enum IndexFunctionEXT : uint
+        {
+            NEVER = 0x0200,
+            LESS = 0x0201,
+            EQUAL = 0x0202,
+            LEQUAL = 0x0203,
+            GREATER = 0x0204,
+            NOTEQUAL = 0x0205,
+            GEQUAL = 0x0206,
+            ALWAYS = 0x0207,
+            // Unused 0x0208..0x02FF. Unused for AlphaFunction
+        }
+        
+        public enum StencilFunction : uint
+        {
+            NEVER = 0x0200,
+            LESS = 0x0201,
+            EQUAL = 0x0202,
+            LEQUAL = 0x0203,
+            GREATER = 0x0204,
+            NOTEQUAL = 0x0205,
+            GEQUAL = 0x0206,
+            ALWAYS = 0x0207,
+            // Unused 0x0208..0x02FF. Unused for AlphaFunction
+        }
+        
+        public enum BlendingFactor : uint
+        {
+            SRC_COLOR = 0x0300,
+            ONE_MINUS_SRC_COLOR = 0x0301,
+            SRC_ALPHA = 0x0302,
+            ONE_MINUS_SRC_ALPHA = 0x0303,
+            DST_ALPHA = 0x0304,
+            ONE_MINUS_DST_ALPHA = 0x0305,
+            DST_COLOR = 0x0306,
+            ONE_MINUS_DST_COLOR = 0x0307,
+            SRC_ALPHA_SATURATE = 0x0308,
+            SRC_ALPHA_SATURATE_EXT = 0x0308,
+            // Unused 0x0309..0x03FF. Unused for BlendingFactor
+        }
+            
+        public enum ColorBuffer : uint
+        {
+            FRONT_LEFT = 0x0400, // ColorBuffer,DrawBufferMode,ReadBufferMode
+            FRONT_RIGHT = 0x0401, // ColorBuffer,DrawBufferMode,ReadBufferMode
+            BACK_LEFT = 0x0402, // ColorBuffer,DrawBufferMode,ReadBufferMode
+            BACK_RIGHT = 0x0403, // ColorBuffer,DrawBufferMode,ReadBufferMode
+            FRONT = 0x0404, // ColorBuffer,ColorMaterialFace,CullFaceMode,DrawBufferMode,ReadBufferMode,StencilFaceDirection,MaterialFace
+            BACK = 0x0405, // ColorBuffer,ColorMaterialFace,CullFaceMode,DrawBufferMode,ReadBufferMode,StencilFaceDirection,MaterialFace
+            LEFT = 0x0406, // ColorBuffer,DrawBufferMode,ReadBufferMode
+            RIGHT = 0x0407, // ColorBuffer,DrawBufferMode,ReadBufferMode
+            FRONT_AND_BACK = 0x0408, // ColorBuffer,ColorMaterialFace,CullFaceMode,DrawBufferMode,StencilFaceDirection,MaterialFace
+        }
+        
+        public enum DrawBufferMode : uint
+        {
+            AUX0 = 0x0409,
+            AUX1 = 0x040A,
+            AUX2 = 0x040B,
+            AUX3 = 0x040C,
+            // Unused 0x040D..0x04FF. Unused for DrawBufferMode
+        }
+            
+        public enum ReadBufferMode : uint
+        {
+            AUX0 = 0x0409,
+            AUX1 = 0x040A,
+            AUX2 = 0x040B,
+            AUX3 = 0x040C,
+            // Unused 0x040D..0x04FF. Unused for DrawBufferMode
+        }
+
+        public enum ErrorCode : uint
+        {
+            INVALID_ENUM = 0x0500,
+            INVALID_VALUE = 0x0501,
+            INVALID_OPERATION = 0x0502,
+            STACK_OVERFLOW = 0x0503,
+            STACK_OVERFLOW_KHR = 0x0503,
+            STACK_UNDERFLOW = 0x0504,
+            STACK_UNDERFLOW_KHR = 0x0504,
+            OUT_OF_MEMORY = 0x0505,
+            INVALID_FRAMEBUFFER_OPERATION = 0x0506,
+            INVALID_FRAMEBUFFER_OPERATION_EXT = 0x0506,
+            INVALID_FRAMEBUFFER_OPERATION_OES = 0x0506,
+            CONTEXT_LOST = 0x0507,
+            CONTEXT_LOST_KHR = 0x0507,
+            // Unused 0x0508..0x05FF. Unused for ErrorCode
+        }
+
+        public enum FeedbackType : uint
+        {
+            GL_2D = 0x0600,
+            GL_3D = 0x0601,
+            GL_3D_COLOR = 0x0602,
+            GL_3D_COLOR_TEXTURE = 0x0603,
+            GL_4D_COLOR_TEXTURE = 0x0604,
+            // Unused 0x0605..0x06FF. Unused for FeedbackType
+        }
+
+        public enum FeedBackToken : uint
+        {
+            PASS_THROUGH_TOKEN = 0x0700,
+            POINT_TOKEN = 0x0701,
+            LINE_TOKEN = 0x0702,
+            POLYGON_TOKEN = 0x0703,
+            BITMAP_TOKEN = 0x0704,
+            DRAW_PIXEL_TOKEN = 0x0705,
+            COPY_PIXEL_TOKEN = 0x0706,
+            LINE_RESET_TOKEN = 0x0707,
+            // Unused 0x0708..0x07FF. Unused for FeedbackToken
+        }
+
+        public enum FogMode : uint
+        {
+            EXP = 0x0800,
+            EXP2 = 0x0801,
+            // Unused 0x0802..0x08FF. Unused for FogMode
+        }
+
+        public enum FrontFaceDirection : uint
+        {
+            CW = 0x0900,
+            CCW = 0x0901,
+            // Unused 0x0902..0x09FF. Unused for FrontFaceDirection
+        }
+        
+        public enum GetMapQuery
+        {
+            COEFF = 0x0A00,
+            ORDER = 0x0A01,
+            DOMAIN = 0x0A02,
+            // Unused 0x0A03..0x0AFF. Unused for GetMapQuery
+        }
+
+        public enum MapQuery
+        {
+            COEFF = 0x0A00,
+            ORDER = 0x0A01,
+            DOMAIN = 0x0A02,
+            // Unused 0x0A03..0x0AFF. Unused for GetMapQuery
+        }
+
+        public enum GetPName
+        {
+            CURRENT_COLOR = 0x0B00, // GetPName
+            CURRENT_INDEX = 0x0B01, // GetPName
+            CURRENT_NORMAL = 0x0B02, // GetPName
+            CURRENT_TEXTURE_COORDS = 0x0B03, // GetPName,VertexShaderTextureUnitParameter
+            CURRENT_RASTER_COLOR = 0x0B04, // GetPName
+            CURRENT_RASTER_INDEX = 0x0B05, // GetPName
+            CURRENT_RASTER_TEXTURE_COORDS = 0x0B06, // GetPName
+            CURRENT_RASTER_POSITION = 0x0B07, // GetPName
+            CURRENT_RASTER_POSITION_VALID = 0x0B08, // GetPName
+            CURRENT_RASTER_DISTANCE = 0x0B09, // GetPName
+            POINT_SMOOTH = 0x0B10, // GetPName,EnableCap
+            POINT_SIZE = 0x0B11, // GetPName
+            POINT_SIZE_RANGE = 0x0B12, // GetPName
+            // Alias of GL_POINT_SIZE_RANGE
+            SMOOTH_POINT_SIZE_RANGE = 0x0B12, // GetPName
+            POINT_SIZE_GRANULARITY = 0x0B13, // GetPName
+            // Alias of GL_POINT_SIZE_GRANULARITY
+            SMOOTH_POINT_SIZE_GRANULARITY = 0x0B13, // GetPName
+            LINE_SMOOTH = 0x0B20, // GetPName,EnableCap
+            LINE_WIDTH = 0x0B21, // GetPName
+            LINE_WIDTH_RANGE = 0x0B22, // GetPName
+            // Alias of GL_LINE_WIDTH_RANGE
+            SMOOTH_LINE_WIDTH_RANGE = 0x0B22, // GetPName
+            LINE_WIDTH_GRANULARITY = 0x0B23, // GetPName
+            // Alias of GL_LINE_WIDTH_GRANULARITY
+            SMOOTH_LINE_WIDTH_GRANULARITY = 0x0B23, // GetPName
+            LINE_STIPPLE = 0x0B24, // GetPName,EnableCap
+            LINE_STIPPLE_PATTERN = 0x0B25, // GetPName
+            LINE_STIPPLE_REPEAT = 0x0B26, // GetPName
+            LIST_MODE = 0x0B30, // GetPName
+            MAX_LIST_NESTING = 0x0B31, // GetPName
+            LIST_BASE = 0x0B32, // GetPName
+            LIST_INDEX = 0x0B33, // GetPName
+            POLYGON_MODE = 0x0B40, // GetPName
+            POLYGON_MODE_NV = 0x0B40,
+            POLYGON_SMOOTH = 0x0B41, // GetPName,EnableCap
+            POLYGON_STIPPLE = 0x0B42, // GetPName,EnableCap
+            EDGE_FLAG = 0x0B43, // GetPName
+            CULL_FACE = 0x0B44, // GetPName,EnableCap
+            CULL_FACE_MODE = 0x0B45, // GetPName
+            FRONT_FACE = 0x0B46, // GetPName
+            LIGHTING = 0x0B50, // GetPName,EnableCap
+            LIGHT_MODEL_LOCAL_VIEWER = 0x0B51, // LightModelParameter,GetPName
+            LIGHT_MODEL_TWO_SIDE = 0x0B52, // LightModelParameter,GetPName
+            LIGHT_MODEL_AMBIENT = 0x0B53, // LightModelParameter,GetPName
+            SHADE_MODEL = 0x0B54, // GetPName
+            COLOR_MATERIAL_FACE = 0x0B55, // GetPName
+            COLOR_MATERIAL_PARAMETER = 0x0B56, // GetPName
+            COLOR_MATERIAL = 0x0B57, // GetPName,EnableCap
+            FOG = 0x0B60, // GetPName,EnableCap
+            FOG_INDEX = 0x0B61, // FogPName,FogParameter,GetPName
+            FOG_DENSITY = 0x0B62, // FogPName,FogParameter,GetPName
+            FOG_START = 0x0B63, // FogPName,FogParameter,GetPName
+            FOG_END = 0x0B64, // FogPName,FogParameter,GetPName
+            FOG_MODE = 0x0B65, // FogPName,FogParameter,GetPName
+            FOG_COLOR = 0x0B66, // GetPName,FogParameter
+            DEPTH_RANGE = 0x0B70, // GetPName
+            DEPTH_TEST = 0x0B71, // GetPName,EnableCap
+            DEPTH_WRITEMASK = 0x0B72, // GetPName
+            DEPTH_CLEAR_VALUE = 0x0B73, // GetPName
+            DEPTH_FUNC = 0x0B74, // GetPName
+            ACCUM_CLEAR_VALUE = 0x0B80, // GetPName
+            STENCIL_TEST = 0x0B90, // GetPName,EnableCap
+            STENCIL_CLEAR_VALUE = 0x0B91, // GetPName
+            STENCIL_FUNC = 0x0B92, // GetPName
+            STENCIL_VALUE_MASK = 0x0B93, // GetPName
+            STENCIL_FAIL = 0x0B94, // GetPName
+            STENCIL_PASS_DEPTH_FAIL = 0x0B95, // GetPName
+            STENCIL_PASS_DEPTH_PASS = 0x0B96, // GetPName
+            STENCIL_REF = 0x0B97, // GetPName
+            STENCIL_WRITEMASK = 0x0B98, // GetPName
+            MATRIX_MODE = 0x0BA0, // GetPName
+            NORMALIZE = 0x0BA1, // GetPName,EnableCap
+            VIEWPORT = 0x0BA2, // GetPName
+            MODELVIEW_STACK_DEPTH = 0x0BA3, // GetPName
+            MODELVIEW0_STACK_DEPTH_EXT = 0x0BA3, // GetPName
+            PATH_MODELVIEW_STACK_DEPTH_NV = 0x0BA3,
+            PROJECTION_STACK_DEPTH = 0x0BA4, // GetPName
+            PATH_PROJECTION_STACK_DEPTH_NV = 0x0BA4,
+            TEXTURE_STACK_DEPTH = 0x0BA5, // GetPName
+            MODELVIEW_MATRIX = 0x0BA6, // GetPName
+            MODELVIEW0_MATRIX_EXT = 0x0BA6, // GetPName
+            PATH_MODELVIEW_MATRIX_NV = 0x0BA6,
+            PROJECTION_MATRIX = 0x0BA7, // GetPName
+            PATH_PROJECTION_MATRIX_NV = 0x0BA7,
+            TEXTURE_MATRIX = 0x0BA8, // GetPName,VertexShaderTextureUnitParameter
+            ATTRIB_STACK_DEPTH = 0x0BB0, // GetPName
+            CLIENT_ATTRIB_STACK_DEPTH = 0x0BB1, // GetPName
+            ALPHA_TEST = 0x0BC0, // GetPName,EnableCap
+            ALPHA_TEST_QCOM = 0x0BC0, // GetPName
+            ALPHA_TEST_FUNC = 0x0BC1, // GetPName
+            ALPHA_TEST_FUNC_QCOM = 0x0BC1, // GetPName
+            ALPHA_TEST_REF = 0x0BC2, // GetPName
+            ALPHA_TEST_REF_QCOM = 0x0BC2, // GetPName
+            DITHER = 0x0BD0, // GetPName,EnableCap
+            BLEND_DST = 0x0BE0, // GetPName
+            BLEND_SRC = 0x0BE1, // GetPName
+            BLEND = 0x0BE2, // TextureEnvMode,EnableCap,GetPName
+            LOGIC_OP_MODE = 0x0BF0, // GetPName
+            INDEX_LOGIC_OP = 0x0BF1, // GetPName,EnableCap
+            LOGIC_OP = 0x0BF1, // GetPName
+            COLOR_LOGIC_OP = 0x0BF2, // GetPName,EnableCap
+            AUX_BUFFERS = 0x0C00, // GetPName
+            DRAW_BUFFER = 0x0C01, // GetPName
+            DRAW_BUFFER_EXT = 0x0C01, // GetPName
+            READ_BUFFER = 0x0C02, // GetPName
+            READ_BUFFER_EXT = 0x0C02, // GetPName
+            READ_BUFFER_NV = 0x0C02, // GetPName
+            SCISSOR_BOX = 0x0C10, // GetPName
+            SCISSOR_TEST = 0x0C11, // GetPName,EnableCap
+            INDEX_CLEAR_VALUE = 0x0C20, // GetPName
+            INDEX_WRITEMASK = 0x0C21, // GetPName
+            COLOR_CLEAR_VALUE = 0x0C22, // GetPName
+            COLOR_WRITEMASK = 0x0C23, // GetPName
+            INDEX_MODE = 0x0C30, // GetPName
+            RGBA_MODE = 0x0C31, // GetPName
+            DOUBLEBUFFER = 0x0C32, // GetFramebufferParameter,GetPName
+            STEREO = 0x0C33, // GetFramebufferParameter,GetPName
+            RENDER_MODE = 0x0C40, // GetPName
+            PERSPECTIVE_CORRECTION_HINT = 0x0C50, // HintTarget,GetPName
+            POINT_SMOOTH_HINT = 0x0C51, // HintTarget,GetPName
+            LINE_SMOOTH_HINT = 0x0C52, // HintTarget,GetPName
+            POLYGON_SMOOTH_HINT = 0x0C53, // HintTarget,GetPName
+            FOG_HINT = 0x0C54, // HintTarget,GetPName
+            TEXTURE_GEN_S = 0x0C60, // GetPName,EnableCap
+            TEXTURE_GEN_T = 0x0C61, // GetPName,EnableCap
+            TEXTURE_GEN_R = 0x0C62, // GetPName,EnableCap
+            TEXTURE_GEN_Q = 0x0C63, // GetPName,EnableCap
+            PIXEL_MAP_I_TO_I = 0x0C70, // PixelMap,GetPixelMap
+            PIXEL_MAP_S_TO_S = 0x0C71, // PixelMap,GetPixelMap
+            PIXEL_MAP_I_TO_R = 0x0C72, // PixelMap,GetPixelMap
+            PIXEL_MAP_I_TO_G = 0x0C73, // PixelMap,GetPixelMap
+            PIXEL_MAP_I_TO_B = 0x0C74, // PixelMap,GetPixelMap
+            PIXEL_MAP_I_TO_A = 0x0C75, // PixelMap,GetPixelMap
+            PIXEL_MAP_R_TO_R = 0x0C76, // PixelMap,GetPixelMap
+            PIXEL_MAP_G_TO_G = 0x0C77, // PixelMap,GetPixelMap
+            PIXEL_MAP_B_TO_B = 0x0C78, // PixelMap,GetPixelMap
+            PIXEL_MAP_A_TO_A = 0x0C79, // PixelMap,GetPixelMap
+            PIXEL_MAP_I_TO_I_SIZE = 0x0CB0, // GetPName
+            PIXEL_MAP_S_TO_S_SIZE = 0x0CB1, // GetPName
+            PIXEL_MAP_I_TO_R_SIZE = 0x0CB2, // GetPName
+            PIXEL_MAP_I_TO_G_SIZE = 0x0CB3, // GetPName
+            PIXEL_MAP_I_TO_B_SIZE = 0x0CB4, // GetPName
+            PIXEL_MAP_I_TO_A_SIZE = 0x0CB5, // GetPName
+            PIXEL_MAP_R_TO_R_SIZE = 0x0CB6, // GetPName
+            PIXEL_MAP_G_TO_G_SIZE = 0x0CB7, // GetPName
+            PIXEL_MAP_B_TO_B_SIZE = 0x0CB8, // GetPName
+            PIXEL_MAP_A_TO_A_SIZE = 0x0CB9, // GetPName
+            UNPACK_SWAP_BYTES = 0x0CF0, // PixelStoreParameter,GetPName
+            UNPACK_LSB_FIRST = 0x0CF1, // PixelStoreParameter,GetPName
+            UNPACK_ROW_LENGTH = 0x0CF2, // PixelStoreParameter,GetPName
+            UNPACK_ROW_LENGTH_EXT = 0x0CF2, // PixelStoreParameter
+            UNPACK_SKIP_ROWS = 0x0CF3, // PixelStoreParameter,GetPName
+            UNPACK_SKIP_ROWS_EXT = 0x0CF3, // PixelStoreParameter
+            UNPACK_SKIP_PIXELS = 0x0CF4, // PixelStoreParameter,GetPName
+            UNPACK_SKIP_PIXELS_EXT = 0x0CF4, // PixelStoreParameter
+            UNPACK_ALIGNMENT = 0x0CF5, // PixelStoreParameter,GetPName
+            PACK_SWAP_BYTES = 0x0D00, // PixelStoreParameter,GetPName
+            PACK_LSB_FIRST = 0x0D01, // PixelStoreParameter,GetPName
+            PACK_ROW_LENGTH = 0x0D02, // PixelStoreParameter,GetPName
+            PACK_SKIP_ROWS = 0x0D03, // PixelStoreParameter,GetPName
+            PACK_SKIP_PIXELS = 0x0D04, // PixelStoreParameter,GetPName
+            PACK_ALIGNMENT = 0x0D05, // PixelStoreParameter,GetPName
+            MAP_COLOR = 0x0D10, // PixelTransferParameter,GetPName
+            MAP_STENCIL = 0x0D11, // PixelTransferParameter,GetPName
+            INDEX_SHIFT = 0x0D12, // PixelTransferParameter,GetPName
+            INDEX_OFFSET = 0x0D13, // PixelTransferParameter,IndexMaterialParameterEXT,GetPName
+            RED_SCALE = 0x0D14, // PixelTransferParameter,GetPName
+            RED_BIAS = 0x0D15, // PixelTransferParameter,GetPName
+            ZOOM_X = 0x0D16, // GetPName
+            ZOOM_Y = 0x0D17, // GetPName
+            GREEN_SCALE = 0x0D18, // PixelTransferParameter,GetPName
+            GREEN_BIAS = 0x0D19, // PixelTransferParameter,GetPName
+            BLUE_SCALE = 0x0D1A, // PixelTransferParameter,GetPName
+            BLUE_BIAS = 0x0D1B, // PixelTransferParameter,GetPName
+            ALPHA_SCALE = 0x0D1C, // PixelTransferParameter,GetPName
+            ALPHA_BIAS = 0x0D1D, // PixelTransferParameter,GetPName
+            DEPTH_SCALE = 0x0D1E, // PixelTransferParameter,GetPName
+            DEPTH_BIAS = 0x0D1F, // PixelTransferParameter,GetPName
+            MAX_EVAL_ORDER = 0x0D30, // GetPName
+            MAX_LIGHTS = 0x0D31, // GetPName
+            MAX_CLIP_PLANES = 0x0D32, // GetPName
+            MAX_CLIP_PLANES_IMG = 0x0D32,
+            // Alias of GL_MAX_CLIP_PLANES
+            MAX_CLIP_DISTANCES = 0x0D32, // GetPName
+            // Alias of GL_MAX_CLIP_PLANES
+            MAX_CLIP_DISTANCES_EXT = 0x0D32,
+            MAX_CLIP_DISTANCES_APPLE = 0x0D32,
+            MAX_TEXTURE_SIZE = 0x0D33, // GetPName
+            MAX_PIXEL_MAP_TABLE = 0x0D34, // GetPName
+            MAX_ATTRIB_STACK_DEPTH = 0x0D35, // GetPName
+            MAX_MODELVIEW_STACK_DEPTH = 0x0D36, // GetPName
+            PATH_MAX_MODELVIEW_STACK_DEPTH_NV = 0x0D36,
+            MAX_NAME_STACK_DEPTH = 0x0D37, // GetPName
+            MAX_PROJECTION_STACK_DEPTH = 0x0D38, // GetPName
+            PATH_MAX_PROJECTION_STACK_DEPTH_NV = 0x0D38,
+            MAX_TEXTURE_STACK_DEPTH = 0x0D39, // GetPName
+            MAX_VIEWPORT_DIMS = 0x0D3A, // GetPName
+            MAX_CLIENT_ATTRIB_STACK_DEPTH = 0x0D3B, // GetPName
+            SUBPIXEL_BITS = 0x0D50, // GetPName
+            INDEX_BITS = 0x0D51, // GetPName
+            RED_BITS = 0x0D52, // GetPName
+            GREEN_BITS = 0x0D53, // GetPName
+            BLUE_BITS = 0x0D54, // GetPName
+            ALPHA_BITS = 0x0D55, // GetPName
+            DEPTH_BITS = 0x0D56, // GetPName
+            STENCIL_BITS = 0x0D57, // GetPName
+            ACCUM_RED_BITS = 0x0D58, // GetPName
+            ACCUM_GREEN_BITS = 0x0D59, // GetPName
+            ACCUM_BLUE_BITS = 0x0D5A, // GetPName
+            ACCUM_ALPHA_BITS = 0x0D5B, // GetPName
+            NAME_STACK_DEPTH = 0x0D70, // GetPName
+            AUTO_NORMAL = 0x0D80, // GetPName,EnableCap
+            MAP1_COLOR_4 = 0x0D90, // MapTarget,EnableCap,GetPName
+            MAP1_INDEX = 0x0D91, // MapTarget,EnableCap,GetPName
+            MAP1_NORMAL = 0x0D92, // MapTarget,EnableCap,GetPName
+            MAP1_TEXTURE_COORD_1 = 0x0D93, // MapTarget,EnableCap,GetPName
+            MAP1_TEXTURE_COORD_2 = 0x0D94, // MapTarget,EnableCap,GetPName
+            MAP1_TEXTURE_COORD_3 = 0x0D95, // MapTarget,EnableCap,GetPName
+            MAP1_TEXTURE_COORD_4 = 0x0D96, // MapTarget,EnableCap,GetPName
+            MAP1_VERTEX_3 = 0x0D97, // MapTarget,EnableCap,GetPName
+            MAP1_VERTEX_4 = 0x0D98, // MapTarget,EnableCap,GetPName
+            MAP2_COLOR_4 = 0x0DB0, // MapTarget,EnableCap,GetPName
+            MAP2_INDEX = 0x0DB1, // MapTarget,EnableCap,GetPName
+            MAP2_NORMAL = 0x0DB2, // MapTarget,EnableCap,GetPName
+            MAP2_TEXTURE_COORD_1 = 0x0DB3, // MapTarget,EnableCap,GetPName
+            MAP2_TEXTURE_COORD_2 = 0x0DB4, // MapTarget,EnableCap,GetPName
+            MAP2_TEXTURE_COORD_3 = 0x0DB5, // MapTarget,EnableCap,GetPName
+            MAP2_TEXTURE_COORD_4 = 0x0DB6, // MapTarget,EnableCap,GetPName
+            MAP2_VERTEX_3 = 0x0DB7, // MapTarget,EnableCap,GetPName
+            MAP2_VERTEX_4 = 0x0DB8, // MapTarget,EnableCap,GetPName
+            MAP1_GRID_DOMAIN = 0x0DD0, // GetPName
+            MAP1_GRID_SEGMENTS = 0x0DD1, // GetPName
+            MAP2_GRID_DOMAIN = 0x0DD2, // GetPName
+            MAP2_GRID_SEGMENTS = 0x0DD3, // GetPName
+            TEXTURE_1D = 0x0DE0, // CopyImageSubDataTarget,EnableCap,GetPName,TextureTarget
+            TEXTURE_2D = 0x0DE1, // CopyImageSubDataTarget,EnableCap,GetPName,TextureTarget
+            FEEDBACK_BUFFER_POINTER = 0x0DF0, // GetPointervPName
+            FEEDBACK_BUFFER_SIZE = 0x0DF1, // GetPName
+            FEEDBACK_BUFFER_TYPE = 0x0DF2, // GetPName
+            SELECTION_BUFFER_POINTER = 0x0DF3, // GetPointervPName
+            SELECTION_BUFFER_SIZE = 0x0DF4, // GetPName
+            // Unused 0x0DF5..0xFFFF. Unused for GetPName
+        }
     }
 }
