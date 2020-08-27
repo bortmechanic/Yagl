@@ -226,16 +226,17 @@ namespace Yagl.Gl.Generator
         {
             //Out($"// {element.Attribute("name")?.Value}. {element.Attribute("comment")?.Value}");
         }
-        
+
         private static void ProcessEnum(XElement element)
         {
             var name = element.Attribute("group")?.Value;
             var comment = element.Attribute("comment")?.Value;
             var type = element.Attribute("type")?.Value;
+            var enumGroup = element.Attribute("group")?.Value;
             comment = ProcessComment(comment);
             Out(Enumerations, $"// {name}. {comment}");
             foreach (var el in element.Elements())
-                ProcessEnumItem(el, type);
+                ProcessEnumItem(el, type, enumGroup);
             Out(Enumerations);
         }
 
@@ -248,7 +249,7 @@ namespace Yagl.Gl.Generator
             return comment;
         }
 
-        private static void ProcessEnumItem(XElement element, string type)
+        private static void ProcessEnumItem(XElement element, string type, string enumGroup)
         {
             if (element.Name == "enum")
             {
@@ -256,12 +257,27 @@ namespace Yagl.Gl.Generator
                 if (name.StartsWith("GL_") && (name[3] < '0' || name[3] > '9'))
                     name = name.Substring(3);
                 var value = element.Attribute("value")?.Value.Trim();
+                var alias = element.Attribute("alias")?.Value.Trim();
+                var group = element.Attribute("group")?.Value.Trim();
+                var comment = element.Attribute("comment")?.Value.Trim();
                 var api = element.Attribute("api")?.Value.Trim();
                 if (!(string.IsNullOrWhiteSpace(api) || api == "gl")) return;
                 if (string.IsNullOrWhiteSpace(type) || type == "bitmask")
                     type = TryDetermineType(value);
                 type = ConvertType(type, "int");
-                Out(Enumerations, $"public const {type} {name} = {value};");
+                if (enumGroup == group)
+                    group = null;
+                group = group?
+                    .Replace($"{enumGroup},", "")
+                    .Replace($",{enumGroup}", "");
+                if (!string.IsNullOrWhiteSpace(alias))
+                    Out(Enumerations, $"// Alias of {alias}");
+                if (!string.IsNullOrWhiteSpace(comment))
+                    Out(Enumerations, $"// {comment}");
+                var declaration = $"public const {type} {name} = {value};";
+                if (!string.IsNullOrWhiteSpace(group))
+                    declaration += $" // {group}";
+                Out(Enumerations, declaration);
                 CheckAttributes(element, new[] {"name", "value", "group", "comment", "alias", "type", "api"});
             }
             else if (element.Name == "unused")
