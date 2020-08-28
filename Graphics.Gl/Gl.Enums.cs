@@ -408,10 +408,8 @@ namespace Yagl.Graphics
             RELATIVE_LARGE_CW_ARC_TO_NV = 0x19, // PathCoordType
             CONIC_CURVE_TO_NV = 0x1A, // PathCoordType
             RELATIVE_CONIC_CURVE_TO_NV = 0x1B, // PathCoordType
-
             // Unused 0x1C..0xBF. Unused for PathRenderingTokenNV
             SHARED_EDGE_NV = 0xC0, // 
-
             // Unused 0xC1..0xE7. Unused for PathRenderingTokenNV
             ROUNDED_RECT_NV = 0xE8, // PathCoordType
             RELATIVE_ROUNDED_RECT_NV = 0xE9, // PathCoordType
@@ -454,7 +452,6 @@ namespace Yagl.Graphics
 
         public enum PrimitiveType : uint
         {
-
             POINTS = 0x0000,
             LINES = 0x0001,
             LINE_LOOP = 0x0002,
@@ -498,9 +495,9 @@ namespace Yagl.Graphics
             ADD = 0x0104, // TextureEnvMode,LightEnvModeSGIX
             // Unused 0x0105..0x01FF. Unused for AccumOp
         }
-        
-        // TODO: May be merge the following 4 enums.
-        
+
+        // TODO: May be merge the following 4 enums into one.
+
         // StencilFunction,IndexFunctionEXT,AlphaFunction,DepthFunction
         public enum AlphaFunction : uint
         {
@@ -514,7 +511,7 @@ namespace Yagl.Graphics
             ALWAYS = 0x0207,
             // Unused 0x0208..0x02FF. Unused for AlphaFunction
         }
-        
+
         public enum DepthFunction : uint
         {
             NEVER = 0x0200,
@@ -527,7 +524,7 @@ namespace Yagl.Graphics
             ALWAYS = 0x0207,
             // Unused 0x0208..0x02FF. Unused for AlphaFunction
         }
-        
+
         public enum IndexFunctionEXT : uint
         {
             NEVER = 0x0200,
@@ -540,7 +537,7 @@ namespace Yagl.Graphics
             ALWAYS = 0x0207,
             // Unused 0x0208..0x02FF. Unused for AlphaFunction
         }
-        
+
         public enum StencilFunction : uint
         {
             NEVER = 0x0200,
@@ -553,7 +550,7 @@ namespace Yagl.Graphics
             ALWAYS = 0x0207,
             // Unused 0x0208..0x02FF. Unused for AlphaFunction
         }
-        
+
         public enum BlendingFactor : uint
         {
             SRC_COLOR = 0x0300,
@@ -568,7 +565,7 @@ namespace Yagl.Graphics
             SRC_ALPHA_SATURATE_EXT = 0x0308,
             // Unused 0x0309..0x03FF. Unused for BlendingFactor
         }
-            
+
         public enum ColorBuffer : uint
         {
             FRONT_LEFT = 0x0400, // ColorBuffer,DrawBufferMode,ReadBufferMode
@@ -581,7 +578,7 @@ namespace Yagl.Graphics
             RIGHT = 0x0407, // ColorBuffer,DrawBufferMode,ReadBufferMode
             FRONT_AND_BACK = 0x0408, // ColorBuffer,ColorMaterialFace,CullFaceMode,DrawBufferMode,StencilFaceDirection,MaterialFace
         }
-        
+
         public enum DrawBufferMode : uint
         {
             AUX0 = 0x0409,
@@ -590,7 +587,7 @@ namespace Yagl.Graphics
             AUX3 = 0x040C,
             // Unused 0x040D..0x04FF. Unused for DrawBufferMode
         }
-            
+
         public enum ReadBufferMode : uint
         {
             AUX0 = 0x0409,
@@ -654,8 +651,8 @@ namespace Yagl.Graphics
             CCW = 0x0901,
             // Unused 0x0902..0x09FF. Unused for FrontFaceDirection
         }
-        
-        public enum GetMapQuery
+
+        public enum GetMapQuery : uint
         {
             COEFF = 0x0A00,
             ORDER = 0x0A01,
@@ -663,7 +660,7 @@ namespace Yagl.Graphics
             // Unused 0x0A03..0x0AFF. Unused for GetMapQuery
         }
 
-        public enum MapQuery
+        public enum MapQuery : uint
         {
             COEFF = 0x0A00,
             ORDER = 0x0A01,
@@ -671,7 +668,7 @@ namespace Yagl.Graphics
             // Unused 0x0A03..0x0AFF. Unused for GetMapQuery
         }
 
-        public enum GetPName
+        public enum GetPName : uint
         {
             CURRENT_COLOR = 0x0B00, // GetPName
             CURRENT_INDEX = 0x0B01, // GetPName
@@ -917,5 +914,413 @@ namespace Yagl.Graphics
             SELECTION_BUFFER_SIZE = 0x0DF4, // GetPName
             // Unused 0x0DF5..0xFFFF. Unused for GetPName
         }
+        
+        public enum GetTextureParameter : uint
+        {
+            TEXTURE_WIDTH = 0x1000,
+            TEXTURE_HEIGHT = 0x1001,
+            TEXTURE_INTERNAL_FORMAT = 0x1003,
+            TEXTURE_COMPONENTS = 0x1003,
+            TEXTURE_BORDER_COLOR = 0x1004, // SamplerParameterF
+            TEXTURE_BORDER_COLOR_EXT = 0x1004,
+            TEXTURE_BORDER_COLOR_NV = 0x1004,
+            TEXTURE_BORDER_COLOR_OES = 0x1004,
+            TEXTURE_BORDER = 0x1005,
+            TEXTURE_TARGET = 0x1006,
+            // Unused 0x1007..0x10FF. Unused for GetTextureParameter
+        }
+
+        public enum TextureParameterName : uint
+        {
+            TEXTURE_WIDTH = 0x1000,
+            TEXTURE_HEIGHT = 0x1001,
+            TEXTURE_INTERNAL_FORMAT = 0x1003,
+            TEXTURE_COMPONENTS = 0x1003,
+            TEXTURE_BORDER_COLOR = 0x1004, // SamplerParameterF
+            TEXTURE_BORDER_COLOR_EXT = 0x1004,
+            TEXTURE_BORDER_COLOR_NV = 0x1004,
+            TEXTURE_BORDER_COLOR_OES = 0x1004,
+            TEXTURE_BORDER = 0x1005,
+            TEXTURE_TARGET = 0x1006,
+            // Unused 0x1007..0x10FF. Unused for GetTextureParameter
+        }
+        
+        public enum HintMode : uint
+        {
+            DONT_CARE = 0x1100, // DebugSeverity,DebugSource,DebugType
+            FASTEST = 0x1101,
+            NICEST = 0x1102,
+            // Unused 0x1103..0x11FF. Unused for HintMode
+        }
+        
+        public enum MaterialParameter : uint
+        {
+            AMBIENT = 0x1200, // MaterialParameter,FragmentLightParameterSGIX,ColorMaterialParameter
+            DIFFUSE = 0x1201, // MaterialParameter,FragmentLightParameterSGIX,ColorMaterialParameter
+            SPECULAR = 0x1202, // MaterialParameter,FragmentLightParameterSGIX,ColorMaterialParameter
+            EMISSION = 0x1600, // MaterialParameter,ColorMaterialParameter
+            SHININESS = 0x1601, // MaterialParameter
+            AMBIENT_AND_DIFFUSE = 0x1602, // MaterialParameter,ColorMaterialParameter
+            COLOR_INDEXES = 0x1603, // MaterialParameter
+            // Unused 0x1604..0x16FF. Unused for MaterialParameter
+        }
+        
+        public enum LightParameter : uint
+        {
+            POSITION = 0x1203, // LightParameter,FragmentLightParameterSGIX
+            SPOT_DIRECTION = 0x1204, // LightParameter,FragmentLightParameterSGIX
+            SPOT_EXPONENT = 0x1205, // LightParameter,FragmentLightParameterSGIX
+            SPOT_CUTOFF = 0x1206, // LightParameter,FragmentLightParameterSGIX
+            CONSTANT_ATTENUATION = 0x1207, // LightParameter,FragmentLightParameterSGIX
+            LINEAR_ATTENUATION = 0x1208, // LightParameter,FragmentLightParameterSGIX
+            QUADRATIC_ATTENUATION = 0x1209, // LightParameter,FragmentLightParameterSGIX
+            // Unused 0x1210..0x12FF. Unused for LightParameter
+        }
+
+        public enum ListMode : uint
+        {
+            COMPILE = 0x1300,
+            COMPILE_AND_EXECUTE = 0x1301,
+            // Unused 0x1302..0x13FF. Unused for ListMode
+        }
+
+        public enum VertexAttribType : uint
+        {
+            BYTE = 0x1400, // VertexAttribIType,WeightPointerTypeARB,TangentPointerTypeEXT,BinormalPointerTypeEXT,ColorPointerType,ListNameType,NormalPointerType,PixelType,VertexAttribType,VertexAttribPointerType
+            UNSIGNED_BYTE = 0x1401, // VertexAttribIType,ScalarType,ReplacementCodeTypeSUN,ElementPointerTypeATI,MatrixIndexPointerTypeARB,WeightPointerTypeARB,ColorPointerType,DrawElementsType,ListNameType,PixelType,VertexAttribType,VertexAttribPointerType
+            SHORT = 0x1402, // VertexAttribIType,SecondaryColorPointerTypeIBM,WeightPointerTypeARB,TangentPointerTypeEXT,BinormalPointerTypeEXT,IndexPointerType,ListNameType,NormalPointerType,PixelType,TexCoordPointerType,VertexPointerType,VertexAttribType,VertexAttribPointerType
+            UNSIGNED_SHORT = 0x1403, // VertexAttribIType,ScalarType,ReplacementCodeTypeSUN,ElementPointerTypeATI,MatrixIndexPointerTypeARB,WeightPointerTypeARB,ColorPointerType,DrawElementsType,ListNameType,PixelFormat,PixelType,VertexAttribType,VertexAttribPointerType
+            INT = 0x1404, // VertexAttribIType,SecondaryColorPointerTypeIBM,WeightPointerTypeARB,TangentPointerTypeEXT,BinormalPointerTypeEXT,IndexPointerType,ListNameType,NormalPointerType,PixelType,TexCoordPointerType,VertexPointerType,VertexAttribType,AttributeType,UniformType,VertexAttribPointerType,GlslTypeToken
+            UNSIGNED_INT = 0x1405, // VertexAttribIType,ScalarType,ReplacementCodeTypeSUN,ElementPointerTypeATI,MatrixIndexPointerTypeARB,WeightPointerTypeARB,ColorPointerType,DrawElementsType,ListNameType,PixelFormat,PixelType,VertexAttribType,AttributeType,UniformType,VertexAttribPointerType,GlslTypeToken
+            FLOAT = 0x1406, // GlslTypeToken,MapTypeNV,SecondaryColorPointerTypeIBM,WeightPointerTypeARB,VertexWeightPointerTypeEXT,TangentPointerTypeEXT,BinormalPointerTypeEXT,FogCoordinatePointerType,FogPointerTypeEXT,FogPointerTypeIBM,IndexPointerType,ListNameType,NormalPointerType,PixelType,TexCoordPointerType,VertexPointerType,VertexAttribType,AttributeType,UniformType,VertexAttribPointerType
+            GL_2_BYTES = 0x1407, // ListNameType
+            GL_2_BYTES_NV = 0x1407,
+            GL_3_BYTES = 0x1408, // ListNameType
+            GL_3_BYTES_NV = 0x1408,
+            GL_4_BYTES = 0x1409, // ListNameType
+            GL_4_BYTES_NV = 0x1409,
+            DOUBLE = 0x140A, // VertexAttribLType,MapTypeNV,SecondaryColorPointerTypeIBM,WeightPointerTypeARB,TangentPointerTypeEXT,BinormalPointerTypeEXT,FogCoordinatePointerType,FogPointerTypeEXT,FogPointerTypeIBM,IndexPointerType,NormalPointerType,TexCoordPointerType,VertexPointerType,VertexAttribType,AttributeType,UniformType,VertexAttribPointerType,GlslTypeToken
+            DOUBLE_EXT = 0x140A, // BinormalPointerTypeEXT,TangentPointerTypeEXT
+            HALF_FLOAT = 0x140B, // VertexAttribPointerType,VertexAttribType
+            HALF_FLOAT_ARB = 0x140B,
+            HALF_FLOAT_NV = 0x140B,
+            HALF_APPLE = 0x140B,
+            FIXED = 0x140C, // VertexAttribPointerType,VertexAttribType
+            FIXED_OES = 0x140C,
+            // Unused 0x140D. Leave gap to preserve even/odd int/uint token values
+        }
+        
+        public enum VertexAttribPointerType : uint
+        {
+            INT64_ARB = 0x140E, // VertexAttribPointerType,AttributeType
+            INT64_NV = 0x140E, // VertexAttribPointerType,AttributeType
+            UNSIGNED_INT64_ARB = 0x140F, // VertexAttribPointerType,AttributeType
+            UNSIGNED_INT64_NV = 0x140F, // VertexAttribPointerType,AttributeType
+            // Unused 0x1410..0x14FF. Unused for DataType
+        }
+        
+        public enum LogicOp : uint
+        {
+            CLEAR = 0x1500,
+            AND = 0x1501,
+            AND_REVERSE = 0x1502,
+            COPY = 0x1503,
+            AND_INVERTED = 0x1504,
+            NOOP = 0x1505,
+            XOR = 0x1506,
+            XOR_NV = 0x1506,
+            OR = 0x1507,
+            NOR = 0x1508,
+            EQUIV = 0x1509,
+            INVERT = 0x150A, // PathFillMode,StencilOp
+            OR_REVERSE = 0x150B,
+            COPY_INVERTED = 0x150C,
+            OR_INVERTED = 0x150D,
+            NAND = 0x150E,
+            SET = 0x150F,
+            // Unused 0x1510..0x15FF. Unused for LogicOp
+        }
+
+        public enum MatrixMode : uint
+        {
+            MODELVIEW = 0x1700, // MatrixMode
+            MODELVIEW0_ARB = 0x1700,
+            MODELVIEW0_EXT = 0x1700, // MatrixMode
+            PATH_MODELVIEW_NV = 0x1700,
+            PROJECTION = 0x1701, // MatrixMode
+            PATH_PROJECTION_NV = 0x1701,
+            TEXTURE = 0x1702, // ObjectIdentifier,MatrixMode
+            // Unused 0x1703..0x17FF. Unused for MatrixMode
+        }
+        
+        public enum PixelCopyType : uint
+        {
+            COLOR = 0x1800, // Buffer,PixelCopyType,InvalidateFramebufferAttachment
+            COLOR_EXT = 0x1800, // PixelCopyType
+            DEPTH = 0x1801, // Buffer,PixelCopyType,InvalidateFramebufferAttachment
+            DEPTH_EXT = 0x1801, // PixelCopyType
+            STENCIL = 0x1802, // Buffer,PixelCopyType,InvalidateFramebufferAttachment
+            STENCIL_EXT = 0x1802, // PixelCopyType
+            // Unused 0x1803..0x18FF. Unused for PixelCopyType
+        }
+    
+        public enum PixelFormat : uint
+        {
+            COLOR_INDEX = 0x1900, // PixelFormat
+            STENCIL_INDEX = 0x1901, // InternalFormat,PixelFormat
+            STENCIL_INDEX_OES = 0x1901, // InternalFormat
+            DEPTH_COMPONENT = 0x1902, // InternalFormat,PixelFormat
+            RED = 0x1903, // TextureSwizzle,PixelFormat,InternalFormat
+            RED_EXT = 0x1903, // InternalFormat,PixelFormat
+            RED_NV = 0x1903,
+            GREEN = 0x1904, // TextureSwizzle,PixelFormat
+            GREEN_NV = 0x1904,
+            BLUE = 0x1905, // TextureSwizzle,CombinerComponentUsageNV,PixelFormat
+            BLUE_NV = 0x1905,
+            ALPHA = 0x1906, // TextureSwizzle,CombinerPortionNV,PathColorFormat,CombinerComponentUsageNV,PixelFormat
+            RGB = 0x1907, // PixelTexGenMode,CombinerPortionNV,PathColorFormat,CombinerComponentUsageNV,PixelFormat,InternalFormat
+            RGBA = 0x1908, // PixelTexGenMode,PathColorFormat,PixelFormat,InternalFormat
+            LUMINANCE = 0x1909, // PixelTexGenMode,PathColorFormat,PixelFormat
+            LUMINANCE_ALPHA = 0x190A, // PixelTexGenMode,PathColorFormat,PixelFormat
+            // Unused 0x1910..0x19FF. Unused for PixelFormat
+        }
+        
+        public enum PixelType : uint
+        {
+            BITMAP = 0x1A00, // PixelType
+            // Unused 0x1A01..0x1AFF. Unused for PixelType
+        }
+    
+        public enum PolygonMode : uint
+        {
+            POINT = 0x1B00, // PolygonMode,MeshMode1,MeshMode2
+            POINT_NV = 0x1B00,
+            LINE = 0x1B01, // PolygonMode,MeshMode1,MeshMode2
+            LINE_NV = 0x1B01,
+            FILL = 0x1B02, // PolygonMode,MeshMode2
+            FILL_NV = 0x1B02, // EvalMapsModeNV
+            // Unused 0x1B03..0x1BFF. Unused for PolygonMode
+        }
+
+        public enum RenderingMode : uint
+        {
+            RENDER = 0x1C00,
+            FEEDBACK = 0x1C01,
+            SELECT = 0x1C02,
+            // Unused 0x1C03..0x1CFF. Unused for RenderingMode
+        }
+
+        public enum ShadingModel : uint
+        {
+            FLAT = 0x1D00, // ShadingModel
+            SMOOTH = 0x1D01, // ShadingModel
+            // Unused 0x1D02..0x1DFF. Unused for ShadingModel
+        }
+
+        public enum StencilOp : uint
+        {
+            KEEP = 0x1E00,
+            REPLACE = 0x1E01, // LightEnvModeSGIX
+            INCR = 0x1E02,
+            DECR = 0x1E03,
+            // Unused 0x1E04..0x1EFF. Unused for StencilOp
+        }
+
+        public enum StringName : uint
+        {
+            VENDOR = 0x1F00, // StringName
+            RENDERER = 0x1F01, // StringName
+            VERSION = 0x1F02, // StringName
+            EXTENSIONS = 0x1F03, // StringName
+            // Unused 0x1F04..0x1FFF. Unused for StringName
+        }
+
+        public enum TextureCoordName : uint
+        {
+            S = 0x2000,
+            T = 0x2001,
+            R = 0x2002,
+            Q = 0x2003,
+            // Unused 0x2004..0x20FF. Unused for TextureCoordName
+        }
+
+        public enum TextureEnvMode : uint
+        {
+            MODULATE = 0x2100, // LightEnvModeSGIX
+            DECAL = 0x2101,
+            // Unused 0x2102..0x21FF. Unused for TextureEnvMode
+        }
+
+        public enum TextureEnvParameter : uint
+        {
+            TEXTURE_ENV_MODE = 0x2200,
+            TEXTURE_ENV_COLOR = 0x2201,
+            // Unused 0x2202..0x22FF. Unused for TextureEnvParameter
+        }
+
+        public enum TextureEnvTarget : uint
+        {
+            TEXTURE_ENV = 0x2300,
+            // Unused 0x2301..0x23FF. Unused for TextureEnvTarget
+        }
+
+        public enum TextureGenMode : uint
+        {
+            EYE_LINEAR = 0x2400, // PathGenMode
+            EYE_LINEAR_NV = 0x2400,
+            OBJECT_LINEAR = 0x2401, // PathGenMode
+            OBJECT_LINEAR_NV = 0x2401,
+            SPHERE_MAP = 0x2402,
+            // Unused 0x2403..0x24FF. Unused for TextureGenMode
+        }
+
+        public enum TextureGenParameter : uint
+        {
+            TEXTURE_GEN_MODE = 0x2500,
+            TEXTURE_GEN_MODE_OES = 0x2500,
+            OBJECT_PLANE = 0x2501,
+            EYE_PLANE = 0x2502,
+            // Unused 0x2503..0x25FF. Unused for TextureGenParameter
+        }
+
+        public enum TextureMagFilter : uint
+        {
+            NEAREST = 0x2600, // BlitFramebufferFilter,TextureMinFilter
+            LINEAR = 0x2601, // BlitFramebufferFilter,FogMode,TextureMinFilter
+            // Unused 0x2602..0x26FF. Unused for TextureMagFilter
+        }
+
+        public enum TextureMinFilter : uint
+        {
+            NEAREST_MIPMAP_NEAREST = 0x2700,
+            LINEAR_MIPMAP_NEAREST = 0x2701,
+            NEAREST_MIPMAP_LINEAR = 0x2702,
+            LINEAR_MIPMAP_LINEAR = 0x2703, // TextureWrapMode
+            // Unused 0x2704..0x27FF. Unused for TextureMinFilter
+        }
+
+        public enum TextureParameterName : uint
+        {
+            TEXTURE_MAG_FILTER = 0x2800, // SamplerParameterI,GetTextureParameter
+            TEXTURE_MIN_FILTER = 0x2801, // SamplerParameterI,GetTextureParameter
+            TEXTURE_WRAP_S = 0x2802, // SamplerParameterI,GetTextureParameter
+            TEXTURE_WRAP_T = 0x2803, // SamplerParameterI,GetTextureParameter
+            // Unused 0x2804..0x28FF. Unused for TextureParameterName
+        }
+
+        public enum TextureWrapMode : uint
+        {
+            CLAMP = 0x2900,
+            REPEAT = 0x2901,
+            // Unused 0x2902..0x29FF. Unused for TextureWrapMode
+        }
+
+        public enum PolygonOffset : uint    // ???
+        {
+            POLYGON_OFFSET_UNITS = 0x2A00, // GetPName
+            POLYGON_OFFSET_POINT = 0x2A01, // GetPName,EnableCap
+            POLYGON_OFFSET_POINT_NV = 0x2A01,
+            POLYGON_OFFSET_LINE = 0x2A02, // GetPName,EnableCap
+            POLYGON_OFFSET_LINE_NV = 0x2A02,
+            // Unused 0x2A03..0x2A09. Unused for PolygonOffset
+        }
+
+        public enum InternalFormat : uint
+        {
+            R3_G3_B2 = 0x2A10,
+            // Unused 0x2A11..0x2A1F. Unused for InternalFormat
+        }
+        
+        public enum InterleavedArrayFormat : uint
+        {
+            V2F = 0x2A20,
+            V3F = 0x2A21,
+            C4UB_V2F = 0x2A22,
+            C4UB_V3F = 0x2A23,
+            C3F_V3F = 0x2A24,
+            N3F_V3F = 0x2A25,
+            C4F_N3F_V3F = 0x2A26,
+            T2F_V3F = 0x2A27,
+            T4F_V4F = 0x2A28,
+            T2F_C4UB_V3F = 0x2A29,
+            T2F_C3F_V3F = 0x2A2A,
+            T2F_N3F_V3F = 0x2A2B,
+            T2F_C4F_N3F_V3F = 0x2A2C,
+            T4F_C4F_N3F_V4F = 0x2A2D,
+            // Unused 0x2A2E..0x2FFF. Unused for InterleavedArrayFormat
+        }
+        
+        public enum ClipPlaneName : uint
+        {
+            CLIP_PLANE0 = 0x3000, // GetPName,EnableCap
+            CLIP_PLANE0_IMG = 0x3000,
+            // Alias of GL_CLIP_PLANE0
+            CLIP_DISTANCE0 = 0x3000, // EnableCap
+            // Alias of GL_CLIP_PLANE0
+            CLIP_DISTANCE0_EXT = 0x3000,
+            CLIP_DISTANCE0_APPLE = 0x3000,
+            CLIP_PLANE1 = 0x3001, // GetPName,EnableCap
+            CLIP_PLANE1_IMG = 0x3001,
+            // Alias of GL_CLIP_PLANE1
+            CLIP_DISTANCE1 = 0x3001, // EnableCap
+            // Alias of GL_CLIP_PLANE1
+            CLIP_DISTANCE1_EXT = 0x3001,
+            CLIP_DISTANCE1_APPLE = 0x3001,
+            CLIP_PLANE2 = 0x3002, // GetPName,EnableCap
+            CLIP_PLANE2_IMG = 0x3002,
+            // Alias of GL_CLIP_PLANE2
+            CLIP_DISTANCE2 = 0x3002, // EnableCap
+            // Alias of GL_CLIP_PLANE2
+            CLIP_DISTANCE2_EXT = 0x3002,
+            CLIP_DISTANCE2_APPLE = 0x3002,
+            CLIP_PLANE3 = 0x3003, // GetPName,EnableCap
+            CLIP_PLANE3_IMG = 0x3003,
+            // Alias of GL_CLIP_PLANE3
+            CLIP_DISTANCE3 = 0x3003, // EnableCap
+            // Alias of GL_CLIP_PLANE3
+            CLIP_DISTANCE3_EXT = 0x3003,
+            CLIP_DISTANCE3_APPLE = 0x3003,
+            CLIP_PLANE4 = 0x3004, // GetPName,EnableCap
+            CLIP_PLANE4_IMG = 0x3004,
+            // Alias of GL_CLIP_PLANE4
+            CLIP_DISTANCE4 = 0x3004, // EnableCap
+            // Alias of GL_CLIP_PLANE4
+            CLIP_DISTANCE4_EXT = 0x3004,
+            CLIP_DISTANCE4_APPLE = 0x3004,
+            CLIP_PLANE5 = 0x3005, // GetPName,EnableCap
+            CLIP_PLANE5_IMG = 0x3005,
+            // Alias of GL_CLIP_PLANE5
+            CLIP_DISTANCE5 = 0x3005, // EnableCap
+            // Alias of GL_CLIP_PLANE5
+            CLIP_DISTANCE5_EXT = 0x3005,
+            CLIP_DISTANCE5_APPLE = 0x3005,
+            CLIP_DISTANCE6 = 0x3006, // EnableCap
+            // Alias of GL_CLIP_DISTANCE6
+            CLIP_DISTANCE6_EXT = 0x3006,
+            CLIP_DISTANCE6_APPLE = 0x3006,
+            CLIP_DISTANCE7 = 0x3007, // EnableCap
+            // Alias of GL_CLIP_DISTANCE7
+            CLIP_DISTANCE7_EXT = 0x3007,
+            CLIP_DISTANCE7_APPLE = 0x3007,
+            // Unused 0x3008..0x3FFF. Unused for ClipPlaneName
+        }
+        
+        public enum LightName : uint
+        {
+            LIGHT0 = 0x4000, // EnableCap,GetPName
+            LIGHT1 = 0x4001, // EnableCap,GetPName
+            LIGHT2 = 0x4002, // EnableCap,GetPName
+            LIGHT3 = 0x4003, // EnableCap,GetPName
+            LIGHT4 = 0x4004, // EnableCap,GetPName
+            LIGHT5 = 0x4005, // EnableCap,GetPName
+            LIGHT6 = 0x4006, // EnableCap,GetPName
+            LIGHT7 = 0x4007, // EnableCap,GetPName
+            // Unused 0x4008..0x4FFF. Unused for LightName
+        }
+        
+        // Unused 0x5000..0x5FFF. Unused. Do not use.
+        // Unused 0x6000..0x6FFF. Experimental (internal/test only) range. DO NOT SHIP VALUES IN THIS RANGE.
+        // Unused 0x7000..0x7FFF. Unused. Do not use.
+        
     }
 }
