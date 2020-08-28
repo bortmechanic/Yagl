@@ -1,3 +1,4 @@
+/*
 namespace Yagl.Graphics
 {
     public static partial class Gl
@@ -564,6 +565,14 @@ namespace Yagl.Graphics
             SRC_ALPHA_SATURATE = 0x0308,
             SRC_ALPHA_SATURATE_EXT = 0x0308,
             // Unused 0x0309..0x03FF. Unused for BlendingFactor
+            CONSTANT_COLOR = 0x8001;
+            CONSTANT_COLOR_EXT = 0x8001;
+            ONE_MINUS_CONSTANT_COLOR = 0x8002;
+            ONE_MINUS_CONSTANT_COLOR_EXT = 0x8002;
+            CONSTANT_ALPHA = 0x8003;
+            CONSTANT_ALPHA_EXT = 0x8003;
+            ONE_MINUS_CONSTANT_ALPHA = 0x8004;
+            ONE_MINUS_CONSTANT_ALPHA_EXT = 0x8004;
         }
 
         public enum ColorBuffer : uint
@@ -613,6 +622,9 @@ namespace Yagl.Graphics
             CONTEXT_LOST = 0x0507,
             CONTEXT_LOST_KHR = 0x0507,
             // Unused 0x0508..0x05FF. Unused for ErrorCode
+            TABLE_TOO_LARGE_EXT = 0x8031; // ErrorCode
+            TABLE_TOO_LARGE = 0x8031; // ErrorCode
+            TEXTURE_TOO_LARGE_EXT = 0x8065; // ErrorCode
         }
 
         public enum FeedbackType : uint
@@ -913,6 +925,118 @@ namespace Yagl.Graphics
             SELECTION_BUFFER_POINTER = 0x0DF3, // GetPointervPName
             SELECTION_BUFFER_SIZE = 0x0DF4, // GetPName
             // Unused 0x0DF5..0xFFFF. Unused for GetPName
+            BLEND_COLOR = 0x8005; // GetPName
+            BLEND_COLOR_EXT = 0x8005; // GetPName
+            public const ushort RESCALE_NORMAL = 0x803A;
+            public const ushort RESCALE_NORMAL_EXT = 0x803A; // GetPName,EnableCap
+            public const ushort MAX_3D_TEXTURE_SIZE = 0x8073; // GetPName
+            public const ushort MAX_3D_TEXTURE_SIZE_EXT = 0x8073; // GetPName
+            public const ushort MAX_3D_TEXTURE_SIZE_OES = 0x8073;
+            public const ushort VERTEX_ARRAY = 0x8074; // ObjectIdentifier,EnableCap,GetPName
+            public const ushort VERTEX_ARRAY_EXT = 0x8074;
+            public const ushort VERTEX_ARRAY_KHR = 0x8074;
+            public const ushort NORMAL_ARRAY = 0x8075; // GetPName,EnableCap
+            public const ushort NORMAL_ARRAY_EXT = 0x8075;
+            public const ushort COLOR_ARRAY = 0x8076; // GetPName,EnableCap
+            public const ushort COLOR_ARRAY_EXT = 0x8076;
+            public const ushort INDEX_ARRAY = 0x8077; // GetPName,EnableCap
+            public const ushort INDEX_ARRAY_EXT = 0x8077;
+            public const ushort TEXTURE_COORD_ARRAY = 0x8078; // GetPName,EnableCap
+            public const ushort TEXTURE_COORD_ARRAY_EXT = 0x8078;
+            public const ushort EDGE_FLAG_ARRAY = 0x8079; // GetPName,EnableCap
+            public const ushort EDGE_FLAG_ARRAY_EXT = 0x8079;
+            public const ushort VERTEX_ARRAY_SIZE = 0x807A; // GetPName
+            public const ushort VERTEX_ARRAY_SIZE_EXT = 0x807A;
+            public const ushort VERTEX_ARRAY_TYPE = 0x807B; // GetPName
+            public const ushort VERTEX_ARRAY_TYPE_EXT = 0x807B;
+            public const ushort VERTEX_ARRAY_STRIDE = 0x807C; // GetPName
+            public const ushort VERTEX_ARRAY_STRIDE_EXT = 0x807C;
+            public const ushort VERTEX_ARRAY_COUNT_EXT = 0x807D; // GetPName
+            public const ushort NORMAL_ARRAY_TYPE = 0x807E; // GetPName
+            public const ushort NORMAL_ARRAY_TYPE_EXT = 0x807E;
+            public const ushort NORMAL_ARRAY_STRIDE = 0x807F; // GetPName
+            public const ushort NORMAL_ARRAY_STRIDE_EXT = 0x807F;
+            public const ushort NORMAL_ARRAY_COUNT_EXT = 0x8080; // GetPName
+            public const ushort COLOR_ARRAY_SIZE = 0x8081; // GetPName
+            public const ushort COLOR_ARRAY_SIZE_EXT = 0x8081;
+            public const ushort COLOR_ARRAY_TYPE = 0x8082; // GetPName
+            public const ushort COLOR_ARRAY_TYPE_EXT = 0x8082;
+            public const ushort COLOR_ARRAY_STRIDE = 0x8083; // GetPName
+            public const ushort COLOR_ARRAY_STRIDE_EXT = 0x8083;
+            public const ushort COLOR_ARRAY_COUNT_EXT = 0x8084; // GetPName
+            public const ushort INDEX_ARRAY_TYPE = 0x8085; // GetPName
+            public const ushort INDEX_ARRAY_TYPE_EXT = 0x8085;
+            public const ushort INDEX_ARRAY_STRIDE = 0x8086; // GetPName
+            public const ushort INDEX_ARRAY_STRIDE_EXT = 0x8086;
+            public const ushort INDEX_ARRAY_COUNT_EXT = 0x8087; // GetPName
+            public const ushort TEXTURE_COORD_ARRAY_SIZE = 0x8088; // GetPName
+            public const ushort TEXTURE_COORD_ARRAY_SIZE_EXT = 0x8088;
+            public const ushort TEXTURE_COORD_ARRAY_TYPE = 0x8089; // GetPName
+            public const ushort TEXTURE_COORD_ARRAY_TYPE_EXT = 0x8089;
+            public const ushort TEXTURE_COORD_ARRAY_STRIDE = 0x808A; // GetPName
+            public const ushort TEXTURE_COORD_ARRAY_STRIDE_EXT = 0x808A;
+            public const ushort TEXTURE_COORD_ARRAY_COUNT_EXT = 0x808B; // GetPName
+            public const ushort EDGE_FLAG_ARRAY_STRIDE = 0x808C; // GetPName
+            public const ushort EDGE_FLAG_ARRAY_STRIDE_EXT = 0x808C;
+            public const ushort EDGE_FLAG_ARRAY_COUNT_EXT = 0x808D; // GetPName
+            public const ushort INTERLACE_SGIX = 0x8094; // GetPName,EnableCap
+            public const ushort MULTISAMPLE = 0x809D; // EnableCap
+            public const ushort MULTISAMPLE_ARB = 0x809D;
+            public const ushort MULTISAMPLE_EXT = 0x809D;
+            public const ushort MULTISAMPLE_SGIS = 0x809D; // GetPName,EnableCap
+            public const ushort SAMPLE_ALPHA_TO_COVERAGE = 0x809E; // EnableCap
+            public const ushort SAMPLE_ALPHA_TO_COVERAGE_ARB = 0x809E;
+            public const ushort SAMPLE_ALPHA_TO_MASK_EXT = 0x809E;
+            public const ushort SAMPLE_ALPHA_TO_MASK_SGIS = 0x809E; // GetPName,EnableCap
+            public const ushort SAMPLE_ALPHA_TO_ONE = 0x809F; // EnableCap
+            public const ushort SAMPLE_ALPHA_TO_ONE_ARB = 0x809F;
+            public const ushort SAMPLE_ALPHA_TO_ONE_EXT = 0x809F;
+            public const ushort SAMPLE_ALPHA_TO_ONE_SGIS = 0x809F; // GetPName,EnableCap
+            public const ushort SAMPLE_COVERAGE = 0x80A0; // EnableCap
+            public const ushort SAMPLE_COVERAGE_ARB = 0x80A0;
+            public const ushort SAMPLE_MASK_EXT = 0x80A0;
+            public const ushort SAMPLE_MASK_SGIS = 0x80A0; // GetPName,EnableCap
+            public const ushort SAMPLE_BUFFERS = 0x80A8; // GetFramebufferParameter,GetPName
+            public const ushort SAMPLE_BUFFERS_ARB = 0x80A8;
+            public const ushort SAMPLE_BUFFERS_EXT = 0x80A8;
+            public const ushort SAMPLE_BUFFERS_SGIS = 0x80A8; // GetPName
+            public const ushort SAMPLES = 0x80A9; // GetFramebufferParameter,GetPName,InternalFormatPName
+            public const ushort SAMPLES_ARB = 0x80A9;
+            public const ushort SAMPLES_EXT = 0x80A9;
+            public const ushort SAMPLES_SGIS = 0x80A9; // GetPName
+            public const ushort SAMPLE_COVERAGE_VALUE = 0x80AA; // GetPName
+            public const ushort SAMPLE_COVERAGE_VALUE_ARB = 0x80AA;
+            public const ushort SAMPLE_MASK_VALUE_EXT = 0x80AA;
+            public const ushort SAMPLE_MASK_VALUE_SGIS = 0x80AA; // GetPName
+            public const ushort SAMPLE_COVERAGE_INVERT = 0x80AB; // GetPName
+            public const ushort SAMPLE_COVERAGE_INVERT_ARB = 0x80AB;
+            public const ushort SAMPLE_MASK_INVERT_EXT = 0x80AB;
+            public const ushort SAMPLE_MASK_INVERT_SGIS = 0x80AB; // GetPName
+            public const ushort SAMPLE_PATTERN_EXT = 0x80AC;
+            public const ushort SAMPLE_PATTERN_SGIS = 0x80AC; // GetPName
+            public const ushort COLOR_MATRIX = 0x80B1;
+            public const ushort COLOR_MATRIX_SGI = 0x80B1; // GetPName
+            public const ushort COLOR_MATRIX_STACK_DEPTH = 0x80B2;
+            public const ushort COLOR_MATRIX_STACK_DEPTH_SGI = 0x80B2; // GetPName
+            public const ushort MAX_COLOR_MATRIX_STACK_DEPTH = 0x80B3;
+            public const ushort MAX_COLOR_MATRIX_STACK_DEPTH_SGI = 0x80B3; // GetPName
+            // Unused 0x80C0..0x80C7. 
+            public const ushort BLEND_DST_RGB = 0x80C8; // GetPName
+            public const ushort BLEND_DST_RGB_EXT = 0x80C8;
+            public const ushort BLEND_DST_RGB_OES = 0x80C8;
+            public const ushort BLEND_SRC_RGB = 0x80C9; // GetPName
+            public const ushort BLEND_SRC_RGB_EXT = 0x80C9;
+            public const ushort BLEND_SRC_RGB_OES = 0x80C9;
+            public const ushort BLEND_DST_ALPHA = 0x80CA; // GetPName
+            public const ushort BLEND_DST_ALPHA_EXT = 0x80CA;
+            public const ushort BLEND_DST_ALPHA_OES = 0x80CA;
+            public const ushort BLEND_SRC_ALPHA = 0x80CB; // GetPName
+            public const ushort BLEND_SRC_ALPHA_EXT = 0x80CB;
+            public const ushort BLEND_SRC_ALPHA_OES = 0x80CB;
+            public const ushort GL_422_EXT = 0x80CC;
+            public const ushort GL_422_REV_EXT = 0x80CD;
+            public const ushort GL_422_AVERAGE_EXT = 0x80CE;
+            public const ushort GL_422_REV_AVERAGE_EXT = 0x80CF;
         }
         
         public enum GetTextureParameter : uint
@@ -928,6 +1052,18 @@ namespace Yagl.Graphics
             TEXTURE_BORDER = 0x1005,
             TEXTURE_TARGET = 0x1006,
             // Unused 0x1007..0x10FF. Unused for GetTextureParameter
+            public const ushort TEXTURE_RED_SIZE = 0x805C; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_RED_SIZE_EXT = 0x805C;
+            public const ushort TEXTURE_GREEN_SIZE = 0x805D; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_GREEN_SIZE_EXT = 0x805D;
+            public const ushort TEXTURE_BLUE_SIZE = 0x805E; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_BLUE_SIZE_EXT = 0x805E;
+            public const ushort TEXTURE_ALPHA_SIZE = 0x805F; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_ALPHA_SIZE_EXT = 0x805F;
+            public const ushort TEXTURE_LUMINANCE_SIZE = 0x8060; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_LUMINANCE_SIZE_EXT = 0x8060;
+            public const ushort TEXTURE_INTENSITY_SIZE = 0x8061; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_INTENSITY_SIZE_EXT = 0x8061;
         }
 
         public enum TextureParameterName : uint
@@ -943,6 +1079,27 @@ namespace Yagl.Graphics
             TEXTURE_BORDER = 0x1005,
             TEXTURE_TARGET = 0x1006,
             // Unused 0x1007..0x10FF. Unused for GetTextureParameter
+            public const ushort TEXTURE_PRIORITY = 0x8066; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_PRIORITY_EXT = 0x8066; // TextureParameterName
+            public const ushort TEXTURE_RESIDENT = 0x8067; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_RESIDENT_EXT = 0x8067;
+            public const ushort TEXTURE_1D_BINDING_EXT = 0x8068;
+            public const ushort TEXTURE_BINDING_1D = 0x8068; // GetPName
+            public const ushort TEXTURE_2D_BINDING_EXT = 0x8069;
+            public const ushort TEXTURE_BINDING_2D = 0x8069; // GetPName
+            public const ushort TEXTURE_3D_BINDING_EXT = 0x806A; // GetPName
+            public const ushort TEXTURE_3D_BINDING_OES = 0x806A;
+            public const ushort TEXTURE_BINDING_3D = 0x806A; // GetPName
+            public const ushort TEXTURE_BINDING_3D_OES = 0x806A;
+            public const ushort TEXTURE_DEPTH = 0x8071;
+            public const ushort TEXTURE_DEPTH_EXT = 0x8071; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_WRAP_R = 0x8072; // SamplerParameterI,TextureParameterName
+            public const ushort TEXTURE_WRAP_R_EXT = 0x8072; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_WRAP_R_OES = 0x8072; // TextureParameterName
+            public const ushort DETAIL_TEXTURE_LEVEL_SGIS = 0x809A; // TextureParameterName,GetTextureParameter
+            public const ushort DETAIL_TEXTURE_MODE_SGIS = 0x809B; // TextureParameterName,GetTextureParameter
+            public const ushort DETAIL_TEXTURE_FUNC_POINTS_SGIS = 0x809C; // TextureParameterName,GetTextureParameter
+
         }
         
         public enum HintMode : uint
@@ -1083,12 +1240,27 @@ namespace Yagl.Graphics
             LUMINANCE = 0x1909, // PixelTexGenMode,PathColorFormat,PixelFormat
             LUMINANCE_ALPHA = 0x190A, // PixelTexGenMode,PathColorFormat,PixelFormat
             // Unused 0x1910..0x19FF. Unused for PixelFormat
+            ABGR_EXT = 0x8000; // PixelFormat
+            CMYK_EXT = 0x800C;
+            CMYKA_EXT = 0x800D;
+            
         }
         
         public enum PixelType : uint
         {
             BITMAP = 0x1A00, // PixelType
             // Unused 0x1A01..0x1AFF. Unused for PixelType
+            public const ushort UNSIGNED_BYTE_3_3_2 = 0x8032; // PixelType
+            public const ushort UNSIGNED_BYTE_3_3_2_EXT = 0x8032; // PixelType
+            public const ushort UNSIGNED_SHORT_4_4_4_4 = 0x8033; // PixelType
+            public const ushort UNSIGNED_SHORT_4_4_4_4_EXT = 0x8033; // PixelType
+            public const ushort UNSIGNED_SHORT_5_5_5_1 = 0x8034; // PixelType
+            public const ushort UNSIGNED_SHORT_5_5_5_1_EXT = 0x8034; // PixelType
+            public const ushort UNSIGNED_INT_8_8_8_8 = 0x8035; // PixelType
+            public const ushort UNSIGNED_INT_8_8_8_8_EXT = 0x8035; // PixelType
+            public const ushort UNSIGNED_INT_10_10_10_2 = 0x8036; // PixelType
+            public const ushort UNSIGNED_INT_10_10_10_2_EXT = 0x8036; // PixelType
+
         }
     
         public enum PolygonMode : uint
@@ -1149,6 +1321,8 @@ namespace Yagl.Graphics
             MODULATE = 0x2100, // LightEnvModeSGIX
             DECAL = 0x2101,
             // Unused 0x2102..0x21FF. Unused for TextureEnvMode
+            REPLACE_EXT = 0x8062; // TextureEnvMode
+            public const ushort TEXTURE_ENV_BIAS_SGIX = 0x80BE; // TextureEnvMode
         }
 
         public enum TextureEnvParameter : uint
@@ -1188,6 +1362,12 @@ namespace Yagl.Graphics
             NEAREST = 0x2600, // BlitFramebufferFilter,TextureMinFilter
             LINEAR = 0x2601, // BlitFramebufferFilter,FogMode,TextureMinFilter
             // Unused 0x2602..0x26FF. Unused for TextureMagFilter
+            public const ushort LINEAR_DETAIL_SGIS = 0x8097; // TextureMagFilter
+            public const ushort LINEAR_DETAIL_ALPHA_SGIS = 0x8098; // TextureMagFilter
+            public const ushort LINEAR_DETAIL_COLOR_SGIS = 0x8099; // TextureMagFilter
+            public const ushort LINEAR_SHARPEN_SGIS = 0x80AD; // TextureMagFilter
+            public const ushort LINEAR_SHARPEN_ALPHA_SGIS = 0x80AE; // TextureMagFilter
+            public const ushort LINEAR_SHARPEN_COLOR_SGIS = 0x80AF; // TextureMagFilter
         }
 
         public enum TextureMinFilter : uint
@@ -1206,6 +1386,9 @@ namespace Yagl.Graphics
             TEXTURE_WRAP_S = 0x2802, // SamplerParameterI,GetTextureParameter
             TEXTURE_WRAP_T = 0x2803, // SamplerParameterI,GetTextureParameter
             // Unused 0x2804..0x28FF. Unused for TextureParameterName
+            public const ushort SHARPEN_TEXTURE_FUNC_POINTS_SGIS = 0x80B0; // TextureParameterName,GetTextureParameter
+            public const ushort SHADOW_AMBIENT_SGIX = 0x80BF; // TextureParameterName,GetTextureParameter
+            public const ushort TEXTURE_COMPARE_FAIL_VALUE_ARB = 0x80BF; // ??? Should it be here?
         }
 
         public enum TextureWrapMode : uint
@@ -1223,12 +1406,91 @@ namespace Yagl.Graphics
             POLYGON_OFFSET_LINE = 0x2A02, // GetPName,EnableCap
             POLYGON_OFFSET_LINE_NV = 0x2A02,
             // Unused 0x2A03..0x2A09. Unused for PolygonOffset
+            public const ushort POLYGON_OFFSET_EXT = 0x8037;
+            public const ushort POLYGON_OFFSET_FILL = 0x8037; // GetPName,EnableCap
+            public const ushort POLYGON_OFFSET_FACTOR = 0x8038; // GetPName
+            public const ushort POLYGON_OFFSET_FACTOR_EXT = 0x8038;
+            public const ushort POLYGON_OFFSET_BIAS_EXT = 0x8039; // GetPName
         }
 
         public enum InternalFormat : uint
         {
             R3_G3_B2 = 0x2A10,
             // Unused 0x2A11..0x2A1F. Unused for InternalFormat
+            public const ushort ALPHA4 = 0x803B; // InternalFormat
+        public const ushort ALPHA4_EXT = 0x803B;
+        public const ushort ALPHA8 = 0x803C; // InternalFormat
+        public const ushort ALPHA8_EXT = 0x803C;
+        public const ushort ALPHA8_OES = 0x803C;
+        public const ushort ALPHA12 = 0x803D; // InternalFormat
+        public const ushort ALPHA12_EXT = 0x803D;
+        public const ushort ALPHA16 = 0x803E; // InternalFormat
+        public const ushort ALPHA16_EXT = 0x803E;
+        public const ushort LUMINANCE4 = 0x803F; // InternalFormat
+        public const ushort LUMINANCE4_EXT = 0x803F;
+        public const ushort LUMINANCE8 = 0x8040; // InternalFormat
+        public const ushort LUMINANCE8_EXT = 0x8040;
+        public const ushort LUMINANCE8_OES = 0x8040;
+        public const ushort LUMINANCE12 = 0x8041; // InternalFormat
+        public const ushort LUMINANCE12_EXT = 0x8041;
+        public const ushort LUMINANCE16 = 0x8042; // InternalFormat
+        public const ushort LUMINANCE16_EXT = 0x8042;
+        public const ushort LUMINANCE4_ALPHA4 = 0x8043; // InternalFormat
+        public const ushort LUMINANCE4_ALPHA4_EXT = 0x8043;
+        public const ushort LUMINANCE4_ALPHA4_OES = 0x8043;
+        public const ushort LUMINANCE6_ALPHA2 = 0x8044; // InternalFormat
+        public const ushort LUMINANCE6_ALPHA2_EXT = 0x8044;
+        public const ushort LUMINANCE8_ALPHA8 = 0x8045; // InternalFormat
+        public const ushort LUMINANCE8_ALPHA8_EXT = 0x8045;
+        public const ushort LUMINANCE8_ALPHA8_OES = 0x8045;
+        public const ushort LUMINANCE12_ALPHA4 = 0x8046; // InternalFormat
+        public const ushort LUMINANCE12_ALPHA4_EXT = 0x8046;
+        public const ushort LUMINANCE12_ALPHA12 = 0x8047; // InternalFormat
+        public const ushort LUMINANCE12_ALPHA12_EXT = 0x8047;
+        public const ushort LUMINANCE16_ALPHA16 = 0x8048; // InternalFormat
+        public const ushort LUMINANCE16_ALPHA16_EXT = 0x8048;
+        public const ushort INTENSITY = 0x8049; // InternalFormat,PathColorFormat
+        public const ushort INTENSITY_EXT = 0x8049;
+        public const ushort INTENSITY4 = 0x804A; // InternalFormat
+        public const ushort INTENSITY4_EXT = 0x804A;
+        public const ushort INTENSITY8 = 0x804B; // InternalFormat
+        public const ushort INTENSITY8_EXT = 0x804B;
+        public const ushort INTENSITY12 = 0x804C; // InternalFormat
+        public const ushort INTENSITY12_EXT = 0x804C;
+        public const ushort INTENSITY16 = 0x804D; // InternalFormat
+        public const ushort INTENSITY16_EXT = 0x804D;
+        public const ushort RGB2_EXT = 0x804E; // InternalFormat
+        public const ushort RGB4 = 0x804F; // InternalFormat
+        public const ushort RGB4_EXT = 0x804F; // InternalFormat
+        public const ushort RGB5 = 0x8050; // InternalFormat
+        public const ushort RGB5_EXT = 0x8050; // InternalFormat
+        public const ushort RGB8 = 0x8051; // InternalFormat
+        public const ushort RGB8_EXT = 0x8051; // InternalFormat
+        public const ushort RGB8_OES = 0x8051; // InternalFormat
+        public const ushort RGB10 = 0x8052; // InternalFormat
+        public const ushort RGB10_EXT = 0x8052; // InternalFormat
+        public const ushort RGB12 = 0x8053; // InternalFormat
+        public const ushort RGB12_EXT = 0x8053; // InternalFormat
+        public const ushort RGB16 = 0x8054; // InternalFormat
+        public const ushort RGB16_EXT = 0x8054; // InternalFormat
+        public const ushort RGBA2 = 0x8055;
+        public const ushort RGBA2_EXT = 0x8055;
+        public const ushort RGBA4 = 0x8056; // InternalFormat
+        public const ushort RGBA4_EXT = 0x8056; // InternalFormat
+        public const ushort RGBA4_OES = 0x8056; // InternalFormat
+        public const ushort RGB5_A1 = 0x8057; // InternalFormat
+        public const ushort RGB5_A1_EXT = 0x8057; // InternalFormat
+        public const ushort RGB5_A1_OES = 0x8057; // InternalFormat
+        public const ushort RGBA8 = 0x8058; // InternalFormat
+        public const ushort RGBA8_EXT = 0x8058; // InternalFormat
+        public const ushort RGBA8_OES = 0x8058; // InternalFormat
+        public const ushort RGB10_A2 = 0x8059; // InternalFormat
+        public const ushort RGB10_A2_EXT = 0x8059; // InternalFormat
+        public const ushort RGBA12 = 0x805A; // InternalFormat
+        public const ushort RGBA12_EXT = 0x805A; // InternalFormat
+        public const ushort RGBA16 = 0x805B; // InternalFormat
+        public const ushort RGBA16_EXT = 0x805B; // InternalFormat
+        
         }
         
         public enum InterleavedArrayFormat : uint
@@ -1321,6 +1583,256 @@ namespace Yagl.Graphics
         // Unused 0x5000..0x5FFF. Unused. Do not use.
         // Unused 0x6000..0x6FFF. Experimental (internal/test only) range. DO NOT SHIP VALUES IN THIS RANGE.
         // Unused 0x7000..0x7FFF. Unused. Do not use.
+
+        public enum BlendEquationModeEXT : uint
+        {
+            FUNC_ADD = 0x8006;
+            FUNC_ADD_EXT = 0x8006;
+            FUNC_ADD_OES = 0x8006;
+            MIN = 0x8007;
+            MIN_EXT = 0x8007;
+            MAX = 0x8008;
+            MAX_EXT = 0x8008;
+            BLEND_EQUATION = 0x8009;
+            BLEND_EQUATION_EXT = 0x8009; // GetPName
+            BLEND_EQUATION_OES = 0x8009;
+            BLEND_EQUATION_RGB = 0x8009; // GetPName
+            BLEND_EQUATION_RGB_EXT = 0x8009;
+            BLEND_EQUATION_RGB_OES = 0x8009;
+            FUNC_SUBTRACT = 0x800A;
+            FUNC_SUBTRACT_EXT = 0x800A;
+            FUNC_SUBTRACT_OES = 0x800A;
+            FUNC_REVERSE_SUBTRACT = 0x800B;
+            FUNC_REVERSE_SUBTRACT_EXT = 0x800B;
+            FUNC_REVERSE_SUBTRACT_OES = 0x800B;
+        }
+
+        public enum HintTarget : uint
+        {
+            PACK_CMYK_HINT_EXT = 0x800E; // GetPName
+            UNPACK_CMYK_HINT_EXT = 0x800F; // GetPName
+        }
+
+        public enum ConvolutionTarget : uint
+        {
+            CONVOLUTION_1D = 0x8010; // ConvolutionTarget,ConvolutionTargetEXT
+            CONVOLUTION_1D_EXT = 0x8010; // GetPName,ConvolutionTargetEXT,EnableCap
+            CONVOLUTION_2D = 0x8011; // ConvolutionTarget,ConvolutionTargetEXT
+            CONVOLUTION_2D_EXT = 0x8011; // GetPName,ConvolutionTargetEXT,EnableCap
+        }
+
+        public enum SeparableTargetEXT : uint
+        {
+            SEPARABLE_2D = 0x8012; // SeparableTargetEXT
+            SEPARABLE_2D_EXT = 0x8012; // SeparableTargetEXT,EnableCap,GetPName
+        }
+
+        public enum GetConvolutionParameter : uint
+        {
+            public const ushort CONVOLUTION_BORDER_MODE = 0x8013; // GetConvolutionParameter,ConvolutionParameterEXT
+            public const ushort CONVOLUTION_BORDER_MODE_EXT = 0x8013; // GetConvolutionParameter,ConvolutionParameterEXT
+            public const ushort CONVOLUTION_FILTER_SCALE = 0x8014; // GetConvolutionParameter,ConvolutionParameterEXT
+            public const ushort CONVOLUTION_FILTER_SCALE_EXT = 0x8014; // GetConvolutionParameter,ConvolutionParameterEXT
+            public const ushort CONVOLUTION_FILTER_BIAS = 0x8015; // GetConvolutionParameter,ConvolutionParameterEXT
+            public const ushort CONVOLUTION_FILTER_BIAS_EXT = 0x8015; // GetConvolutionParameter,ConvolutionParameterEXT
+            public const ushort CONVOLUTION_FORMAT = 0x8017; // GetConvolutionParameter
+            public const ushort CONVOLUTION_FORMAT_EXT = 0x8017; // GetConvolutionParameter
+            public const ushort CONVOLUTION_WIDTH = 0x8018; // GetConvolutionParameter
+            public const ushort CONVOLUTION_WIDTH_EXT = 0x8018; // GetConvolutionParameter
+            public const ushort CONVOLUTION_HEIGHT = 0x8019; // GetConvolutionParameter
+            public const ushort CONVOLUTION_HEIGHT_EXT = 0x8019; // GetConvolutionParameter
+            public const ushort MAX_CONVOLUTION_WIDTH = 0x801A; // GetConvolutionParameter
+            public const ushort MAX_CONVOLUTION_WIDTH_EXT = 0x801A; // GetConvolutionParameter
+            public const ushort MAX_CONVOLUTION_HEIGHT = 0x801B; // GetConvolutionParameter
+            public const ushort MAX_CONVOLUTION_HEIGHT_EXT = 0x801B; // GetConvolutionParameter
+    }
+
+        public enum ConvolutionBorderModeEXT : uint
+        {
+            public const ushort REDUCE = 0x8016; // ConvolutionBorderModeEXT
+            public const ushort REDUCE_EXT = 0x8016; // ConvolutionBorderModeEXT
+        }
+
+        public enum PixelTransferParameter : uint
+        {
+            public const ushort POST_CONVOLUTION_RED_SCALE = 0x801C; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_RED_SCALE_EXT = 0x801C; // PixelTransferParameter,GetPName
+            public const ushort POST_CONVOLUTION_GREEN_SCALE = 0x801D; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_GREEN_SCALE_EXT = 0x801D; // PixelTransferParameter,GetPName
+            public const ushort POST_CONVOLUTION_BLUE_SCALE = 0x801E; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_BLUE_SCALE_EXT = 0x801E; // PixelTransferParameter,GetPName
+            public const ushort POST_CONVOLUTION_ALPHA_SCALE = 0x801F; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_ALPHA_SCALE_EXT = 0x801F; // PixelTransferParameter,GetPName
+            public const ushort POST_CONVOLUTION_RED_BIAS = 0x8020; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_RED_BIAS_EXT = 0x8020; // PixelTransferParameter,GetPName
+            public const ushort POST_CONVOLUTION_GREEN_BIAS = 0x8021; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_GREEN_BIAS_EXT = 0x8021; // PixelTransferParameter,GetPName
+            public const ushort POST_CONVOLUTION_BLUE_BIAS = 0x8022; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_BLUE_BIAS_EXT = 0x8022; // PixelTransferParameter,GetPName
+            public const ushort POST_CONVOLUTION_ALPHA_BIAS = 0x8023; // PixelTransferParameter
+            public const ushort POST_CONVOLUTION_ALPHA_BIAS_EXT = 0x8023; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_RED_SCALE = 0x80B4; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_RED_SCALE_SGI = 0x80B4; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_GREEN_SCALE = 0x80B5; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_GREEN_SCALE_SGI = 0x80B5; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_BLUE_SCALE = 0x80B6; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_BLUE_SCALE_SGI = 0x80B6; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_ALPHA_SCALE = 0x80B7; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_ALPHA_SCALE_SGI = 0x80B7; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_RED_BIAS = 0x80B8; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_RED_BIAS_SGI = 0x80B8; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_GREEN_BIAS = 0x80B9; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_GREEN_BIAS_SGI = 0x80B9; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_BLUE_BIAS = 0x80BA; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_BLUE_BIAS_SGI = 0x80BA; // PixelTransferParameter,GetPName
+            public const ushort POST_COLOR_MATRIX_ALPHA_BIAS = 0x80BB; // PixelTransferParameter
+            public const ushort POST_COLOR_MATRIX_ALPHA_BIAS_SGI = 0x80BB; // PixelTransferParameter,GetPName
+}
+
+        public enum HistogramTargetEXT : uint
+        {
+            public const ushort HISTOGRAM = 0x8024; // HistogramTargetEXT
+            public const ushort HISTOGRAM_EXT = 0x8024; // HistogramTargetEXT,EnableCap,GetPName
+            public const ushort PROXY_HISTOGRAM = 0x8025; // HistogramTargetEXT
+            public const ushort PROXY_HISTOGRAM_EXT = 0x8025; // HistogramTargetEXT
+        }
+
+        public enum GetHistogramParameterPNameEXT : uint
+        {
+            public const ushort HISTOGRAM_WIDTH = 0x8026; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_WIDTH_EXT = 0x8026; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_FORMAT = 0x8027; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_FORMAT_EXT = 0x8027; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_RED_SIZE = 0x8028; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_RED_SIZE_EXT = 0x8028; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_GREEN_SIZE = 0x8029; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_GREEN_SIZE_EXT = 0x8029; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_BLUE_SIZE = 0x802A; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_BLUE_SIZE_EXT = 0x802A; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_ALPHA_SIZE = 0x802B; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_ALPHA_SIZE_EXT = 0x802B; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_LUMINANCE_SIZE = 0x802C; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_LUMINANCE_SIZE_EXT = 0x802C; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_SINK = 0x802D; // GetHistogramParameterPNameEXT
+            public const ushort HISTOGRAM_SINK_EXT = 0x802D; // GetHistogramParameterPNameEXT
+        }
         
+        public enum MinmaxTargetEXT : uint
+        {
+            public const ushort MINMAX = 0x802E; // MinmaxTargetEXT
+            public const ushort MINMAX_EXT = 0x802E; // MinmaxTargetEXT,EnableCap,GetPName
+        }
+            
+        public enum GetMinmaxParameterPNameEXT : uint
+        {
+            public const ushort MINMAX_FORMAT = 0x802F; // GetMinmaxParameterPNameEXT
+            public const ushort MINMAX_FORMAT_EXT = 0x802F; // GetMinmaxParameterPNameEXT
+            public const ushort MINMAX_SINK = 0x8030; // GetMinmaxParameterPNameEXT
+            public const ushort MINMAX_SINK_EXT = 0x8030; // GetMinmaxParameterPNameEXT
+        }
+
+        public enum TextureTarget : uint
+        {
+            public const ushort PROXY_TEXTURE_1D = 0x8063; // TextureTarget
+            public const ushort PROXY_TEXTURE_1D_EXT = 0x8063; // TextureTarget
+            public const ushort PROXY_TEXTURE_2D = 0x8064; // TextureTarget
+            public const ushort PROXY_TEXTURE_2D_EXT = 0x8064; // TextureTarget
+            public const ushort TEXTURE_3D = 0x806F; // CopyImageSubDataTarget,TextureTarget
+            public const ushort TEXTURE_3D_EXT = 0x806F; // TextureTarget,EnableCap,GetPName
+            public const ushort TEXTURE_3D_OES = 0x806F; // TextureTarget
+            public const ushort PROXY_TEXTURE_3D = 0x8070; // TextureTarget
+            public const ushort PROXY_TEXTURE_3D_EXT = 0x8070; // TextureTarget
+            public const ushort DETAIL_TEXTURE_2D_SGIS = 0x8095; // TextureTarget
+            public const ushort DETAIL_TEXTURE_2D_BINDING_SGIS = 0x8096; // GetPName
+        }
+
+        public enum PixelStoreParameter : uint
+        {
+            public const ushort PACK_SKIP_IMAGES = 0x806B; // PixelStoreParameter,GetPName
+            public const ushort PACK_SKIP_IMAGES_EXT = 0x806B; // PixelStoreParameter,GetPName
+            public const ushort PACK_IMAGE_HEIGHT = 0x806C; // PixelStoreParameter,GetPName
+            public const ushort PACK_IMAGE_HEIGHT_EXT = 0x806C; // PixelStoreParameter,GetPName
+            public const ushort UNPACK_SKIP_IMAGES = 0x806D; // PixelStoreParameter,GetPName
+            public const ushort UNPACK_SKIP_IMAGES_EXT = 0x806D; // PixelStoreParameter,GetPName
+            public const ushort UNPACK_IMAGE_HEIGHT = 0x806E; // PixelStoreParameter,GetPName
+            public const ushort UNPACK_IMAGE_HEIGHT_EXT = 0x806E; // PixelStoreParameter,GetPName
+        }
+
+        public enum GetPointervPName : uint
+        {
+            public const ushort VERTEX_ARRAY_POINTER = 0x808E; // GetPointervPName
+            public const ushort VERTEX_ARRAY_POINTER_EXT = 0x808E; // GetPointervPName
+            public const ushort NORMAL_ARRAY_POINTER = 0x808F; // GetPointervPName
+            public const ushort NORMAL_ARRAY_POINTER_EXT = 0x808F; // GetPointervPName
+            public const ushort COLOR_ARRAY_POINTER = 0x8090; // GetPointervPName
+            public const ushort COLOR_ARRAY_POINTER_EXT = 0x8090; // GetPointervPName
+            public const ushort INDEX_ARRAY_POINTER = 0x8091; // GetPointervPName
+            public const ushort INDEX_ARRAY_POINTER_EXT = 0x8091; // GetPointervPName
+            public const ushort TEXTURE_COORD_ARRAY_POINTER = 0x8092; // GetPointervPName
+            public const ushort TEXTURE_COORD_ARRAY_POINTER_EXT = 0x8092; // GetPointervPName
+            public const ushort EDGE_FLAG_ARRAY_POINTER = 0x8093; // GetPointervPName
+            public const ushort EDGE_FLAG_ARRAY_POINTER_EXT = 0x8093; // GetPointervPName
+        }
+
+        public enum SamplePatternSGIS : uint
+        {
+            public const ushort GL_1PASS_EXT = 0x80A1; // SamplePatternSGIS,SamplePatternEXT
+            public const ushort GL_1PASS_SGIS = 0x80A1; // SamplePatternSGIS
+            public const ushort GL_2PASS_0_EXT = 0x80A2; // SamplePatternSGIS,SamplePatternEXT
+            public const ushort GL_2PASS_0_SGIS = 0x80A2; // SamplePatternSGIS
+            public const ushort GL_2PASS_1_EXT = 0x80A3; // SamplePatternSGIS,SamplePatternEXT
+            public const ushort GL_2PASS_1_SGIS = 0x80A3; // SamplePatternSGIS
+            public const ushort GL_4PASS_0_EXT = 0x80A4; // SamplePatternSGIS,SamplePatternEXT
+            public const ushort GL_4PASS_0_SGIS = 0x80A4; // SamplePatternSGIS
+            public const ushort GL_4PASS_1_EXT = 0x80A5; // SamplePatternSGIS,SamplePatternEXT
+            public const ushort GL_4PASS_1_SGIS = 0x80A5; // SamplePatternSGIS
+            public const ushort GL_4PASS_2_EXT = 0x80A6; // SamplePatternSGIS,SamplePatternEXT
+            public const ushort GL_4PASS_2_SGIS = 0x80A6; // SamplePatternSGIS
+            public const ushort GL_4PASS_3_EXT = 0x80A7; // SamplePatternSGIS,SamplePatternEXT
+            public const ushort GL_4PASS_3_SGIS = 0x80A7; // SamplePatternSGIS
+        }
+        
+        public enum ColorTableTargetSGI : uint
+        {
+            public const ushort TEXTURE_COLOR_TABLE_SGI = 0x80BC; // GetPName,ColorTableTargetSGI,EnableCap
+            public const ushort PROXY_TEXTURE_COLOR_TABLE_SGI = 0x80BD; // ColorTableTargetSGI
+            public const ushort COLOR_TABLE = 0x80D0; // ColorTableTarget,ColorTableTargetSGI
+            public const ushort COLOR_TABLE_SGI = 0x80D0; // GetPName,ColorTableTargetSGI,EnableCap
+            public const ushort POST_CONVOLUTION_COLOR_TABLE = 0x80D1; // ColorTableTarget,ColorTableTargetSGI
+            public const ushort POST_CONVOLUTION_COLOR_TABLE_SGI = 0x80D1; // GetPName,ColorTableTargetSGI,EnableCap
+            public const ushort POST_COLOR_MATRIX_COLOR_TABLE = 0x80D2; // ColorTableTarget,ColorTableTargetSGI
+            public const ushort POST_COLOR_MATRIX_COLOR_TABLE_SGI = 0x80D2; // GetPName,ColorTableTargetSGI,EnableCap
+            public const ushort PROXY_COLOR_TABLE = 0x80D3; // ColorTableTargetSGI
+            public const ushort PROXY_COLOR_TABLE_SGI = 0x80D3; // ColorTableTargetSGI
+            public const ushort PROXY_POST_CONVOLUTION_COLOR_TABLE = 0x80D4; // ColorTableTargetSGI
+            public const ushort PROXY_POST_CONVOLUTION_COLOR_TABLE_SGI = 0x80D4; // ColorTableTargetSGI
+            public const ushort PROXY_POST_COLOR_MATRIX_COLOR_TABLE = 0x80D5; // ColorTableTargetSGI
+            public const ushort PROXY_POST_COLOR_MATRIX_COLOR_TABLE_SGI = 0x80D5; // ColorTableTargetSGI
+        }
+        
+        public enum ColorTableParameterPNameSGI : uint
+        {
+            public const ushort COLOR_TABLE_SCALE = 0x80D6; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_SCALE_SGI = 0x80D6; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_BIAS = 0x80D7; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_BIAS_SGI = 0x80D7; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_FORMAT = 0x80D8; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_FORMAT_SGI = 0x80D8; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_WIDTH = 0x80D9; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_WIDTH_SGI = 0x80D9; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_RED_SIZE = 0x80DA; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_RED_SIZE_SGI = 0x80DA; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_GREEN_SIZE = 0x80DB; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_GREEN_SIZE_SGI = 0x80DB; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_BLUE_SIZE = 0x80DC; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_BLUE_SIZE_SGI = 0x80DC; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_ALPHA_SIZE = 0x80DD; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_ALPHA_SIZE_SGI = 0x80DD; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_LUMINANCE_SIZE = 0x80DE; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_LUMINANCE_SIZE_SGI = 0x80DE; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_INTENSITY_SIZE = 0x80DF; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+            public const ushort COLOR_TABLE_INTENSITY_SIZE_SGI = 0x80DF; // GetColorTableParameterPNameSGI,ColorTableParameterPNameSGI
+        }
     }
 }
+*/
