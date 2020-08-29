@@ -30,7 +30,7 @@ namespace Yagl.Gl.Generator.Spec
             item.Alias = element.Attribute("alias")?.Value;
             item.Comment = element.Attribute("comment")?.Value;
             item.Group = element.Attribute("group")?.Value;
-            Log.Info($"    {item.Name ?? "<none>"}{(!string.IsNullOrWhiteSpace(item.Type) ? "[" + item.Type + "]" : "")} = {item.Value}; // Group: {item.Group ?? "<none>"}. {(!string.IsNullOrWhiteSpace(item.Api) ? "API: " + item.Api + ". " : "")}{item.Comment}{(!string.IsNullOrWhiteSpace(item.Alias) ? "Alias of " + item.Alias : "")}");
+            Log.Debug($"    {item.Name ?? "<none>"}{(!string.IsNullOrWhiteSpace(item.Type) ? "[" + item.Type + "]" : "")} = {item.Value}; // Group: {item.Group ?? "<none>"}. {(!string.IsNullOrWhiteSpace(item.Api) ? "API: " + item.Api + ". " : "")}{item.Comment}{(!string.IsNullOrWhiteSpace(item.Alias) ? "Alias of " + item.Alias : "")}");
             return item;
         }
     }

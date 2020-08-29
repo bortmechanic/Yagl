@@ -30,7 +30,8 @@ namespace Yagl.Gl.Generator.Spec
             Comment = element.Attribute("comment")?.Value;
             Start = element.Attribute("start")?.Value;
             End = element.Attribute("end")?.Value;
-            Log.Info($"  {Namespace ?? "<none>"} | {Group ?? "<none>"} | {Type ?? "<none>"} | Vendor: {Vendor ?? "ALL"} {(!string.IsNullOrWhiteSpace(Comment) ? " // " + Comment : "")}");
+            Log.Debug($"  {Namespace ?? "<none>"} | {Group ?? "<none>"} | {Type ?? "<none>"} | Vendor: {Vendor ?? "ALL"} {(!string.IsNullOrWhiteSpace(Comment) ? " // " + Comment : "")}");
+            
             foreach (var el in element.Elements())
             {
                 if (el.Name == "enum")
@@ -46,7 +47,7 @@ namespace Yagl.Gl.Generator.Spec
                 else
                     Log.Error($"  Couldn't parse element '{el.Name}'.");
             }
-            Log.Info();
+            Log.Debug();
         }
     }
 }
