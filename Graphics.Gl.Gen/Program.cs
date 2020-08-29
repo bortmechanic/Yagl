@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using Yagl.Gl.Generator.Spec;
 
 namespace Yagl.Gl.Generator
 {
@@ -19,11 +20,15 @@ namespace Yagl.Gl.Generator
     {
         private static void Main()
         {
-            Console.WriteLine("Yagl.Gl.Gen.\n");
+            Console.WriteLine("YAGL OpenGL Bindings Generator.");
+            Console.WriteLine("Copyright (c) 2020 Pavel Melnikov.");
+            Console.WriteLine();
 
-            LoadSpec();
-            ParseSpec();
-            SaveResults();
+            var spec = Specification.Parse(@"../../../../Specs/gl.xml");
+
+            //LoadSpec();
+            //ParseSpec();
+            //SaveResults();
         }
         
         private static XDocument _xml;
