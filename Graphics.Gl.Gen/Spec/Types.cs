@@ -15,7 +15,7 @@ namespace Yagl.Gl.Generator.Spec
     {
         public void Parse(XElement element)
         {
-            Log.Info("Parsing Types.");
+            Log.Info("TYPES.");
 
             foreach (var el in element.Elements())
             {

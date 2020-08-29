@@ -20,7 +20,7 @@ namespace Yagl.Gl.Generator.Spec
             var item = new GroupItem();
             item.Name = element.Attribute("name")?.Value;
             item.Comment = element.Attribute("comment")?.Value;
-            Log.Info($"    {item.Name ?? "<none>"}");
+            Log.Debug($"    {item.Name ?? "<none>"}");
             return item;
         }
     }

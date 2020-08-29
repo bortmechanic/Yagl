@@ -15,7 +15,7 @@ namespace Yagl.Gl.Generator.Spec
     {
         public void Parse(XElement element)
         {
-            Log.Info("Parsing Groups.");
+            Log.Info("GROUPS.");
 
             foreach (var el in element.Elements())
             {

@@ -11,28 +11,26 @@ using Yagl.Gl.Generator.Utilities;
 
 namespace Yagl.Gl.Generator.Spec
 {
-    public class Group : List<GroupItem>
+    public class Enums : List<Enum>
     {
-        public string Name { get; set; }
-        public string Comment { get; set; }
-
         public void Parse(XElement element)
         {
-            Name = element.Attribute("name")?.Value;
-            Comment = element.Attribute("comment")?.Value;
-            Log.Debug($"  {Name} // {Comment}");
+            Log.Info("ENUMS.");
+
             foreach (var el in element.Elements())
             {
-                if (el.Name == "enum")
+                if (el.Name == "enums")
                 {
-                    var item = GroupItem.Parse(el);
-                    if (item != null)
-                        Add(item);
+                    var group = new Enum();
+                    group.Parse(el);
+                    Add(group);
                 }
                 else
                     Log.Error($"  Couldn't parse element '{el.Name}'.");
             }
-            Log.Debug();
+            
+            Log.Info("DONE.");
+            Log.Info();
         }
     }
 }
