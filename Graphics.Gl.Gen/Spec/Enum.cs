@@ -39,7 +39,7 @@ namespace Yagl.Gl.Generator.Spec
             {
                 if (el.Name == "enum")
                 {
-                    var item = EnumItem.Parse(el);
+                    var item = EnumItem.Parse(el, this);
                     if (item != null)
                         Add(item);
                 }

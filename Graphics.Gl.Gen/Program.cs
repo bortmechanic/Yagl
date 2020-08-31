@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
+using Yagl.Gl.Generator.Bindings;
 using Yagl.Gl.Generator.Spec;
 using Yagl.Gl.Generator.Utilities;
 
@@ -24,9 +25,9 @@ namespace Yagl.Gl.Generator
             Console.WriteLine("YAGL OpenGL Bindings Generator.");
             Console.WriteLine("Copyright (c) 2020 Pavel Melnikov.");
             Console.WriteLine();
-            Log.SetVerbosity(false);
+            Log.SetVerbosity(true);
 
-            var filename = @"../../../../Specs/gl.xml";
+            const string filename = @"../../../../Specs/gl.xml";
             if (!File.Exists(filename))
             {
                 Log.Error("File 'gl.xml' couldn't be found. ");
@@ -40,9 +41,10 @@ namespace Yagl.Gl.Generator
 
             Log.Info("Specification parsing COMPLETED.");
 
-            //LoadSpec();
-            //ParseSpec();
-            //SaveResults();
+            TypeMapper.Init();
+            TypeMapper.Check(spec);
+            
+            Profiles.Process(spec);
         }
         
         private static XDocument _xml;

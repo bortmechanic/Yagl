@@ -12,6 +12,7 @@ namespace Yagl.Gl.Generator.Spec
 {
     public class EnumItem
     {
+        public Enum Enum { get; set; }
         public string Name { get; set; }
         public string Type { get; set; }
         public string Value { get; set; }
@@ -20,9 +21,10 @@ namespace Yagl.Gl.Generator.Spec
         public string Comment { get; set; }
         public string Group { get; set; }
 
-        public static EnumItem Parse(XElement element)
+        public static EnumItem Parse(XElement element, Enum parent)
         {
             var item = new EnumItem();
+            item.Enum = parent;
             item.Name = element.Attribute("name")?.Value;
             item.Type = element.Attribute("type")?.Value;
             item.Value = element.Attribute("value")?.Value;
