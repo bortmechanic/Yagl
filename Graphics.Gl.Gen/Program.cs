@@ -24,6 +24,7 @@ namespace Yagl.Gl.Generator
             Console.WriteLine("YAGL OpenGL Bindings Generator.");
             Console.WriteLine("Copyright (c) 2020 Pavel Melnikov.");
             Console.WriteLine();
+            Log.SetVerbosity(false);
 
             var filename = @"../../../../Specs/gl.xml";
             if (!File.Exists(filename))
@@ -36,6 +37,8 @@ namespace Yagl.Gl.Generator
             }
 
             var spec = Specification.Parse(filename);
+
+            Log.Info("Specification parsing COMPLETED.");
 
             //LoadSpec();
             //ParseSpec();

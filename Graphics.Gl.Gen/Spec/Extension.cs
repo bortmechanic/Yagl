@@ -7,35 +7,38 @@
 
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable CollectionNeverQueried.Global
 
 using System.Xml.Linq;
 using Yagl.Gl.Generator.Utilities;
-// ReSharper disable CollectionNeverQueried.Global
 
 namespace Yagl.Gl.Generator.Spec
 {
-    public class Feature
+    public class Extension
     {
-        public string Api { get; set; }
         public string Name { get; set; }
+        public string Supported { get; set; }
         public string Protect { get; set; }
-        public string Number { get; set; }
         public string Comment { get; set; }
         
         public Requires Requires { get; set; } = new Requires();
 
         public void Parse(XElement element)
         {
-            Api = element.Attribute("api")?.Value.Trim();
             Name = element.Attribute("name")?.Value.Trim();
+            Supported = element.Attribute("supported")?.Value.Trim();
             Protect = element.Attribute("protect")?.Value.Trim();
-            Number = element.Attribute("number")?.Value.Trim();
             Comment = element.Attribute("comment")?.Value.Trim();
-            Log.Info($"  {Api} | {Name} | {Number}{(!string.IsNullOrWhiteSpace(Comment) ? " // " + Comment : "")}");
+            Log.Info($"  {Name}{(!string.IsNullOrWhiteSpace(Supported) ? " | Supported: " + Supported : "")}{(!string.IsNullOrWhiteSpace(Protect) ? " | Protect: " + Protect : "")}{(!string.IsNullOrWhiteSpace(Comment) ? " // " + Comment : "")}");
 
             foreach (var el in element.Elements())
-                Requires.Add(Require.Parse(el));
-            
+            {
+                var require = Require.Parse(el);
+                if (require.Type == RequireType.Remove)
+                    Log.Error("      Remove element found in extension.");
+                Requires.Add(require);
+            }
+
             Log.Info("  DONE.");
             Log.Info();
         }

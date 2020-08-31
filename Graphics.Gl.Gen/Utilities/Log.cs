@@ -11,6 +11,13 @@ namespace Yagl.Gl.Generator.Utilities
 {
     public static class Log
     {
+        private static bool _verbose;
+        
+        public static void SetVerbosity(bool verbose)
+        {
+            _verbose = verbose;
+        }
+        
         public static void Error(string message)
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
@@ -25,6 +32,7 @@ namespace Yagl.Gl.Generator.Utilities
         
         public static void Debug(string message = null)
         {
+            if (!_verbose) return;
             Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine(message);
         }

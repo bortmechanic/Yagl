@@ -5,6 +5,9 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
 using System.Collections.Generic;
 using System.Xml.Linq;
 using Yagl.Gl.Generator.Utilities;

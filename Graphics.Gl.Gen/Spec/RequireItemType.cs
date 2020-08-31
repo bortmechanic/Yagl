@@ -9,10 +9,11 @@
 
 namespace Yagl.Gl.Generator.Spec
 {
-    public enum FeatureRequireType
+    public enum RequireItemType
     {
         Unknown = 0,
-        Require = 1,
-        Remove = 2
+        Type = 1,
+        Enum = 2,
+        Command = 3
     }
 }

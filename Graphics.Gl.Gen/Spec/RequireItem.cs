@@ -12,21 +12,21 @@ using Yagl.Gl.Generator.Utilities;
 
 namespace Yagl.Gl.Generator.Spec
 {
-    public class FeatureItem
+    public class RequireItem
     {
-        public FeatureItemType Type { get; set; }
+        public RequireItemType Type { get; set; }
         public string Name { get; set; }
         public string Comment { get; set; }
 
-        public static FeatureItem Parse(XElement element)
+        public static RequireItem Parse(XElement element)
         {
-            var item = new FeatureItem();
+            var item = new RequireItem();
             if (element.Name == "type")
-                item.Type = FeatureItemType.Type;
+                item.Type = RequireItemType.Type;
             else if (element.Name == "enum")
-                item.Type = FeatureItemType.Enum;
+                item.Type = RequireItemType.Enum;
             else if (element.Name == "command")
-                item.Type = FeatureItemType.Command;
+                item.Type = RequireItemType.Command;
             else
                 Log.Error($"Couldn't parse element '{element.Name}'.");
             

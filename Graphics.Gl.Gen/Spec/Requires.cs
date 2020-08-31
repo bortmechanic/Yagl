@@ -5,15 +5,12 @@
  See LICENSE.txt for the full license text.
 */
 
-// ReSharper disable UnusedMember.Global
+using System.Collections.Generic;
 
 namespace Yagl.Gl.Generator.Spec
 {
-    public enum FeatureItemType
+    public class Requires : List<Require>
     {
-        Unknown = 0,
-        Type = 1,
-        Enum = 2,
-        Command = 3
+        
     }
 }

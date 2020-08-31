@@ -12,7 +12,7 @@ namespace Yagl.Gl.Generator.Spec
     {
         public void Parse(XElement element)
         {
-            Log.Info("Parsing Description.");
+            Log.Info("Description.");
             var comment = element?.Value;
             if (string.IsNullOrWhiteSpace(comment))
                 Log.Error("  Comment is missing or empty.");
