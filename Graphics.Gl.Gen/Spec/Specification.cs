@@ -22,6 +22,7 @@ namespace Yagl.Gl.Generator.Spec
         public Groups Groups { get; } = new Groups();
         public Enums Enums { get; } = new Enums();
         public Commands Commands { get; } = new Commands();
+        public Features Features { get; } = new Features();
 
         public static Specification Parse(string filename)
         {
@@ -54,6 +55,9 @@ namespace Yagl.Gl.Generator.Spec
                         break;
                     case "commands":
                         spec.Commands.Parse(element);
+                        break;
+                    case "features":
+                        spec.Features.Parse(element);
                         break;
                     default:
                         Log.Error($"'{element.Name}' section couldn't be parsed.");
