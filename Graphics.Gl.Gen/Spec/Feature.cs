@@ -22,7 +22,7 @@ namespace Yagl.Gl.Generator.Spec
         public string Number { get; set; }
         public string Comment { get; set; }
         
-        public Requires Requires { get; set; } = new Requires();
+        public FeatureRequires Requires { get; set; } = new FeatureRequires();
 
         public void Parse(XElement element)
         {
@@ -34,7 +34,7 @@ namespace Yagl.Gl.Generator.Spec
             Log.Info($"  {Api} | {Name} | {Number}{(!string.IsNullOrWhiteSpace(Comment) ? " // " + Comment : "")}");
 
             foreach (var el in element.Elements())
-                Requires.Add(Require.Parse(el));
+                Requires.Add(FeatureRequire.Parse(el));
             
             Log.Info("  DONE.");
             Log.Info();

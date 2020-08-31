@@ -13,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using Yagl.Gl.Generator.Spec;
+using Yagl.Gl.Generator.Utilities;
 
 namespace Yagl.Gl.Generator
 {
@@ -24,7 +25,17 @@ namespace Yagl.Gl.Generator
             Console.WriteLine("Copyright (c) 2020 Pavel Melnikov.");
             Console.WriteLine();
 
-            var spec = Specification.Parse(@"../../../../Specs/gl.xml");
+            var filename = @"../../../../Specs/gl.xml";
+            if (!File.Exists(filename))
+            {
+                Log.Error("File 'gl.xml' couldn't be found. ");
+                Log.Info("OpenGL specification is not distributed with YAGL.");
+                Log.Info("To avoid this error pls download OpenGL specification (file 'gl.xml')");
+                Log.Info("from the Khronos public registry and place to the Specs folder inside the Solution folder.");
+                return;
+            }
+
+            var spec = Specification.Parse(filename);
 
             //LoadSpec();
             //ParseSpec();
