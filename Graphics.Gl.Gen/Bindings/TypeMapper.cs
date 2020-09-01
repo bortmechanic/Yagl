@@ -72,27 +72,28 @@ namespace Yagl.Gl.Generator.Bindings
             Mapping.Add("GLDEBUGPROCAMD", new TypeMap { Name = "GLDEBUGPROCAMD", Type = "???" });
             Mapping.Add("GLVULKANPROCNV", new TypeMap { Name = "GLVULKANPROCNV", Type = "???" });
             
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
-            //Mapping.Add("", new TypeMap { Name = "", Type = "" });
+            Mapping.Add("const void *", new TypeMap { Name = "const void *", Type = "byte[]" });
+            Mapping.Add("const GLboolean *", new TypeMap { Name = "const GLboolean *", Type = "byte[]" });
+            Mapping.Add("const GLbyte *", new TypeMap { Name = "const GLbyte *", Type = "sbyte[]" });
+            Mapping.Add("const GLubyte *", new TypeMap { Name = "const GLubyte *", Type = "byte[]" });
+            Mapping.Add("const GLshort *", new TypeMap { Name = "const GLshort *", Type = "short[]" });
+            Mapping.Add("const GLushort *", new TypeMap { Name = "const GLushort *", Type = "ushort[]" });
+            Mapping.Add("const GLint *", new TypeMap { Name = "const GLint *", Type = "int[]"});
+            Mapping.Add("const GLuint *", new TypeMap { Name = "const GLuint *", Type = "uint[]" });
+            Mapping.Add("const GLfloat *", new TypeMap { Name = "const GLfloat *", Type = "float[]"});
+            Mapping.Add("const GLdouble *", new TypeMap { Name = "const GLdouble *", Type = "double[]" });
+            
+            Mapping.Add("void *", new TypeMap { Name = "void *", Type = "ref byte[]" });
+            Mapping.Add("GLboolean *", new TypeMap { Name = "GLboolean *", Type = "ref byte[]" });
+            Mapping.Add("GLbyte *", new TypeMap { Name = "GLbyte *", Type = "ref sbyte[]" });
+            Mapping.Add("GLubyte *", new TypeMap { Name = "GLubyte *", Type = "ref byte[]" });
+            Mapping.Add("GLshort *", new TypeMap { Name = "GLshort *", Type = "ref short[]" });
+            Mapping.Add("GLushort *", new TypeMap { Name = "GLushort *", Type = "ref ushort[]" });
+            Mapping.Add("GLint *", new TypeMap { Name = "GLint *", Type = "ref int[]" });
+            Mapping.Add("GLuint *", new TypeMap { Name = "GLuint *", Type = "ref uint[]" });
+            Mapping.Add("GLfloat *", new TypeMap { Name = "GLfloat *", Type = "ref float[]" });
+            Mapping.Add("GLdouble *", new TypeMap { Name = "GLdouble *", Type = "ref double[]" });
+
         }
 
         public static void Check(Specification spec)

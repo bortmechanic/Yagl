@@ -26,6 +26,8 @@ namespace Yagl.Gl.Generator.Bindings
                 return;
             }
 
+            PreProcessConstant(constant);
+
             var type = GetConstantType(constant);
             name = RemoveGlPrefix(constant.Name);
 
@@ -57,11 +59,17 @@ namespace Yagl.Gl.Generator.Bindings
         // private static readonly Regex UShortValueRegex = new Regex(@"^0x[0-9a-fA-F]{4}$");
         // private static readonly Regex UByteValueRegex = new Regex(@"^0x[0-9a-fA-F]{2}$");
 
-        private static String RemoveGlPrefix(string name)
+        private static string RemoveGlPrefix(string name)
         {
             if (name.StartsWith("GL_") && (name[3] < '0' || name[3] > '9'))
                 name = name.Substring(3);
             return name;
+        }
+
+        private static void PreProcessConstant(EnumItem constant)
+        {
+            if (new[] {"GL_TRUE", "GL_FALSE"}.Contains(constant.Name))
+                constant.Type = "GLubyte";
         }
     }
 }

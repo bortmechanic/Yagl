@@ -16,16 +16,6 @@ namespace Yagl.Gl.Generator.Bindings
 {
     public class Profiles : List<ProfileMembers>
     {
-        public static Profiles Collect(Specification spec)
-        {
-            foreach (var feature in spec.Features)
-            {
-                //feature.
-            }
-
-            return null;
-        }
-
         public static void Process(Specification spec)
         {
             foreach (var feature in spec.Features.Take(1))
@@ -47,9 +37,10 @@ namespace Yagl.Gl.Generator.Bindings
             file.AppendLine(" See LICENSE.txt for the full license text.");
             file.AppendLine("*/");
             file.AppendLine();
+            file.AppendLine("// ReSharper disable UnusedMember.Global");
             file.AppendLine("// ReSharper disable InconsistentNaming");
             file.AppendLine("// ReSharper disable IdentifierTypo");
-            file.AppendLine("// ReSharper disable UnusedMember.Global");
+            file.AppendLine("// ReSharper disable ConstantNullCoalescingCondition");
             file.AppendLine();
             
             file.AppendLine("namespace Yagl.Graphics");
@@ -87,9 +78,7 @@ namespace Yagl.Gl.Generator.Bindings
 
             var commands = require.Where(r => r.Type == RequireItemType.Command).ToArray();
             foreach (var item in commands)
-                ProcessCommand(file, item.Name, spec);
-            if (commands.Any())
-                file.AppendLine();
+                Commands.ProcessCommand(file, item.Name, spec);
         }
 
         private static void ProcessType(StringBuilder file, string name, Specification spec)
@@ -102,11 +91,6 @@ namespace Yagl.Gl.Generator.Bindings
             }
 
             file.AppendLine($"        // {type.Declaration}");
-        }
-
-        private static void ProcessCommand(StringBuilder file, string name, Specification spec)
-        {
-            
         }
     }
 }
