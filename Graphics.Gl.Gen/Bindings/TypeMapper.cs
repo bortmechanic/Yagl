@@ -74,6 +74,7 @@ namespace Yagl.Gl.Generator.Bindings
             
             Mapping.Add("const void *", new TypeMap { Name = "const void *", Type = "byte[]" });
             Mapping.Add("const GLboolean *", new TypeMap { Name = "const GLboolean *", Type = "byte[]" });
+            Mapping.Add("const GLchar *", new TypeMap { Name = "const GLchar *", Type = "string" });
             Mapping.Add("const GLbyte *", new TypeMap { Name = "const GLbyte *", Type = "sbyte[]" });
             Mapping.Add("const GLubyte *", new TypeMap { Name = "const GLubyte *", Type = "byte[]" });
             Mapping.Add("const GLshort *", new TypeMap { Name = "const GLshort *", Type = "short[]" });

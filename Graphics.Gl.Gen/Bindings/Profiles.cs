@@ -43,6 +43,7 @@ namespace Yagl.Gl.Generator.Bindings
             file.AppendLine("// ReSharper disable InconsistentNaming");
             file.AppendLine("// ReSharper disable IdentifierTypo");
             file.AppendLine("// ReSharper disable StringLiteralTypo");
+            file.AppendLine("// ReSharper disable ArrangeTypeMemberModifiers");
             file.AppendLine("// ReSharper disable ConstantNullCoalescingCondition");
             file.AppendLine();
 

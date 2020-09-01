@@ -9,6 +9,7 @@
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
 // ReSharper disable StringLiteralTypo
+// ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable ConstantNullCoalescingCondition
 
 using System;
@@ -484,7 +485,7 @@ namespace Yagl.Graphics
         public static /*GLenum*/ uint GetError() => GetErrorPtr?.Invoke() ?? default; delegate /*GLenum*/ uint GetErrorDel(); static GetErrorDel GetErrorPtr;
         public static /*GLvoid*/ void GetFloatv(/*GLenum*/ uint pname, /*GLfloat **/ ref float[] data) => GetFloatvPtr?.Invoke(pname, ref data); delegate /*GLvoid*/ void GetFloatvDel(/*GLenum*/ uint pname, /*GLfloat **/ ref float[] data); static GetFloatvDel GetFloatvPtr;
         public static /*GLvoid*/ void GetIntegerv(/*GLenum*/ uint pname, /*GLint **/ ref int[] data) => GetIntegervPtr?.Invoke(pname, ref data); delegate /*GLvoid*/ void GetIntegervDel(/*GLenum*/ uint pname, /*GLint **/ ref int[] data); static GetIntegervDel GetIntegervPtr;
-        public static /*const GLubyte **/ byte[] GetString(/*GLenum*/ uint name) => GetStringPtr?.Invoke(name) ?? default; delegate /*const GLubyte **/ byte[] GetStringDel(/*GLenum*/ uint name); static GetStringDel GetStringPtr;
+        public static /*const GLchar **/ string GetString(/*GLenum*/ uint name) => GetStringPtr?.Invoke(name) ?? default; delegate /*const GLchar **/ string GetStringDel(/*GLenum*/ uint name); static GetStringDel GetStringPtr;
         public static /*GLvoid*/ void GetTexImage(/*GLenum*/ uint target, /*GLint*/ int level, /*GLenum*/ uint format, /*GLenum*/ uint type, /*void **/ ref byte[] pixels) => GetTexImagePtr?.Invoke(target, level, format, type, ref pixels); delegate /*GLvoid*/ void GetTexImageDel(/*GLenum*/ uint target, /*GLint*/ int level, /*GLenum*/ uint format, /*GLenum*/ uint type, /*void **/ ref byte[] pixels); static GetTexImageDel GetTexImagePtr;
         public static /*GLvoid*/ void GetTexParameterfv(/*GLenum*/ uint target, /*GLenum*/ uint pname, /*GLfloat **/ ref float[] parameters) => GetTexParameterfvPtr?.Invoke(target, pname, ref parameters); delegate /*GLvoid*/ void GetTexParameterfvDel(/*GLenum*/ uint target, /*GLenum*/ uint pname, /*GLfloat **/ ref float[] parameters); static GetTexParameterfvDel GetTexParameterfvPtr;
         public static /*GLvoid*/ void GetTexParameteriv(/*GLenum*/ uint target, /*GLenum*/ uint pname, /*GLint **/ ref int[] parameters) => GetTexParameterivPtr?.Invoke(target, pname, ref parameters); delegate /*GLvoid*/ void GetTexParameterivDel(/*GLenum*/ uint target, /*GLenum*/ uint pname, /*GLint **/ ref int[] parameters); static GetTexParameterivDel GetTexParameterivPtr;
