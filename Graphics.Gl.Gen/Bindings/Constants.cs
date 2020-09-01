@@ -5,7 +5,6 @@
  See LICENSE.txt for the full license text.
 */
 
-using System;
 using System.Linq;
 using System.Text;
 using Yagl.Gl.Generator.Spec;

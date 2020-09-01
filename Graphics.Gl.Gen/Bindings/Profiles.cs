@@ -26,7 +26,8 @@ namespace Yagl.Gl.Generator.Bindings
 
         private static void ProcessFeature(Feature feature, Specification spec)
         {
-            var filename = $"Gl.{(feature.Name.StartsWith("GL_ES") ? "ES." : feature.Name.StartsWith("GL_SC") ? "SC." : "")}{feature.Number}.cs";
+            var version = $"{(feature.Name.StartsWith("GL_ES") ? "ES." : feature.Name.StartsWith("GL_SC") ? "SC." : "")}{feature.Number}";
+            var filename = $"Gl.{version}.cs";
             Log.Info($"Processing {filename}");
             var file = new StringBuilder();
             
@@ -37,10 +38,15 @@ namespace Yagl.Gl.Generator.Bindings
             file.AppendLine(" See LICENSE.txt for the full license text.");
             file.AppendLine("*/");
             file.AppendLine();
+            
             file.AppendLine("// ReSharper disable UnusedMember.Global");
             file.AppendLine("// ReSharper disable InconsistentNaming");
             file.AppendLine("// ReSharper disable IdentifierTypo");
+            file.AppendLine("// ReSharper disable StringLiteralTypo");
             file.AppendLine("// ReSharper disable ConstantNullCoalescingCondition");
+            file.AppendLine();
+
+            file.AppendLine("using System;");
             file.AppendLine();
             
             file.AppendLine("namespace Yagl.Graphics");
@@ -48,13 +54,21 @@ namespace Yagl.Gl.Generator.Bindings
             file.AppendLine("    public static partial class Gl");
             file.AppendLine("    {");
             file.AppendLine();
-
             foreach (var require in feature.Requires)
             {
                 ProcessRequire(file, require, spec);
             }
-            
             file.AppendLine();
+            
+            file.AppendLine($"        private static void Init_GL_{version.Replace(".", "_")}(Func<string,IntPtr> getProcAddress)");
+            file.AppendLine("        {");
+            foreach (var require in feature.Requires)
+            {
+                ProcessLoaders(file, require, spec);
+            }
+            file.AppendLine("        }");
+            file.AppendLine();
+
             file.AppendLine("    }");
             file.AppendLine("}");
             
@@ -91,6 +105,13 @@ namespace Yagl.Gl.Generator.Bindings
             }
 
             file.AppendLine($"        // {type.Declaration}");
+        }
+        
+        private static void ProcessLoaders(StringBuilder file, Require require, Specification spec)
+        {
+            var commands = require.Where(r => r.Type == RequireItemType.Command).ToArray();
+            foreach (var item in commands)
+                Commands.ProcessLoader(file, item.Name, spec);
         }
     }
 }

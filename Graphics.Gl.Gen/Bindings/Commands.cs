@@ -84,5 +84,11 @@ namespace Yagl.Gl.Generator.Bindings
                 return "basis";
             return name;
         }
+
+        public static void ProcessLoader(StringBuilder file, string originalName, Specification spec)
+        {
+            var name = RemoveGlPrefix(originalName);
+            file.AppendLine($"            {name}Ptr = LoadProcByName<{name}Del>(\"{originalName}\", getProcAddress);");
+        }
     }
 }
