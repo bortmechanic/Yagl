@@ -2,8 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Yagl.GameLoop</AssemblyName>
-        <RootNamespace>Yagl</RootNamespace>
+        <AssemblyName>Yagl.Gaming.GameLoop</AssemblyName>
+        <RootNamespace>Yagl.Gaming</RootNamespace>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
         <LangVersion>8</LangVersion>

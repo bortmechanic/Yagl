@@ -5,7 +5,9 @@
  See LICENSE.txt for the full license text.
 */
 
-namespace Yagl
+// ReSharper disable UnusedMember.Global
+
+namespace Yagl.Gaming
 {
     public enum GameLoopType
     {

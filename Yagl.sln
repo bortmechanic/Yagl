@@ -25,7 +25,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Imaging.Formats.Ya
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components", "Components\Components.csproj", "{5894AD7C-358E-4A8A-9D4D-9776889FA0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLoop", "GameLoop\GameLoop.csproj", "{21D131EB-CE8D-4812-A264-E4FC14D48D30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming.GameLoop", "Gaming.GameLoop\Gaming.GameLoop.csproj", "{21D131EB-CE8D-4812-A264-E4FC14D48D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming.Game", "Gaming.Game\Gaming.Game.csproj", "{17584D7B-3858-4AFF-8E02-EC905D8D3969}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

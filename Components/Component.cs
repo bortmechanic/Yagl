@@ -69,7 +69,6 @@ namespace Yagl.Components
             DrawOrder = 0;
             Components = new Collection(this);
             State = ComponentState.New;
-            Console.WriteLine($"COMPONENT '{Name}' CREATED.");
         }
 
         internal Component(Context context) : this()
@@ -83,32 +82,26 @@ namespace Yagl.Components
 
         protected virtual void Initialize()
         {
-            Console.WriteLine($"COMPONENT '{Name}' INITIALIZE.");
         }
 
         protected virtual void LoadContent()
         {
-            Console.WriteLine($"COMPONENT '{Name}' LOAD CONTENT.");
         }
 
         protected virtual void Update(Time time)
         {
-            Console.WriteLine($"COMPONENT '{Name}' UPDATE.");
         }
 
         protected virtual void Draw(Time time)
         {
-            Console.WriteLine($"COMPONENT '{Name}' DRAW.");
         }
 
         protected virtual void UnloadContent()
         {
-            Console.WriteLine($"COMPONENT '{Name}' UNLOAD CONTENT.");
         }
 
         protected virtual void ShutDown()
         {
-            Console.WriteLine($"COMPONENT '{Name}' SHUTDOWN.");
         }
 
         #endregion

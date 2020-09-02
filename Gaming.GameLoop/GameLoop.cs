@@ -11,8 +11,9 @@
 
 using System;
 using System.Diagnostics;
+using System.Threading;
 
-namespace Yagl
+namespace Yagl.Gaming
 {
     public class GameLoop
     {
@@ -32,26 +33,25 @@ namespace Yagl
             var checkPoint = _timer.Elapsed;
 
             Initialize?.Invoke();
-            while (!_exitRequested)
+            while (true)
             {
-                var totalTime = _timer.Elapsed;
-                var elapsed = totalTime - checkPoint;
-                checkPoint = totalTime;
-                GetUserInput?.Invoke();
-                Update?.Invoke(elapsed, totalTime);
-                Draw?.Invoke(elapsed, totalTime);
+                var totalElapsed = _timer.Elapsed;
+                var elapsed = totalElapsed - checkPoint;
+                checkPoint = totalElapsed;
+                Update?.Invoke(elapsed, totalElapsed);
+                if (_exitRequested) break;
+                Draw?.Invoke(elapsed, totalElapsed);
+                Thread.Sleep(5);
             }
             ShutDown?.Invoke();
         }
 
         public event InitializeDelegate Initialize;
-        public event GetUserInputDelegate GetUserInput;
         public event UpdateDelegate Update;
         public event DrawDelegate Draw;
         public event ShutDownDelegate ShutDown;
 
         public delegate void InitializeDelegate();
-        public delegate void GetUserInputDelegate();
         public delegate void UpdateDelegate(TimeSpan elapsed, TimeSpan totalElapsed);
         public delegate void DrawDelegate(TimeSpan elapsed, TimeSpan totalElapsed);
         public delegate void ShutDownDelegate();
