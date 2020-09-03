@@ -73,7 +73,7 @@ namespace Yagl.Gl.Generator.Bindings
             file.AppendLine("    }");
             file.AppendLine("}");
             
-            File.WriteAllText($"../../../../Graphics.GL2/{filename}", file.ToString());
+            File.WriteAllText($"../../../../Graphics.GL/{filename}", file.ToString());
             Log.Info($"DONE {filename}");
         }
 

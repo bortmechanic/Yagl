@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windowing.NativeLibLoader.NetCore3", "Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL2", "Graphics.GL2\Graphics.GL2.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL", "Graphics.GL\Graphics.GL.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL2.Gen", "Graphics.GL2.Gen\Graphics.GL2.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL.Gen", "Graphics.GL.Gen\Graphics.GL.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Common", "Graphics.Common\Graphics.Common.csproj", "{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}"
 EndProject
