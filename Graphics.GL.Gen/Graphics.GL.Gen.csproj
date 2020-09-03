@@ -2,10 +2,10 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <AssemblyName>Yagl.Gl.Generator</AssemblyName>
-        <RootNamespace>Yagl.Gl.Generator</RootNamespace>
+        <AssemblyName>Yagl.GL.Generator</AssemblyName>
+        <RootNamespace>Yagl.GL.Generator</RootNamespace>
         <OutputType>Exe</OutputType>
-        <LangVersion>7.3</LangVersion>
+        <LangVersion>8</LangVersion>
         <Company>Pavel Melnikov</Company>
         <Product>Yagl</Product>
     </PropertyGroup>

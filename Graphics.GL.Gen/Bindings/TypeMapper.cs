@@ -9,10 +9,10 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using Yagl.Gl.Generator.Spec;
-using Yagl.Gl.Generator.Utilities;
+using Yagl.GL.Generator.Spec;
+using Yagl.GL.Generator.Utilities;
 
-namespace Yagl.Gl.Generator.Bindings
+namespace Yagl.GL.Generator.Bindings
 {
     public static class TypeMapper
     {

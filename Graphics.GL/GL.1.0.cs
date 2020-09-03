@@ -16,7 +16,7 @@ using System;
 
 namespace Yagl.Graphics
 {
-    public static partial class Gl
+    public static partial class GL
     {
 
         // typedef void GLvoid;

@@ -10,9 +10,9 @@
 // ReSharper disable CollectionNeverQueried.Global
 
 using System.Xml.Linq;
-using Yagl.Gl.Generator.Utilities;
+using Yagl.GL.Generator.Utilities;
 
-namespace Yagl.Gl.Generator.Spec
+namespace Yagl.GL.Generator.Spec
 {
     public class Extension
     {

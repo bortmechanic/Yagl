@@ -7,7 +7,7 @@
 
 // ReSharper disable InconsistentNaming
 
-namespace Yagl.Gl.Generator.Bindings
+namespace Yagl.GL.Generator.Bindings
 {
     public enum Profile
     {

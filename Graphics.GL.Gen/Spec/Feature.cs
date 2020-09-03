@@ -9,10 +9,10 @@
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
 using System.Xml.Linq;
-using Yagl.Gl.Generator.Utilities;
+using Yagl.GL.Generator.Utilities;
 // ReSharper disable CollectionNeverQueried.Global
 
-namespace Yagl.Gl.Generator.Spec
+namespace Yagl.GL.Generator.Spec
 {
     public class Feature
     {

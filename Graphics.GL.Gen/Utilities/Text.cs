@@ -7,7 +7,7 @@
 
 using System.Text.RegularExpressions;
 
-namespace Yagl.Gl.Generator.Utilities
+namespace Yagl.GL.Generator.Utilities
 {
     public static class Text
     {

@@ -7,7 +7,7 @@
 
 using System.Collections.Generic;
 
-namespace Yagl.Gl.Generator.Spec
+namespace Yagl.GL.Generator.Spec
 {
     public class Requires : List<Require>
     {

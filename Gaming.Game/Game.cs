@@ -12,6 +12,7 @@
 // ReSharper disable NotAccessedField.Global
 // ReSharper disable UnusedParameter.Global
 // ReSharper disable VirtualMemberNeverOverridden.Global
+// ReSharper disable MemberCanBeProtected.Global
 
 using System;
 using Yagl.Components;
@@ -38,7 +39,7 @@ namespace Yagl.Gaming
             _gameLoop.Draw += DrawInternal;
             _gameLoop.ShutDown += ShutDownInternal;
             Components = _context.Components;
-            Gl.Init(Window.GetProcAddressDelegate());
+            GL.Init(Window.GetProcAddressDelegate());
         }
 
         private void WindowClosed(object sender, ClosedEventArgs e)

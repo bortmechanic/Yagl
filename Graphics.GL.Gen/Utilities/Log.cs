@@ -7,7 +7,7 @@
 
 using System;
 
-namespace Yagl.Gl.Generator.Utilities
+namespace Yagl.GL.Generator.Utilities
 {
     public static class Log
     {

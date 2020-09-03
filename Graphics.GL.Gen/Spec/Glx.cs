@@ -10,7 +10,7 @@
 
 using System.Xml.Linq;
 
-namespace Yagl.Gl.Generator.Spec
+namespace Yagl.GL.Generator.Spec
 {
     public class Glx
     {

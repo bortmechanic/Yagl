@@ -39,18 +39,18 @@ namespace Yagl.Demo
 
         protected override void Draw(Time time)
         {
-            Gl.ClearColor(0.75f, 0.35f, 0.0f, 1.0f);  // Yellow.
-            Gl.Clear(16384);
+            GL.ClearColor(0.75f, 0.35f, 0.0f, 1.0f);  // Yellow.
+            GL.Clear(16384);
 
             // Draw a triangle:
-            Gl.Begin(Gl.TRIANGLES);
-            Gl.Color3f(1.0f, 0.0f, 0.0f);
-            Gl.Vertex3f(-0.5f, -0.5f, 0);
-            Gl.Color3f(0.0f, 1.0f, 0.0f);
-            Gl.Vertex3f(0.5f, 0.0f, 0);
-            Gl.Color3f(0.0f, 0.0f, 1.0f);
-            Gl.Vertex3f(0.0f, 0.5f, 0);
-            Gl.End();
+            GL.Begin(GL.TRIANGLES);
+            GL.Color3f(1.0f, 0.0f, 0.0f);
+            GL.Vertex3f(-0.5f, -0.5f, 0);
+            GL.Color3f(0.0f, 1.0f, 0.0f);
+            GL.Vertex3f(0.5f, 0.0f, 0);
+            GL.Color3f(0.0f, 0.0f, 1.0f);
+            GL.Vertex3f(0.0f, 0.5f, 0);
+            GL.End();
         }
 
         protected override void UnloadContent()

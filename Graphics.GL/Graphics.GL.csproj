@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Yagl.Graphics.Gl</AssemblyName>
+        <AssemblyName>Yagl.Graphics.GL</AssemblyName>
         <RootNamespace>Yagl.Graphics</RootNamespace>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>

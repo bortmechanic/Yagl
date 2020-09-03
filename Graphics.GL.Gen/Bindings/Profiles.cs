@@ -5,16 +5,15 @@
  See LICENSE.txt for the full license text.
 */
 
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Yagl.Gl.Generator.Spec;
-using Yagl.Gl.Generator.Utilities;
+using Yagl.GL.Generator.Spec;
+using Yagl.GL.Generator.Utilities;
 
-namespace Yagl.Gl.Generator.Bindings
+namespace Yagl.GL.Generator.Bindings
 {
-    public class Profiles : List<ProfileMembers>
+    public static class Profiles
     {
         public static void Process(Specification spec)
         {
@@ -27,7 +26,7 @@ namespace Yagl.Gl.Generator.Bindings
         private static void ProcessFeature(Feature feature, Specification spec)
         {
             var version = $"{(feature.Name.StartsWith("GL_ES") ? "ES." : feature.Name.StartsWith("GL_SC") ? "SC." : "")}{feature.Number}";
-            var filename = $"Gl.{version}.cs";
+            var filename = $"GL.{version}.cs";
             Log.Info($"Processing {filename}");
             var file = new StringBuilder();
             
@@ -52,7 +51,7 @@ namespace Yagl.Gl.Generator.Bindings
             
             file.AppendLine("namespace Yagl.Graphics");
             file.AppendLine("{");
-            file.AppendLine("    public static partial class Gl");
+            file.AppendLine("    public static partial class GL");
             file.AppendLine("    {");
             file.AppendLine();
             foreach (var require in feature.Requires)
@@ -77,7 +76,7 @@ namespace Yagl.Gl.Generator.Bindings
             Log.Info($"DONE {filename}");
         }
 
-        public static void ProcessRequire(StringBuilder file, Require require, Specification spec)
+        private static void ProcessRequire(StringBuilder file, Require require, Specification spec)
         {
             var types = require.Where(r => r.Type == RequireItemType.Type).ToArray();
             foreach (var item in types)

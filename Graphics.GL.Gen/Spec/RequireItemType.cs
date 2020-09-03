@@ -7,7 +7,7 @@
 
 // ReSharper disable UnusedMember.Global
 
-namespace Yagl.Gl.Generator.Spec
+namespace Yagl.GL.Generator.Spec
 {
     public enum RequireItemType
     {

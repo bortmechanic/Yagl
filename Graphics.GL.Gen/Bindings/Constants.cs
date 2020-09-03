@@ -7,10 +7,10 @@
 
 using System.Linq;
 using System.Text;
-using Yagl.Gl.Generator.Spec;
-using Yagl.Gl.Generator.Utilities;
+using Yagl.GL.Generator.Spec;
+using Yagl.GL.Generator.Utilities;
 
-namespace Yagl.Gl.Generator.Bindings
+namespace Yagl.GL.Generator.Bindings
 {
     public static class Constants
     {
@@ -39,12 +39,12 @@ namespace Yagl.Gl.Generator.Bindings
             if (string.IsNullOrWhiteSpace(type))
                 type = constant.Enum.Type;
             if (string.IsNullOrWhiteSpace(type))
-                type = TryDetermineType(constant);
+                type = TryDetermineType();
             var mt = TypeMapper.GetType(type);
             return $"/*{mt.Name}*/ {mt.Type}";
         }
         
-        private static string TryDetermineType(EnumItem constant)
+        private static string TryDetermineType()
         {
             // if (string.IsNullOrWhiteSpace(value)) return "";
             // if (ULongValueRegex.IsMatch(value)) return "Glulong";

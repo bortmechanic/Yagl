@@ -7,11 +7,11 @@
 
 using System;
 using System.IO;
-using Yagl.Gl.Generator.Bindings;
-using Yagl.Gl.Generator.Spec;
-using Yagl.Gl.Generator.Utilities;
+using Yagl.GL.Generator.Bindings;
+using Yagl.GL.Generator.Spec;
+using Yagl.GL.Generator.Utilities;
 
-namespace Yagl.Gl.Generator
+namespace Yagl.GL.Generator
 {
     internal static class Program
     {

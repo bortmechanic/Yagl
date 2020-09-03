@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 
 namespace Yagl.Graphics
 {
-    public static partial class Gl
+    public static partial class GL
     {
         public static void Init(Func<string,IntPtr> getProcAddress)
         {
