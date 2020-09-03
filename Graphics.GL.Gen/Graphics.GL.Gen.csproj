@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>Yagl.GL.Generator</AssemblyName>
+        <RootNamespace>Yagl.GL.Generator</RootNamespace>
+        <OutputType>Exe</OutputType>
+        <LangVersion>8</LangVersion>
+        <Company>Pavel Melnikov</Company>
+        <Product>Yagl</Product>
+    </PropertyGroup>
+
+</Project>

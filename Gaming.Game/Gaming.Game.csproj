@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Yagl.Gaming.Game</AssemblyName>
+        <RootNamespace>Yagl.Gaming</RootNamespace>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
+        <LangVersion>8</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Components\Components.csproj" />
+      <ProjectReference Include="..\Gaming.GameLoop\Gaming.GameLoop.csproj" />
+      <ProjectReference Include="..\Graphics.GL\Graphics.GL.csproj" />
+      <ProjectReference Include="..\Windowing\Windowing.csproj" />
+    </ItemGroup>
+
+</Project>

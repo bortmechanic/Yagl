@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windowing.NativeLibLoader.NetCore3", "Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.Gl", "Graphics.Gl\Graphics.Gl.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL", "Graphics.GL\Graphics.GL.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.Gl.Gen", "Graphics.Gl.Gen\Graphics.Gl.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL.Gen", "Graphics.GL.Gen\Graphics.GL.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Common", "Graphics.Common\Graphics.Common.csproj", "{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Types", "Graphics.Types\Graphics.Types.csproj", "{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Imaging", "Graphics.Imaging\Graphics.Imaging.csproj", "{DB11DF96-7404-4752-ABFC-2182E495FB88}"
 EndProject
@@ -25,7 +25,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Imaging.Formats.Ya
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Components", "Components\Components.csproj", "{5894AD7C-358E-4A8A-9D4D-9776889FA0C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLoop", "GameLoop\GameLoop.csproj", "{21D131EB-CE8D-4812-A264-E4FC14D48D30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming.GameLoop", "Gaming.GameLoop\Gaming.GameLoop.csproj", "{21D131EB-CE8D-4812-A264-E4FC14D48D30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gaming.Game", "Gaming.Game\Gaming.Game.csproj", "{17584D7B-3858-4AFF-8E02-EC905D8D3969}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.Math", "Graphics.Math\Graphics.Math.csproj", "{20F69960-3EAF-4FCA-91E2-B961F6D68949}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +85,14 @@ Global
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C313A41-D0D1-4B4A-A291-ECB4BC4A40F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17584D7B-3858-4AFF-8E02-EC905D8D3969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20F69960-3EAF-4FCA-91E2-B961F6D68949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20F69960-3EAF-4FCA-91E2-B961F6D68949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20F69960-3EAF-4FCA-91E2-B961F6D68949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20F69960-3EAF-4FCA-91E2-B961F6D68949}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
