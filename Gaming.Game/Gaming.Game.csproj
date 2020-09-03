@@ -12,7 +12,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Components\Components.csproj" />
       <ProjectReference Include="..\Gaming.GameLoop\Gaming.GameLoop.csproj" />
-      <ProjectReference Include="..\Graphics.Gl\Graphics.Gl.csproj" />
+      <ProjectReference Include="..\Graphics.GL2\Graphics.GL2.csproj" />
       <ProjectReference Include="..\Windowing\Windowing.csproj" />
     </ItemGroup>
 

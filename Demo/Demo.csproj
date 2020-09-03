@@ -14,7 +14,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Gaming.Game\Gaming.Game.csproj" />
       <ProjectReference Include="..\Graphics.Common\Graphics.Common.csproj" />
-      <ProjectReference Include="..\Graphics.Gl\Graphics.Gl.csproj" />
+      <ProjectReference Include="..\Graphics.GL2\Graphics.GL2.csproj" />
       <ProjectReference Include="..\Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj" />
       <ProjectReference Include="..\Windowing\Windowing.csproj" />
     </ItemGroup>
