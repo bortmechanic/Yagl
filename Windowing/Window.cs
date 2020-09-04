@@ -168,6 +168,11 @@ namespace Yagl.Windowing
             return _wnd.Handle;
         }
 
+        public NativeWindow GetNativeWindow()
+        {
+            return _wnd;
+        }
+
         public Func<string, IntPtr> GetProcAddressDelegate()
         {
             return Glfw.GetProcAddress;

@@ -13,6 +13,7 @@
       <ProjectReference Include="..\Components\Components.csproj" />
       <ProjectReference Include="..\Gaming.GameLoop\Gaming.GameLoop.csproj" />
       <ProjectReference Include="..\Graphics.GL\Graphics.GL.csproj" />
+      <ProjectReference Include="..\Input\Input.csproj" />
       <ProjectReference Include="..\Windowing\Windowing.csproj" />
     </ItemGroup>
 

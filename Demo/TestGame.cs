@@ -5,9 +5,11 @@
  See LICENSE.txt for the full license text.
 */
 
+using System;
 using Yagl.Components;
 using Yagl.Gaming;
 using Yagl.Graphics;
+using Yagl.Input;
 using Yagl.Windowing;
 
 namespace Yagl.Demo
@@ -33,7 +35,15 @@ namespace Yagl.Demo
 
         protected override void Update(Time time)
         {
-            if (time.TotalElapsed.TotalSeconds > 10)
+            for (var i = 32; i < 256; i++)
+            {
+                var keyCode = (KeyCode) i;
+                var key = Keyboard.Keys[keyCode];
+                if (key.Event != KeyEvent.None)
+                    Console.WriteLine($"{key.Code} {key.Event}.");
+            }
+
+            if (Keyboard.IsKeyPressed(KeyCode.Escape))
                 Exit();
         }
 
