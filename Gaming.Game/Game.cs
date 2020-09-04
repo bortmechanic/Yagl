@@ -17,6 +17,7 @@
 using System;
 using Yagl.Components;
 using Yagl.Graphics;
+using Yagl.Input;
 using Yagl.Windowing;
 
 namespace Yagl.Gaming
@@ -40,6 +41,7 @@ namespace Yagl.Gaming
             _gameLoop.ShutDown += ShutDownInternal;
             Components = _context.Components;
             GL.Init(Window.GetProcAddressDelegate());
+            Keyboard.Init(Window.GetNativeWindow());
         }
 
         private void WindowClosed(object sender, ClosedEventArgs e)
@@ -96,6 +98,7 @@ namespace Yagl.Gaming
         
         private void UpdateInternal(TimeSpan elapsed, TimeSpan totalElapsed)
         {
+            Keyboard.Keys.ClearEvents();
             Window.ProcessEvents();
             var time = new Time(elapsed, totalElapsed);
             Update(time);
