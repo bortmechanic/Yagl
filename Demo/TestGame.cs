@@ -6,6 +6,7 @@
 */
 
 using Yagl.Audio;
+using Yagl.Audio.Sounding.Formats;
 using Yagl.Components;
 using Yagl.Gaming;
 using Yagl.Graphics;
@@ -23,6 +24,8 @@ namespace Yagl.Demo
             Window.ClientWidth = 800;
             Window.ClientHeight = 600;
             Window.ResizeMode = ResizeMode.Resizable;
+
+            FormatRegistry.Register(new Wav());
         }
 
         private uint _audioSource;
@@ -46,8 +49,8 @@ namespace Yagl.Demo
             var audioBuffers = new uint[1];
             AL.GenBuffers(1, audioBuffers);
             _audioBuffer = audioBuffers[0];
-            var wav = WavData.Load("test.wav");
-            AL.BufferData(_audioBuffer, wav.Format, wav.Data, (uint)wav.Data.Length, wav.Freqency);
+            var wav = Sound.Load("test.wav");
+            AL.BufferData(_audioBuffer, AL.FORMAT_STEREO16, wav.Data, (uint)wav.Data.Length, (uint)wav.SampleRate);
             AL.Sourcei(_audioSource, AL.BUFFER, (int)_audioBuffer);
         }
 
@@ -59,6 +62,7 @@ namespace Yagl.Demo
         {
             if (Keyboard.GetKeyEvent(KeyCode.P) == KeyEvent.Pressed)
             {
+                AL.SourceStop(_audioSource);
                 AL.SourcePlay(_audioSource);
             }
             

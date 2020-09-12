@@ -13,6 +13,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Audio.AL\Audio.AL.csproj" />
+      <ProjectReference Include="..\Audio.Sounding.Formats.Wav\Audio.Sounding.Formats.Wav.csproj" />
+      <ProjectReference Include="..\Audio.Sounding\Audio.Sounding.csproj" />
       <ProjectReference Include="..\Gaming.Game\Gaming.Game.csproj" />
       <ProjectReference Include="..\Graphics.GL\Graphics.GL.csproj" />
       <ProjectReference Include="..\Graphics.Types\Graphics.Types.csproj" />

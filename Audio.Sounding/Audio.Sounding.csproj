@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-        <AssemblyName>Yagl.Audio.Sound</AssemblyName>
+        <AssemblyName>Yagl.Audio.Sounding</AssemblyName>
         <RootNamespace>Yagl.Audio</RootNamespace>
         <LangVersion>8</LangVersion>
         <Company>Pavel Melnikov</Company>
