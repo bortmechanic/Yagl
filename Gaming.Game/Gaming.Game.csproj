@@ -10,6 +10,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Audio.AL\Audio.AL.csproj" />
       <ProjectReference Include="..\Components\Components.csproj" />
       <ProjectReference Include="..\Gaming.GameLoop\Gaming.GameLoop.csproj" />
       <ProjectReference Include="..\Graphics.GL\Graphics.GL.csproj" />

@@ -15,6 +15,7 @@
 // ReSharper disable MemberCanBeProtected.Global
 
 using System;
+using Yagl.Audio;
 using Yagl.Components;
 using Yagl.Graphics;
 using Yagl.Input;
@@ -28,6 +29,8 @@ namespace Yagl.Gaming
         protected readonly Collection Components;
         private readonly Context _context;
         private readonly GameLoop _gameLoop;
+        private readonly IntPtr _audioDevice;
+        private readonly IntPtr _audioContext;
 
         protected Game()
         {
@@ -41,6 +44,11 @@ namespace Yagl.Gaming
             _gameLoop.ShutDown += ShutDownInternal;
             Components = _context.Components;
             GL.Init(Window.GetProcAddressDelegate());
+            
+            _audioDevice = ALC.OpenDevice(null);
+            _audioContext = ALC.CreateContext(_audioDevice, null);
+            ALC.MakeContextCurrent(_audioContext);
+            
             Keyboard.Init(Window.GetNativeWindow());
         }
 
@@ -121,6 +129,9 @@ namespace Yagl.Gaming
         
         public void Dispose()
         {
+            ALC.MakeContextCurrent(IntPtr.Zero);
+            ALC.DestroyContext(_audioContext);
+            ALC.CloseDevice(_audioDevice);
             Window?.Dispose();
         }
     }

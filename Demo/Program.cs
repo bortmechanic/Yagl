@@ -11,7 +11,8 @@ namespace Yagl.Demo
     {
         private static void Main()
         {
-            Windowing.NativeLibLoader.NetCore3.LibLoader.Init();
+            Utils.NativeLibResolver.Configure(typeof(GLFW.Glfw).Assembly, "glfw", "glfw3.dll", "libglfw.so.3", "libglfw.3.dylib");
+            Utils.NativeLibResolver.Configure(typeof(Audio.AL).Assembly, "OpenAL", "OpenAL32.dll", "libopenal.so", "/System/Library/Frameworks/OpenAL.framework/OpenAL");
             using var game = new TestGame();
             game.Run();
         }

@@ -5,7 +5,7 @@
  See LICENSE.txt for the full license text.
 */
 
-using System;
+using Yagl.Audio;
 using Yagl.Components;
 using Yagl.Gaming;
 using Yagl.Graphics;
@@ -24,9 +24,31 @@ namespace Yagl.Demo
             Window.ClientHeight = 600;
             Window.ResizeMode = ResizeMode.Resizable;
         }
-        
+
+        private uint _audioSource;
+        private uint _audioBuffer;
+
         protected override void Initialize()
         {
+            AL.Listener3f(AL.POSITION, 0, 0, 1);
+            AL.Listener3f(AL.VELOCITY, 0, 0, 0);
+            AL.Listener3f(AL.ORIENTATION, 0, 0, -1);
+            
+            var audioSources = new uint[1];
+            AL.GenSources(1, audioSources);
+            _audioSource = audioSources[0];
+            AL.Sourcef(_audioSource, AL.PITCH, 1);
+            AL.Sourcef(_audioSource, AL.GAIN, 1);
+            AL.Source3f(_audioSource, AL.POSITION, 0, 0, 0);
+            AL.Source3f(_audioSource, AL.VELOCITY, 0, 0, 0);
+            AL.Sourcei(_audioSource, AL.LOOPING, AL.FALSE);
+            
+            var audioBuffers = new uint[1];
+            AL.GenBuffers(1, audioBuffers);
+            _audioBuffer = audioBuffers[0];
+            var wav = WavData.Load("test.wav");
+            AL.BufferData(_audioBuffer, wav.Format, wav.Data, (uint)wav.Data.Length, wav.Freqency);
+            AL.Sourcei(_audioSource, AL.BUFFER, (int)_audioBuffer);
         }
 
         protected override void LoadContent()
@@ -35,14 +57,11 @@ namespace Yagl.Demo
 
         protected override void Update(Time time)
         {
-            for (var i = 32; i < 256; i++)
+            if (Keyboard.GetKeyEvent(KeyCode.P) == KeyEvent.Pressed)
             {
-                var keyCode = (KeyCode) i;
-                var key = Keyboard.Keys[keyCode];
-                if (key.Event != KeyEvent.None)
-                    Console.WriteLine($"{key.Code} {key.Event}.");
+                AL.SourcePlay(_audioSource);
             }
-
+            
             if (Keyboard.IsKeyPressed(KeyCode.Escape))
                 Exit();
         }
@@ -69,6 +88,8 @@ namespace Yagl.Demo
 
         protected override void ShutDown()
         {
+            AL.DeleteSources(1, new[] {_audioSource});
+            AL.DeleteBuffers(1, new[] {_audioBuffer});
         }
     }
 }

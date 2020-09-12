@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <AssemblyName>Yagl.Utils.NativeLibLoader.NetCore3</AssemblyName>
+        <RootNamespace>Yagl.Utils</RootNamespace>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
+    </PropertyGroup>
+
+</Project>

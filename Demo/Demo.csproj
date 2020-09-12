@@ -12,10 +12,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Audio.AL\Audio.AL.csproj" />
       <ProjectReference Include="..\Gaming.Game\Gaming.Game.csproj" />
       <ProjectReference Include="..\Graphics.GL\Graphics.GL.csproj" />
       <ProjectReference Include="..\Graphics.Types\Graphics.Types.csproj" />
-      <ProjectReference Include="..\Windowing.NativeLibLoader.NetCore3\Windowing.NativeLibLoader.NetCore3.csproj" />
+      <ProjectReference Include="..\Utils.NativeLibResolver.NetCore3\Utils.NativeLibResolver.NetCore3.csproj" />
       <ProjectReference Include="..\Windowing\Windowing.csproj" />
     </ItemGroup>
 

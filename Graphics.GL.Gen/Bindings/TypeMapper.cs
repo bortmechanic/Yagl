@@ -84,16 +84,16 @@ namespace Yagl.GL.Generator.Bindings
             Mapping.Add("const GLfloat *", new TypeMap { Name = "const GLfloat *", Type = "float[]"});
             Mapping.Add("const GLdouble *", new TypeMap { Name = "const GLdouble *", Type = "double[]" });
             
-            Mapping.Add("void *", new TypeMap { Name = "void *", Type = "ref byte[]" });
-            Mapping.Add("GLboolean *", new TypeMap { Name = "GLboolean *", Type = "ref byte[]" });
-            Mapping.Add("GLbyte *", new TypeMap { Name = "GLbyte *", Type = "ref sbyte[]" });
-            Mapping.Add("GLubyte *", new TypeMap { Name = "GLubyte *", Type = "ref byte[]" });
-            Mapping.Add("GLshort *", new TypeMap { Name = "GLshort *", Type = "ref short[]" });
-            Mapping.Add("GLushort *", new TypeMap { Name = "GLushort *", Type = "ref ushort[]" });
-            Mapping.Add("GLint *", new TypeMap { Name = "GLint *", Type = "ref int[]" });
-            Mapping.Add("GLuint *", new TypeMap { Name = "GLuint *", Type = "ref uint[]" });
-            Mapping.Add("GLfloat *", new TypeMap { Name = "GLfloat *", Type = "ref float[]" });
-            Mapping.Add("GLdouble *", new TypeMap { Name = "GLdouble *", Type = "ref double[]" });
+            Mapping.Add("void *", new TypeMap { Name = "void *", Type = "byte[]" });
+            Mapping.Add("GLboolean *", new TypeMap { Name = "GLboolean *", Type = "byte[]" });
+            Mapping.Add("GLbyte *", new TypeMap { Name = "GLbyte *", Type = "sbyte[]" });
+            Mapping.Add("GLubyte *", new TypeMap { Name = "GLubyte *", Type = "byte[]" });
+            Mapping.Add("GLshort *", new TypeMap { Name = "GLshort *", Type = "short[]" });
+            Mapping.Add("GLushort *", new TypeMap { Name = "GLushort *", Type = "ushort[]" });
+            Mapping.Add("GLint *", new TypeMap { Name = "GLint *", Type = "int[]" });
+            Mapping.Add("GLuint *", new TypeMap { Name = "GLuint *", Type = "uint[]" });
+            Mapping.Add("GLfloat *", new TypeMap { Name = "GLfloat *", Type = "float[]" });
+            Mapping.Add("GLdouble *", new TypeMap { Name = "GLdouble *", Type = "double[]" });
 
         }
 
