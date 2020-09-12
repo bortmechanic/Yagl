@@ -41,6 +41,8 @@ ProjectSection(SolutionItems) = preProject
 	LGPLv2.txt = LGPLv2.txt
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sound", "Audio.Sound\Audio.Sound.csproj", "{D7B69BFE-9E30-4C1C-A2A7-FE28135054BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,10 @@ Global
 		{33870286-0559-4AF1-A486-0179DDE63F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{33870286-0559-4AF1-A486-0179DDE63F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33870286-0559-4AF1-A486-0179DDE63F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7B69BFE-9E30-4C1C-A2A7-FE28135054BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7B69BFE-9E30-4C1C-A2A7-FE28135054BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7B69BFE-9E30-4C1C-A2A7-FE28135054BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7B69BFE-9E30-4C1C-A2A7-FE28135054BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
