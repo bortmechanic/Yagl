@@ -78,7 +78,7 @@ namespace Yagl.Graphics.Imaging.Formats
                         Type = (PixelFormatDescriptor.ChannelType) ch.Type, NumberOfBits = ch.NumberOfBits
                     }).ToArray()
                 },
-                BitMap = bitmap
+                Data = bitmap
             };
         }
 
@@ -91,7 +91,7 @@ namespace Yagl.Graphics.Imaging.Formats
                 (ushort) image.PixelFormatDescriptor.Channels.Length, (ushort) image.PixelFormatDescriptor.RowPadding,
                 image.PixelFormatDescriptor.Channels.Select(ch => new ChannelDescription
                     {Type = (ushort) ch.Type, NumberOfBits = (ushort) ch.NumberOfBits}).ToArray());
-            ImageDataChunk.Write(writer, image.BitMap);
+            ImageDataChunk.Write(writer, image.Data);
             EndChunk.Write(writer);
         }
     }

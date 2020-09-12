@@ -113,7 +113,7 @@ namespace Yagl.Graphics.Imaging.Formats
                 Height = (int) height,
                 PixelFormatDescriptor = new PixelFormatDescriptor
                     {Channels = new PixelFormatDescriptor.Channel[numberOfChannels]},
-                BitMap = bitMap
+                Data = bitMap
             };
             if (numberOfChannels == 1)
             {

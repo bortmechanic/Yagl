@@ -18,7 +18,7 @@ namespace Yagl.Graphics.Imaging
         public int Width { get; set; }
         public int Height { get; set; }
         public PixelFormatDescriptor PixelFormatDescriptor { get; set; }
-        public byte[] BitMap { get; set; }
+        public byte[] Data { get; set; }
 
         public static Image Load(string filename)
         {
