@@ -5,6 +5,8 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedAutoPropertyAccessor.Global
+
 using System;
 using System.IO;
 
