@@ -97,7 +97,7 @@ namespace Yagl.Graphics.Imaging.Formats
                     },
                     RowPadding = (int) rowSize * 8 - (int) rowSizeInBits
                 },
-                BitMap = pixelData
+                Data = pixelData
             };
             
             return image;

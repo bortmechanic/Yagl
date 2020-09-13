@@ -10,10 +10,9 @@
 using System;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
 
-namespace Yagl.Graphics.Imaging.Formats
+namespace Yagl.Audio.Sounding.Formats
 {
     public partial class Yaf : IFormat
     {
@@ -22,15 +21,14 @@ namespace Yagl.Graphics.Imaging.Formats
             return filename.EndsWith(".yaf", true, CultureInfo.InvariantCulture);
         }
 
-        public Image Load(Stream stream)
+        public Sound Load(Stream stream)
         {
             using var reader = new BinaryReader(stream, Encoding.UTF8);
 
-            uint width = 0;
-            uint height = 0;
-            ushort rowPadding = 0;
-            ChannelDescription[] channelsDescription = null;
-            byte[] bitmap = null;
+            uint sampleRate = 0;
+            ushort bitsPerSample = 0;
+            ushort numberOfChannels = 0;
+            byte[] data = null;
 
             Signature.Read(reader, out _);
 
@@ -46,12 +44,11 @@ namespace Yagl.Graphics.Imaging.Formats
                     case FileDescChunk.Code:
                         FileDescChunk.Read(reader, out _, out _, out _, out _);
                         break;
-                    case ImageDescChunk.Code:
-                        ImageDescChunk.Read(reader, out width, out height, out _, out _,
-                            out rowPadding, out channelsDescription);
+                    case SoundDescChunk.Code:
+                        SoundDescChunk.Read(reader, out sampleRate, out bitsPerSample, out numberOfChannels);
                         break;
-                    case ImageDataChunk.Code:
-                        ImageDataChunk.Read(reader, size, out bitmap);
+                    case SoundDataChunk.Code:
+                        SoundDataChunk.Read(reader, size, out data);
                         break;
                     case EndChunk.Code:
                         //EndChunk.Read(reader);
@@ -63,35 +60,27 @@ namespace Yagl.Graphics.Imaging.Formats
                 var realSize = endPosition - beginPosition;
                 if (realSize != size)
                     throw new InvalidOperationException();
-                /*var reserved =*/ reader.ReadUInt32();
+                /*var reserved =*/
+                reader.ReadUInt32();
             }
 
-            return new Image
+            return new Sound
             {
-                Width = (int) width,
-                Height = (int) height,
-                PixelFormatDescriptor = new PixelFormatDescriptor
-                {
-                    RowPadding = rowPadding,
-                    Channels = channelsDescription?.Select(ch => new PixelFormatDescriptor.Channel
-                    {
-                        Type = (PixelFormatDescriptor.ChannelType) ch.Type, NumberOfBits = ch.NumberOfBits
-                    }).ToArray()
-                },
-                Data = bitmap
+                SampleRate = (int) sampleRate,
+                BitsPerSample = (short) bitsPerSample,
+                NumberOfChannels = (short) numberOfChannels,
+                Data = data
             };
         }
 
-        public void Save(Image image, Stream stream)
+        public void Save(Sound sound, Stream stream)
         {
             using var writer = new BinaryWriter(stream, Encoding.UTF8);
             Signature.Write(writer);
             FileDescChunk.Write(writer);
-            ImageDescChunk.Write(writer, (uint) image.Width, (uint) image.Height, 0,
-                (ushort) image.PixelFormatDescriptor.Channels.Length, (ushort) image.PixelFormatDescriptor.RowPadding,
-                image.PixelFormatDescriptor.Channels.Select(ch => new ChannelDescription
-                    {Type = (ushort) ch.Type, NumberOfBits = (ushort) ch.NumberOfBits}).ToArray());
-            ImageDataChunk.Write(writer, image.Data);
+            SoundDescChunk.Write(writer, (uint) sound.SampleRate, (ushort) sound.BitsPerSample,
+                (ushort) sound.NumberOfChannels);
+            SoundDataChunk.Write(writer, sound.Data);
             EndChunk.Write(writer);
         }
     }

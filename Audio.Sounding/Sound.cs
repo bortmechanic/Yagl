@@ -11,20 +11,20 @@
 using System;
 using System.IO;
 
-namespace Yagl.Graphics.Imaging
+namespace Yagl.Audio
 {
-    public class Image
+    public class Sound
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public PixelFormatDescriptor PixelFormatDescriptor { get; set; }
+        public int SampleRate { get; set; }
+        public short BitsPerSample { get; set; }
+        public short NumberOfChannels { get; set; }
         public byte[] Data { get; set; }
-
-        public static Image Load(string filename)
+        
+        public static Sound Load(string filename)
         {
             var format = FormatRegistry.FindFormat(filename);
             if (format == null)
-                throw new NotSupportedException($"Image format of the file '{filename}' is not supported.");
+                throw new NotSupportedException($"Sound format of the file '{filename}' is not supported.");
             using var stream = File.OpenRead(filename);
             return format.Load(stream);
         }
@@ -33,7 +33,7 @@ namespace Yagl.Graphics.Imaging
         {
             var format = FormatRegistry.FindFormat(filename);
             if (format == null)
-                throw new NotSupportedException($"No suitable encoder found to save the image '{filename}'.");
+                throw new NotSupportedException($"No suitable encoder found to save the sound '{filename}'.");
             using var stream = File.OpenWrite(filename);
             format.Save(this, stream);
         }

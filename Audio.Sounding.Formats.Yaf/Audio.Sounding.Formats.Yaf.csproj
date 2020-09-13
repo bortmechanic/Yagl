@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Yagl.Audio.Sounding.Formats.Yaf</AssemblyName>
+        <RootNamespace>Yagl.Audio.Sounding.Formats</RootNamespace>
+        <LangVersion>8</LangVersion>
+        <Company>Pavel Melnikov</Company>
+        <Product>YAGL</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Audio.Sounding\Audio.Sounding.csproj" />
+    </ItemGroup>
+
+</Project>
