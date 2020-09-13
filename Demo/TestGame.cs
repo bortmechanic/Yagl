@@ -25,7 +25,7 @@ namespace Yagl.Demo
             Window.ClientHeight = 600;
             Window.ResizeMode = ResizeMode.Resizable;
 
-            FormatRegistry.Register(new Wav());
+            FormatRegistry.Register(new Yaf());
         }
 
         private uint _audioSource;
@@ -49,8 +49,8 @@ namespace Yagl.Demo
             var audioBuffers = new uint[1];
             AL.GenBuffers(1, audioBuffers);
             _audioBuffer = audioBuffers[0];
-            var wav = Sound.Load("test.wav");
-            AL.BufferData(_audioBuffer, AL.FORMAT_STEREO16, wav.Data, (uint)wav.Data.Length, (uint)wav.SampleRate);
+            var sound = Sound.Load("Content/Sound.yaf");
+            AL.BufferData(_audioBuffer, AL.FORMAT_STEREO16, sound.Data, (uint)sound.Data.Length, (uint)sound.SampleRate);
             AL.Sourcei(_audioSource, AL.BUFFER, (int)_audioBuffer);
         }
 
@@ -60,11 +60,48 @@ namespace Yagl.Demo
 
         protected override void Update(Time time)
         {
-            if (Keyboard.GetKeyEvent(KeyCode.P) == KeyEvent.Pressed)
+            if (Keyboard.GetKeyEvent(KeyCode.D0) == KeyEvent.Pressed)
             {
                 AL.SourceStop(_audioSource);
+                AL.Sourcef(_audioSource, AL.PITCH, 1.0f);
                 AL.SourcePlay(_audioSource);
             }
+            
+            if (Keyboard.GetKeyEvent(KeyCode.D1) == KeyEvent.Pressed)
+            {
+                AL.SourceStop(_audioSource);
+                AL.Sourcef(_audioSource, AL.PITCH, 1.1f);
+                AL.SourcePlay(_audioSource);
+            }
+            
+            if (Keyboard.GetKeyEvent(KeyCode.D2) == KeyEvent.Pressed)
+            {
+                AL.SourceStop(_audioSource);
+                AL.Sourcef(_audioSource, AL.PITCH, 1.2f);
+                AL.SourcePlay(_audioSource);
+            }
+            
+            if (Keyboard.GetKeyEvent(KeyCode.D3) == KeyEvent.Pressed)
+            {
+                AL.SourceStop(_audioSource);
+                AL.Sourcef(_audioSource, AL.PITCH, 1.3f);
+                AL.SourcePlay(_audioSource);
+            }
+            
+            if (Keyboard.GetKeyEvent(KeyCode.D4) == KeyEvent.Pressed)
+            {
+                AL.SourceStop(_audioSource);
+                AL.Sourcef(_audioSource, AL.PITCH, 1.4f);
+                AL.SourcePlay(_audioSource);
+            }
+            
+            if (Keyboard.GetKeyEvent(KeyCode.D5) == KeyEvent.Pressed)
+            {
+                AL.SourceStop(_audioSource);
+                AL.Sourcef(_audioSource, AL.PITCH, 1.5f);
+                AL.SourcePlay(_audioSource);
+            }
+            
             
             if (Keyboard.IsKeyPressed(KeyCode.Escape))
                 Exit();

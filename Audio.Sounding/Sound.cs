@@ -6,6 +6,7 @@
 */
 
 // ReSharper disable UnusedAutoPropertyAccessor.Global
+// ReSharper disable UnusedMember.Global
 
 using System;
 using System.IO;
@@ -14,9 +15,9 @@ namespace Yagl.Audio
 {
     public class Sound
     {
-        public int NumberOfChannels { get; set; }
         public int SampleRate { get; set; }
-        public int BitsPerSample { get; set; }
+        public short BitsPerSample { get; set; }
+        public short NumberOfChannels { get; set; }
         public byte[] Data { get; set; }
         
         public static Sound Load(string filename)

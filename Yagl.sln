@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sounding", "Audio.Sou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sounding.Formats.Wav", "Audio.Sounding.Formats.Wav\Audio.Sounding.Formats.Wav.csproj", "{70B7173E-9A93-40A9-8B4C-4AAC5AE3F5B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sounding.Formats.Yaf", "Audio.Sounding.Formats.Yaf\Audio.Sounding.Formats.Yaf.csproj", "{DE238EF8-D820-4306-AC4C-237ACB5D51E5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{70B7173E-9A93-40A9-8B4C-4AAC5AE3F5B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70B7173E-9A93-40A9-8B4C-4AAC5AE3F5B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70B7173E-9A93-40A9-8B4C-4AAC5AE3F5B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE238EF8-D820-4306-AC4C-237ACB5D51E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE238EF8-D820-4306-AC4C-237ACB5D51E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE238EF8-D820-4306-AC4C-237ACB5D51E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE238EF8-D820-4306-AC4C-237ACB5D51E5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

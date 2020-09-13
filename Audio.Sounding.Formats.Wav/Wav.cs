@@ -5,6 +5,8 @@
  See LICENSE.txt for the full license text.
 */
 
+// ReSharper disable UnusedType.Global
+
 using System;
 using System.Globalization;
 using System.IO;
@@ -25,11 +27,11 @@ namespace Yagl.Audio.Sounding.Formats
             RiffChunk.Read(reader);
             FmtChunk.Read(reader, out var samplesPerSecond, out var bitsPerSample, out var numberOfChannels);
             DataChunk.Read(reader, out var data);
-            return new Sound()
+            return new Sound
             {
                 SampleRate = (int) samplesPerSecond,
-                BitsPerSample = bitsPerSample,
-                NumberOfChannels = numberOfChannels,
+                BitsPerSample = (short) bitsPerSample,
+                NumberOfChannels = (short) numberOfChannels,
                 Data = data
             };
         }
