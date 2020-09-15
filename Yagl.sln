@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windowing", "Windowing\Windowing.csproj", "{00E522E0-B975-4EE3-9546-41385FAE7EA2}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo", "Demo\Demo.csproj", "{6295465D-7CF6-4012-ABCC-509D6DBDF801}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Utils.NativeLibResolver.NetCore3", "Utils.NativeLibResolver.NetCore3\Utils.NativeLibResolver.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils.NativeLibResolver.NetCore3", "Utils.NativeLibResolver.NetCore3\Utils.NativeLibResolver.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL", "Graphics.GL\Graphics.GL.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
 EndProject
@@ -36,10 +32,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.AL", "Audio.AL\Audio.AL.csproj", "{33870286-0559-4AF1-A486-0179DDE63F3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{24C6CD3F-57EF-4724-B60A-E33A3215B30C}"
-ProjectSection(SolutionItems) = preProject
-	LICENSE.txt = LICENSE.txt
-	LGPLv2.txt = LGPLv2.txt
-EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sounding", "Audio.Sounding\Audio.Sounding.csproj", "{D7B69BFE-9E30-4C1C-A2A7-FE28135054BE}"
 EndProject
@@ -47,20 +39,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sounding.Formats.Wav"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sounding.Formats.Yaf", "Audio.Sounding.Formats.Yaf\Audio.Sounding.Formats.Yaf.csproj", "{DE238EF8-D820-4306-AC4C-237ACB5D51E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windowing", "Windowing\Windowing.csproj", "{7C2F6708-1469-4F74-B5C9-CAA386D835F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{ADF5F5BA-462E-406C-AF1E-54401F4733F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{00E522E0-B975-4EE3-9546-41385FAE7EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00E522E0-B975-4EE3-9546-41385FAE7EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00E522E0-B975-4EE3-9546-41385FAE7EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00E522E0-B975-4EE3-9546-41385FAE7EA2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6295465D-7CF6-4012-ABCC-509D6DBDF801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6295465D-7CF6-4012-ABCC-509D6DBDF801}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6295465D-7CF6-4012-ABCC-509D6DBDF801}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6295465D-7CF6-4012-ABCC-509D6DBDF801}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E3493F1-CB35-4194-97D1-15DFA9D42C19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E3493F1-CB35-4194-97D1-15DFA9D42C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E3493F1-CB35-4194-97D1-15DFA9D42C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -129,6 +117,14 @@ Global
 		{DE238EF8-D820-4306-AC4C-237ACB5D51E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE238EF8-D820-4306-AC4C-237ACB5D51E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE238EF8-D820-4306-AC4C-237ACB5D51E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2F6708-1469-4F74-B5C9-CAA386D835F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2F6708-1469-4F74-B5C9-CAA386D835F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2F6708-1469-4F74-B5C9-CAA386D835F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2F6708-1469-4F74-B5C9-CAA386D835F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADF5F5BA-462E-406C-AF1E-54401F4733F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADF5F5BA-462E-406C-AF1E-54401F4733F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADF5F5BA-462E-406C-AF1E-54401F4733F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADF5F5BA-462E-406C-AF1E-54401F4733F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

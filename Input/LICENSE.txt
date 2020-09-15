@@ -1,4 +1,4 @@
-This software constitues the project YAGL. All the libraries of the YAGL
+﻿This software is a part of the project YAGL. All the libraries of the YAGL
 project are distributed under the terms and conditions of the MIT License.
 Some parts of the YAGL project use libraries distributed under different
 terms and conditions. This file describes the license terms and conditions
@@ -80,57 +80,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-------------------------------------------------------------------------------
-
-Some parts of the YAGL project use OpenAL Soft library redistributed under the
-GNU LIBRARY GENERAL PUBLIC LICENSE Version 2 license.
-
-Copyright (C) 1999-2007 by authors.
-
-This library is free software; you can redistribute it and/or
-modify it under the terms of the GNU Library General Public
-License as published by the Free Software Foundation; either
-version 2 of the License, or (at your option) any later version.
-
-This library is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-Library General Public License for more details.
-
-The full license text is available in the file LGPLv2.txt in the same folder as 
-this file or at:
-https://github.com/bortmechanic/Yagl/blob/master/LGPLv2.txt
-The full source code of the library is available at:
-https://github.com/kcat/openal-soft
-
-Portions of this library are licensed under the BSD 3-Clause license.
-
-Copyright (c) 2015, Archontis Politis
-Copyright (c) 2019, Christopher Robinson
-All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-
-* Redistributions of source code must retain the above copyright notice, this
-  list of conditions and the following disclaimer.
-
-* Redistributions in binary form must reproduce the above copyright notice,
-  this list of conditions and the following disclaimer in the documentation
-  and/or other materials provided with the distribution.
-
-* Neither the name of Spherical-Harmonic-Transform nor the names of its
-  contributors may be used to endorse or promote products derived from
-  this software without specific prior written permission.
-
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
