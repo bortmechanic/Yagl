@@ -1,4 +1,4 @@
-This software constitues the project YAGL. All the libraries of the YAGL
+This software is a part of the project YAGL. All the libraries of the YAGL
 project are distributed under the terms and conditions of the MIT License.
 Some parts of the YAGL project use libraries distributed under different
 terms and conditions. This file describes the license terms and conditions
