@@ -7,10 +7,31 @@
         <LangVersion>8</LangVersion>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
+        
+        <PackageId>Yagl.Audio.Sounding.Formats.Yaf</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Audio.Sounding.Formats.Yaf</Title>
+        <Summary>Project YAGL. YAF audio format encoder/decoder..</Summary>
+        <Description>Project YAGL. YAF audio format encoder/decoder..</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;Audio;YAF;YAFF</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Audio.Sounding\Audio.Sounding.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
     </ItemGroup>
 
 </Project>
