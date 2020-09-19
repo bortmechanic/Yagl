@@ -9,6 +9,7 @@ for all the parts of the YAGL project and the libraries it uses.
 All the parts of the YAGL project are distributed under the terms and conditions
 of the MIT License.
 
+Copyright (c) 2020 Viktor Kalmuk.
 Copyright (c) 2020 Pavel Melnikov.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
