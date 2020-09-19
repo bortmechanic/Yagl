@@ -6,11 +6,32 @@
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
         <TargetFramework>netstandard2.0</TargetFramework>
+        
+        <PackageId>Yagl.Windowing</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Windowing</Title>
+        <Summary>Project YAGL. Basic cross-platform window for drawing graphics.</Summary>
+        <Description>Project YAGL. Basic cross-platform window for drawing graphics.</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;Game;Window</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="glfw-net" Version="3.3.1" />
       <PackageReference Include="Ultz.Native.GLFW" Version="3.3.2" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
     </ItemGroup>
 
 </Project>
