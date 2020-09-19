@@ -6,6 +6,27 @@
         <RootNamespace>Yagl.Utils</RootNamespace>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
+        
+        <PackageId>Yagl.Utils.NativeLibLoader.NetCore3</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Utils.NativeLibLoader.NetCore3</Title>
+        <Summary>Project YAGL. Native library resolver utility.</Summary>
+        <Description>Project YAGL. Native library resolver utility. It helps to resolve cross-platform libraries that almost allways have different names on different platforms.</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;Native;Library;Resolver;Utility</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+    </ItemGroup>
 
 </Project>

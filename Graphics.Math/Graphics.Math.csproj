@@ -7,10 +7,31 @@
         <LangVersion>8</LangVersion>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
+        
+        <PackageId>Yagl.Graphics.Math</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Graphics.Math</Title>
+        <Summary>Project YAGL. Graphics math library.</Summary>
+        <Description>Project YAGL. Linear algebra and geometry math functions common to graphics applications and games.</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;Graphics;Math</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Viktor Kalmuk;Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Viktor Kalmuk, Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
-
+    
     <ItemGroup>
       <ProjectReference Include="..\Graphics.Types\Graphics.Types.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
     </ItemGroup>
 
 </Project>

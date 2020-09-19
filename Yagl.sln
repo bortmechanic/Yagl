@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils.NativeLibResolver.NetCore3", "Utils.NativeLibResolver.NetCore3\Utils.NativeLibResolver.NetCore3.csproj", "{3E3493F1-CB35-4194-97D1-15DFA9D42C19}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL", "Graphics.GL\Graphics.GL.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphics.GL", "Graphics.GL\Graphics.GL.csproj", "{891CB6C0-0FFA-4C60-9535-D552924AE501}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graphics.GL.Gen", "Graphics.GL.Gen\Graphics.GL.Gen.csproj", "{E60815AF-5230-464B-A27F-0F0F5D73C913}"
 EndProject
@@ -32,6 +32,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.AL", "Audio.AL\Audio.AL.csproj", "{33870286-0559-4AF1-A486-0179DDE63F3D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{24C6CD3F-57EF-4724-B60A-E33A3215B30C}"
+	ProjectSection(SolutionItems) = preProject
+		LGPLv2.txt = LGPLv2.txt
+		LICENSE.txt = LICENSE.txt
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio.Sounding", "Audio.Sounding\Audio.Sounding.csproj", "{D7B69BFE-9E30-4C1C-A2A7-FE28135054BE}"
 EndProject
@@ -42,6 +46,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windowing", "Windowing\Windowing.csproj", "{7C2F6708-1469-4F74-B5C9-CAA386D835F5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{ADF5F5BA-462E-406C-AF1E-54401F4733F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Commands", "Commands", "{55B67AB1-E3F0-4BA1-B3AD-40BB00639D94}"
+	ProjectSection(SolutionItems) = preProject
+		pack.sh = pack.sh
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

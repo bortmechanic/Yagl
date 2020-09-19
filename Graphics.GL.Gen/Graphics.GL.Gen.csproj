@@ -8,6 +8,27 @@
         <LangVersion>8</LangVersion>
         <Company>Pavel Melnikov</Company>
         <Product>Yagl</Product>
+        
+        <PackageId>Yagl.Graphics.GL.Generator</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Graphics.GL.Generator</Title>
+        <Summary>Project YAGL. OpenGL bindings generator.</Summary>
+        <Description>Project YAGL. OpenGL bindings generator.</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;Graphics;OpenGL;Generator</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+    </ItemGroup>
 
 </Project>

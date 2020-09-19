@@ -7,8 +7,25 @@
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
         <LangVersion>8</LangVersion>
+        
+        <PackageId>Yagl.Gaming.Game</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Gaming.Game</Title>
+        <Summary>Project YAGL. Game class.</Summary>
+        <Description>Project YAGL. Game class.</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;Game</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
-
+    
     <ItemGroup>
       <ProjectReference Include="..\Audio.AL\Audio.AL.csproj" />
       <ProjectReference Include="..\Components\Components.csproj" />
@@ -16,6 +33,10 @@
       <ProjectReference Include="..\Graphics.GL\Graphics.GL.csproj" />
       <ProjectReference Include="..\Input\Input.csproj" />
       <ProjectReference Include="..\Windowing\Windowing.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
     </ItemGroup>
 
 </Project>

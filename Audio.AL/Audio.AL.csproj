@@ -7,6 +7,27 @@
         <LangVersion>8</LangVersion>
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
+        
+        <PackageId>Yagl.Audio.AL</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Audio.AL</Title>
+        <Summary>Project YAGL. C# bindings for OpenAL.</Summary>
+        <Description>Project YAGL. C# bindings for OpenAL. Cross-platform 3D audio API appropriate for use with gaming applications and many other types of audio applications.</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;OpenAL;Audio</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+    </ItemGroup>
 
 </Project>
