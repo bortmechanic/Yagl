@@ -7,6 +7,27 @@
         <Company>Pavel Melnikov</Company>
         <Product>YAGL</Product>
         <LangVersion>8</LangVersion>
+        
+        <PackageId>Yagl.Graphics.Imaging</PackageId>
+        <PackageVersion>0.1.0-alpha</PackageVersion>
+        <Title>Yagl.Graphics.Imaging</Title>
+        <Summary>Project YAGL. Image formats common classes.</Summary>
+        <Description>Project YAGL. Image formats common classes like Image and FormatRegistry.</Description>
+        <PackageProjectUrl>https://github.com/bortmechanic/Yagl</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/bortmechanic/Yagl</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>C#;.NET;Image;Graphics</PackageTags>
+        
+        <Owners>Pavel Melnikov</Owners>
+        <Authors>Pavel Melnikov</Authors>
+        <Copyright>Copyright (c) 2020 Pavel Melnikov</Copyright>
+        <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
     </PropertyGroup>
+    
+    <ItemGroup>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+    </ItemGroup>
 
 </Project>
