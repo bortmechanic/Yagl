@@ -29,8 +29,12 @@ namespace Yagl.GL.Generator.Bindings
             name = GetCommandName(command);
             var type = GetCommandType(command);
             var parameters = command.Params.Select(GetParamDeclaration).ToArray();
+            var declaration = $"        public static /*{type.Item1}*/ {type.Item2} {name}({string.Join(", ", parameters.Select(p => $"/*{p.Item1}*/ {p.Item2} {p.Item3}"))}) => {name}Ptr?.Invoke({string.Join(", ", parameters.Select(p => $"{(p.Item2.StartsWith("ref ") ? "ref " : "")}{p.Item3}"))}){(type.Item2 != "void" ? " ?? default" : "")}; delegate /*{type.Item1}*/ {type.Item2} {name}Del({string.Join(", ", parameters.Select(p => $"/*{p.Item1}*/ {p.Item2} {p.Item3}"))}); static {name}Del {name}Ptr;";
+            file.AppendLine(declaration);
 
-            file.AppendLine($"        public static /*{type.Item1}*/ {type.Item2} {name}({string.Join(", ", parameters.Select(p => $"/*{p.Item1}*/ {p.Item2} {p.Item3}"))}) => {name}Ptr?.Invoke({string.Join(", ", parameters.Select(p => $"{(p.Item2.StartsWith("ref ") ? "ref " : "")}{p.Item3}"))}){(type.Item2 != "void" ? " ?? default" : "")}; delegate /*{type.Item1}*/ {type.Item2} {name}Del({string.Join(", ", parameters.Select(p => $"/*{p.Item1}*/ {p.Item2} {p.Item3}"))}); static {name}Del {name}Ptr;");
+            if (!parameters.Any(p => p.Item2.Contains("[]"))) return;
+            var unsafeDeclaration = $"        public static unsafe /*{type.Item1}*/ {type.Item2} {name}({string.Join(", ", parameters.Select(p => $"/*{p.Item1}*/ {p.Item2.Replace("[]", "*")} {p.Item3}"))}) => {name}UnsafePtr?.Invoke({string.Join(", ", parameters.Select(p => $"{(p.Item2.StartsWith("ref ") ? "ref " : "")}{p.Item3}"))}){(type.Item2 != "void" ? " ?? default" : "")}; unsafe delegate /*{type.Item1}*/ {type.Item2} {name}UnsafeDel({string.Join(", ", parameters.Select(p => $"/*{p.Item1}*/ {p.Item2.Replace("[]", "*")} {p.Item3}"))}); static {name}UnsafeDel {name}UnsafePtr;";
+            file.AppendLine(unsafeDeclaration);
         }
 
         private static string GetCommandName(Command command)
@@ -87,8 +91,12 @@ namespace Yagl.GL.Generator.Bindings
 
         public static void ProcessLoader(StringBuilder file, string originalName, Specification spec)
         {
-            var name = RemoveGlPrefix(originalName);
+            var command = spec.Commands.FirstOrDefault(c => c.Name == originalName);
+            var name = GetCommandName(command);
             file.AppendLine($"            {name}Ptr = LoadProcByName<{name}Del>(\"{originalName}\", getProcAddress);");
+            var parameters = command?.Params.Select(GetParamDeclaration).ToArray();
+            if (!parameters?.Any(p => p.Item2.Contains("[]")) == true) return;
+            file.AppendLine($"            {name}UnsafePtr = LoadProcByName<{name}UnsafeDel>(\"{name}\", getProcAddress);");
         }
     }
 }

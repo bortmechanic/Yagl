@@ -24,9 +24,13 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         
     </PropertyGroup>
+
+    <PropertyGroup>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
     
     <ItemGroup>
-        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+        <None Include="LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
     </ItemGroup>
 
 </Project>
