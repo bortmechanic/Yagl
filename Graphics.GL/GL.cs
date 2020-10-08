@@ -6,6 +6,7 @@
 */
 
 // ReSharper disable UnusedMember.Global
+// ReSharper disable InconsistentNaming
 
 namespace Yagl.Graphics
 {

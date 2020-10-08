@@ -8,6 +8,8 @@
 using System;
 using System.Runtime.InteropServices;
 
+// ReSharper disable InconsistentNaming
+
 namespace Yagl.Graphics
 {
     public static partial class GL
